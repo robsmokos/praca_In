@@ -1,0 +1,4 @@
+$ git clone https://github.com/robsmokos/test.git
+
+$ git config --global user.email 'robsmok@gmail.com'
+$ git config --global user.name 'Rob SMOK'
