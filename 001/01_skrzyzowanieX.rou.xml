@@ -19,12 +19,13 @@
 	
 	
 	    <!-- Definiowanie typu pojazdu -->
-    <vType id="car0" accel="1.0" decel="0.5" sigma="0.5" length="5.0" maxSpeed="70.0" color="1,0,0"/>
-    <vType id="car1" accel="1.0" decel="0.5" sigma="0.5" length="5.0" maxSpeed="70.0" color="0,1,0"/>
+    <vType id="car0" accel="1.0" decel="0.5" sigma="0.5" length="5.0" maxSpeed="10.0" color="1,0,0"/>
+    <vType id="car1" accel="0.1" decel="0.5" sigma="0.5" length="5.0" maxSpeed="70.0" color="0,1,0"/>
+	<vType id="car2" accel="1.0" decel="0.5" sigma="0.5" length="5.0" maxSpeed="20.0" color="0,0,1"/>
 	
 	
 	    <!-- Strumień pojazdów -->
-    <flow id="f_0" type="car0" begin="0.00" end="3600.00" number="100" from="E0" to="E2"/>
+    <flow id="f_0" type="car2" begin="0.00" end="3600.00" number="100" from="E0" to="E2"/>
 	
 	<flow id="f_1" type="car0" begin="0.00" end="3600.00" number="400" from="-E1" to="E2"/>
 	<flow id="f_3" type="car0" begin="0.00" end="3600.00" number="400" from="E0" to="E3"/>
