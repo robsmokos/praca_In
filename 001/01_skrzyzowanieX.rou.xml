@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2024-07-16 18:58:19 by Eclipse SUMO netedit Version 1.20.0
+<!-- generated on 2024-07-16 19:24:37 by Eclipse SUMO netedit Version 1.20.0
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <!-- VTypes -->
+    <vType id="car0" length="5.00" maxSpeed="20.00" color="red" accel="1.0" decel="0.5" sigma="0.5"/>
+    <vType id="car1" length="5.00" maxSpeed="50.00" color="green" accel="0.1" decel="0.5" sigma="0.5"/>
+    <vType id="car2" length="5.00" maxSpeed="10.00" color="blue" accel="1.0" decel="1.5" sigma="0.5"/>
     
-	
-	
-	<trip id="t_0" depart="0.00" from="E0" to="E2"/>
+	<!-- Vehicles, persons and containers (sorted by depart) 
+    <trip id="t_0" depart="0.00" from="E0" to="E2"/>
     <trip id="t_1" depart="0.00" from="-E2" to="-E0"/>
+    <trip id="t_10" depart="0.00" from="-E2" to="E3"/>
+    <trip id="t_11" depart="0.00" from="-E1" to="-E0"/>
     <trip id="t_2" depart="0.00" from="-E3" to="E1"/>
     <trip id="t_3" depart="0.00" from="-E1" to="E3"/>
-
-
-	<trip id="t_4" depart="0.00" from="-E1" to="E2"/>
+    <trip id="t_4" depart="0.00" from="-E1" to="E2"/>
     <trip id="t_5" depart="0.00" from="E0" to="E3"/>
+    <trip id="t_6" depart="0.00" from="-E2" to="E1"/>
+    <trip id="t_7" depart="0.00" from="-E3" to="E2"/>
+    <trip id="t_8" depart="0.00" from="E0" to="E1"/>
+    <trip id="t_9" depart="0.00" from="-E3" to="-E0"/>
+	-->
 	
-	
-	    <!-- Definiowanie typu pojazdu -->
-    <vType id="car0" accel="1.0" decel="0.5" sigma="0.5" length="5.0" maxSpeed="10.0" color="1,0,0"/>
-    <vType id="car1" accel="0.1" decel="0.5" sigma="0.5" length="5.0" maxSpeed="70.0" color="0,1,0"/>
-	<vType id="car2" accel="1.0" decel="0.5" sigma="0.5" length="5.0" maxSpeed="20.0" color="0,0,1"/>
-	
-	
-	    <!-- Strumień pojazdów -->
-    <flow id="f_0" type="car2" begin="0.00" end="3600.00" number="100" from="E0" to="E2"/>
-	
-	<flow id="f_1" type="car0" begin="0.00" end="3600.00" number="400" from="-E1" to="E2"/>
-	<flow id="f_3" type="car0" begin="0.00" end="3600.00" number="400" from="E0" to="E3"/>
-	
-	<flow id="f_2" type="car1" begin="0.00" end="3600.00" number="100" from="-E2" to="-E0"/>
-	
+    <flow id="f_0" type="car2" begin="0.00" from="E0" to="E2" end="3600.00" number="100"/>
+    <flow id="f_1" type="car2" begin="0.00" from="-E2" to="-E0" end="3600.00" number="400"/>
+    <flow id="f_2" type="car1" begin="0.00" from="-E3" to="E1" end="3600.00" number="100"/>
+    <flow id="f_3" type="car0" begin="0.00" from="-E1" to="E3" end="3600.00" number="400"/>
+
+
+    <flow id="f_4" type="car2" begin="0.00" from="-E1" to="E2" end="3600.00" number="100"/>
+    <flow id="f_5" type="car0" begin="0.00" from="E0" to="E3" end="3600.00" number="400"/>
+    <flow id="f_6" type="car1" begin="0.00" from="-E2" to="E1" end="3600.00" number="100"/>
+    <flow id="f_7" type="car0" begin="0.00" from="-E3" to="E2" end="3600.00" number="400"/>
+
+
+    <flow id="f_8" type="car2" begin="0.00" from="E0" to="E1" end="3600.00" number="100"/>
+    <flow id="f_9" type="car0" begin="0.00" from="-E3" to="-E0" end="3600.00" number="400"/>
+    <flow id="f_10" type="car1" begin="0.00" from="-E2" to="E3" end="3600.00" number="100"/>
+    <flow id="f_11" type="car0" begin="0.00" from="-E2" to="E3" end="3600.00" number="400"/>
+
+
 </routes>
