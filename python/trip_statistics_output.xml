@@ -1,0 +1,11 @@
+average vehicular travel time(s) = the sum of all vehicular travel times / the number of vehicles
+average vehicular travel length(m) = the sum of all vehicular travel lengths / the number of vehicles
+average vehicular travel speed(m/s) = the sum of all vehicular travel speeds / the number of vehicles
+
+Assignment Method:c:\DATA\ROB\7SEM\GIT\test\python\out_tripInfo.xml
+- total number of vehicles:3000.0
+- total departure delay(s):16515568.0, - average departure delay(s):5505.189333333334
+- total waiting time(s):16685044.0, - average vehicular waiting time(s):5561.681333333333
+- total travel time(s):314578.0, - average vehicular travel time(s):104.85933333333334
+- total travel length(m):458300.7099999966, - average vehicular travel length(m):152.7669033333322
+- average vehicular travel speed(m/s):3.3020267202899327
