@@ -1,0 +1,1 @@
+sumo -c  01_skrzyzowanieX.sumocfg --vehroute-output veh_routes.xml
