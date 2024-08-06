@@ -7,3 +7,4 @@ $ git config --global user.name 'Rob SMOK'
 git pull
 git branch -a
 git checkout -b 01_start origin/01_start
+git checkout -b pisanie origin/pisanie
