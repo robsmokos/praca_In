@@ -1,0 +1,10 @@
+$ git clone https://github.com/robsmokos/test.git
+
+$ git config --global user.email 'robsmok@gmail.com'
+$ git config --global user.name 'Rob SMOK'
+
+
+git pull
+git branch -a
+git checkout -b 01_start origin/01_start
+git checkout -b pisanie origin/pisanie
