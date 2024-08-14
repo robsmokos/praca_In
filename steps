@@ -1,0 +1,32 @@
+SUMO-LR
+
+
+
+instalacja
+-----------------------------------------------------
+git clone https://github.com/LucasAlegre/sumo-rl
+cd sumo-rl
+
+pip install -e 
+
+
+
+
+
+
+PYTHON
+C:\DATA\ROB\DYPLOM\INSTALE\py\WPy64-31150\python-3.11.5.amd64\python.exe -m pip install --upgrade pip
+
+sprawdzanie zainstalowanych pakietów
+C:\DATA\ROB\DYPLOM\INSTALE\py\WPy64-31150\python-3.11.5.amd64\python.exe -m pip list
+
+aktualizacja pakietu
+C:\DATA\ROB\DYPLOM\INSTALE\py\WPy64-31150\python-3.11.5.amd64\python.exe -m pip install --upgrade sumo-rl
+
+
+
+uruchom sumo
+-m sumo_rl.run --default
+C:\DATA\ROB\DYPLOM\INSTALE\py\WPy64-31150\python-3.11.5.amd64\python.exe  C:\DATA\ROB\7SEM\test\praca_In\sumo-rl\experiments\ql_2way-single-intersection.py
+
+
