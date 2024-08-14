@@ -1,0 +1,1 @@
+Plik: alpha0.1_gamma0.99_eps0.05_decay1.0_conn0_ep1.csv - Œrednia d³ugoœæ zatrzymania pojazdów: 4.46 jednostek czasu
