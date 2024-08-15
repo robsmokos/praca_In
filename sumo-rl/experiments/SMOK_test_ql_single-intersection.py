@@ -36,13 +36,13 @@ if __name__ == "__main__":
     prs.add_argument("-fixed", action="store_true", default=False, help="Run with fixed timing traffic signals.\n")
     prs.add_argument("-ns", dest="ns", type=int, default=42, required=False, help="Fixed green time for NS.\n")
     prs.add_argument("-we", dest="we", type=int, default=42, required=False, help="Fixed green time for WE.\n")
-    prs.add_argument("-s", dest="seconds", type=int, default=1000, required=False, help="Number of simulation seconds.\n")
+    prs.add_argument("-s", dest="seconds", type=int, default=10000, required=False, help="Number of simulation seconds.\n")
     prs.add_argument("-v", action="store_true", default=False, help="Print experience tuple.\n")
     prs.add_argument("-runs", dest="runs", type=int, default=1, help="Number of runs.\n")
     args = prs.parse_args()
     
     experiment_time = str(datetime.now()).split(".")[0]
-    out_csv = f"c:\\DATA\\ROB\\7SEM\\test\\praca_In\\sumo-rl\\sumo_rl\\outputs\\single-intersection\\alpha{args.alpha}_gamma{args.gamma}_eps{args.epsilon}_decay{args.decay}"
+    out_csv = f"c:\\DATA\\ROB\\7SEM\\test\\praca_In\\sumo-rl\\sumo_rl\\outputs\\5_5_single-intersection\\alpha{args.alpha}_gamma{args.gamma}_eps{args.epsilon}_decay{args.decay}"
 
     env = SumoEnvironment(
         net_file="c:\\DATA\\ROB\\7SEM\\test\\praca_In\\sumo-rl\\sumo_rl\\nets\\single-intersection\\single-intersection.net.xml",
@@ -54,7 +54,7 @@ if __name__ == "__main__":
         max_green=args.max_green,
     )
 
-    with open('c:\\DATA\\ROB\\7SEM\\test\\praca_In\\sumo-rl\\sumo_rl\\outputs\\single-intersection\\traffic_light_actions.csv', mode='w', newline='') as file:
+    with open('c:\\DATA\\ROB\\7SEM\\test\\praca_In\\sumo-rl\\sumo_rl\\outputs\\5_5_single-intersection\\traffic_light_actions.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['run', 'time', 'traffic_light_id', 'action'])
 
