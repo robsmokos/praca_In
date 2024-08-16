@@ -1,6 +1,7 @@
 Dysk GOOGLE
 https://drive.google.com/drive/folders/1znCplkGWoziej_Ix69f_z68H4MJPq8jj
 https://drive.google.com/file/d/1A3CEV8EozYmlKRtOrSl_7OD6jaaA358n/view?usp=drive_link
+https://drive.google.com/file/d/1-_5JvSlZNS2hRpeP1CQ4sNTDuq2gaJYs/view?usp=sharing
 
 COLAB
 https://colab.research.google.com/drive/10w_SJByZnjFRaCHFXbYgfBqrpeApe4BP
