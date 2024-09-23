@@ -1,5 +1,4 @@
-SUMO-LR
-
+﻿SUMO-LR
 
 
 instalacja
