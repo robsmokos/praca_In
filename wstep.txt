@@ -1,0 +1,71 @@
+
+(ang. Advanced traffic management systems - ATMS) 
+
+
+Metody sterowania ruchem
+1) Metoda sterowania ruchem  TRANSIT:
+
+2SCATS (Sydney Coordinated Adaptive Traffic System) to zaawansowany, obszarowy system sterowania ruchem drogowym, który dynamicznie zarządza sygnalizacją świetlną w miastach. System ten został opracowany w Sydney, Australia, i jest szeroko stosowany na całym świecie, w tym w wielu polskich miastach. 
+
+SCOOT (Split Cycle Offset Optimisation Technique)
+
+
+SCATS ([1]), SCOOT ([2]), RHODES ([3, 4]), OPAC ([5]). 
+
+4 ."UTOPIA" to skrót od Urban Traffic Optimization by Integrated Automation. Jest to koncepcja lub 
+
+
+System ITS (Intelligent Transport Systems) to zaawansowany zestaw technologii i narzędzi, które mają na celu poprawę efektywności, bezpieczeństwa oraz komfortu użytkowania systemów transportowych. 
+
+
+
+
+Główne założenia metody Webstera: 
+
+maxband (zielona fala)
+Metoda HCM (Highway Capacity Manual) 
+
+metody symulacji
+https://thinktransportation.net/traffic-simulations-software-a-comparison-of-sumo-ptv-vissim-aimsun-and-cube/
+
+
+
+Sygnalizacja świetlna jest narzędziem organizacji ruchu wpływającym na poprawę jego bezpieczeństwa.
+Wzrost poziomu bezpieczeństwa jest osiągany przez segregację w czasie kolizyjnych potoków ruchu (pojazdów i pieszych). Segregacja czasowa nie jest tak skuteczna jak segregacja przestrzenna (wielopoziomowe skrzyżowania, przejścia podziemne, kładki dla pieszych), ale i tak jest najchętniej stosowanym rozwiązaniem z przyczyn finansowych i logistycznych (koszt budowy sygnalizacji jest nieporównywalnie niższy od budowy mostów drogowych i estakad oraz kosztów pozyskania terenu pod ich budowę).
+Ze względu na sposób pracy sygnalizacje dzielimy na akomodacyjne i stałoczasowe.
+Sygnalizacje akomodacyjne reagują adekwatnie do rzeczywistej sytuacji ruchowej na skrzyżowaniu – skracają czas oczekiwania na sygnał zielony poprzez dostosowanie długości poszczególnych faz do warunków ruchu. Przy akomodacji wykorzystuje się czujniki i radary wykrywające obecność konkretnej grupy użytkowników ruchu (pojazdów, pieszych, tramwajów).
+Sygnalizacje stałoczasowe realizują stały program otwarć i długości poszczególnych faz w ciągu doby (jednoprogramowe), lub kilka wcześniej ustawionych programów przypisanych do odpowiedniej pory dnia, zgodnie z ustalonym harmonogramem przełączania (wieloprogramowe).
+Ze względu na niskie natężenie ruchu w godzinach nocnych sygnalizacja świetlna pracuje w trybie awaryjnym – światło żółte pulsując. Są jednak skrzyżowania na których przez całą dobę sygnalizacja pracuje wg programu kolorowego. Ich liczba jest zmienna ponieważ czynnikiem decydującym jest poziom bezpieczeństwa użytkowników ruchu na konkretnym skrzyżowaniu (stałe duże natężenie ruchu lub wysoka wypadkowość są argumentami przemawiającymi za utrzymywaniem programu kolorowego przez całą dobę).
+
+
+
+
+
+1. WPROWADZENIE
+Transport jest fundamentem nowoczesnych gospodarek, a jeśli chodzi o przemieszczanie się, nie ma nic ważniejszego niż system transportu drogowego. Każdego dnia miliony samochodów i ciężarówek przemieszczają się po naszych drogach, przewożąc ludzi i towary, dlatego posiadanie efektywnego i niezawodnego systemu transportowego jest kluczowe dla naszego życia. Jednak wraz ze wzrostem liczby pojazdów, rośnie presja na system transportowy, co prowadzi do zwiększenia zatorów, które mają negatywne konsekwencje ekonomiczne i środowiskowe. Jednym z możliwych rozwiązań jest poprawa efektywności obecnej infrastruktury poprzez inteligentną optymalizację planów czasowych sygnalizacji świetlnej.
+Jednym z najczęściej stosowanych urządzeń kontroli ruchu jest sygnalizacja świetlna. Polityka kontroli sygnalizacji świetlnej może być kluczowym czynnikiem w poprawie ruchu drogowego, ponieważ kontroluje ona przepływ pojazdów na drogach. W praktyce nie wszystkie czasy sygnalizacji świetlnej są zoptymalizowane, a pojazdy często czekają na wiele cykli, co powoduje opóźnienia. Regulowane czasy sygnalizacji mogą prowadzić do mniejszych zatorów. Jednak rozwiązanie problemu kontroli ruchu drogowego napotyka trzy kluczowe wyzwania: modelowanie, skalowalne dane i optymalizację.
+
+
+W ciągu ostatnich kilku dekad zaprojektowano i wdrożono kilka adaptacyjnych systemów sterowania ruchem. Przykładami są Split Cycle Offset Optimization Technique (SCOOT), który jest systemem czasu rzeczywistego wykorzystującym czujniki do zbierania danych o ruchu drogowym, a następnie dostosowującym sygnalizację świetlną w małych, stopniowych krokach, aby uniknąć poważnych zakłóceń lub wahań w ruchu. Kolejnym inteligentnym systemem transportowym jest Sydney Coordinated Adaptive Traffic System (SCATS), stosowany w Australii. PRODYN to algorytm, który wykorzystuje dynamiczne programowanie do przodu (Forward Dynamic Programming) na poziomie skrzyżowania w celu optymalizacji czasów sygnalizacji świetlnej. Mimo że systemy te zostały przyjęte i zainstalowane w różnych miejscach na świecie, mają one pewne istotne wady, takie jak wysokie koszty infrastruktury, intensywne obliczenia i ograniczona skalowalność z powodu braku globalnych informacji.
+Z drugiej strony, różne adaptacyjne techniki sterowania zostały zaproponowane do rozwiązania problemu optymalizacji sygnalizacji świetlnej, takie jak logika rozmyta, algorytmy genetyczne i przybliżone dynamiczne programowanie. Podejścia te są modelowane z wykorzystaniem ograniczonych informacji, co skutkuje zmniejszoną dokładnością i skalowalnością.
+Uczenie ze wzmocnieniem (RL) okazało się obiecującą alternatywą do przybliżania optymalnej polityki podejmowania decyzji w złożonych systemach transportowych. W RL podstawowy model jest formowany jako proces decyzyjny Markowa (MDP), co czyni go najlepszym rozwiązaniem dla problemu sterowania sygnalizacją świetlną. Problem sterowania sygnalizacją świetlną można rozwiązać za pomocą sekwencyjnego podejmowania decyzji, a jest to skomplikowane zadanie, ponieważ dynamiczne zmiany przepływu ruchu mogą sprawić, że środowisko staje się nieprzewidywalne. Tradycyjne metody RL, takie jak metody tablicowe i regresja liniowa (LR), są trudne do zastosowania w tym przypadku z powodu wyzwań związanych ze skalowalnością i optymalizacją.
+Ogólnie rzecz biorąc, algorytmy RL mogą być bezmodelowe lub modelowe. W RL opartym na modelu, MDP jest szacowany, gdzie agenci działają w świecie i obserwują stan. Modelowe RL zbiega do optymalnej polityki. Z drugiej strony, bezmodelowe algorytmy przybliżają funkcję wartości stanu-akcji Q(s,a) zamiast szacować funkcję wartości stanu V(s). Bezmodelowa polityka oparta na wartości dąży do znalezienia optymalnej funkcji wartości, aby rozwiązać MDP. Możliwe jest przeprowadzenie tej procedury przez iteracyjne obliczanie i aktualizowanie funkcji wartości stanu-akcji, opisanej przez Q. Innym typem RL opartym na modelu jest RL oparty na polityce, gdzie RL uczy się na podstawie optymalnej polityki zamiast MDP lub korzystania z funkcji Q.
+W RL system może mieć wielu agentów, takich jak w grach, robotyce i systemach zarządzania ruchem drogowym. W szczególności, MARL (Multi-Agent Reinforcement Learning) ma wiele autonomicznych agentów działających w wspólnym środowisku, gdzie każdy agent będzie próbował optymalizować swoje cele poprzez interakcje z innymi agentami i całym środowiskiem. Algorytmy MARL mogą zasadniczo obejmować zakres od całkowicie kooperacyjnych do całkowicie konkurencyjnych. W ustawieniach kooperacyjnych agenci współpracują, aby zmaksymalizować wspólny długoterminowy zwrot. W konkurencyjnych algorytmach MARL agenci starają się skupić na maksymalizacji swoich własnych celów. Agenci mogą mieć zachowanie pośrednie między kooperacyjnym a konkurencyjnym, na przykład w przypadkach, gdy agent może współpracować z niektórymi agentami tymczasowo.
+W ostatnich latach, głębokie uczenie (deep learning) zostało wprowadzone do RL, aby poprawić optymalizację i skalowalność. DQN (Deep Q-Network) używa sieci neuronowej do przybliżenia wartości funkcji Q. W głębokim uczeniu, próbki wejściowe są losowane w celu osiągnięcia zrównoważonego próbkowania danych wejściowych w całych partiach treningowych. Jednak w RL, przestrzeń wejściowa stale się zmienia w miarę jak model się uczy, co stwarza wyzwania dla procesu przybliżania wartości Q. Aby temu zaradzić, DQN wykorzystuje doświadczenie z odtwarzania (experience replay) oraz sieci docelowe (target networks) w celu spowolnienia zmian. Doświadczenie z odtwarzania używa bufora do przechowywania historycznych stanów, akcji i nagród, które są następnie wykorzystywane podczas treningu, co pozwala na znalezienie wartości Q. Ponadto, używamy dwóch sieci do przechowywania wartości Q. Jedna jest aktualizowana na bieżąco, podczas gdy druga, sieć docelowa, jest okresowo synchronizowana z pierwszą. Używamy sieci docelowej do ekstrakcji wartości Q, aby korekty były bardziej przewidywalne dla wartości docelowej.
+Ustawienia z nagrodami rzadkimi są jednym z wyzwań w uczeniu ze wzmocnieniem. To takie, w których agent otrzymuje nagrodę tylko wtedy, gdy osiąga docelowy poziom. Jednak większość algorytmów uczenia ze wzmocnieniem wymaga informacji zwrotnej od nagrody, aby nauczyć się, jak rozwiązać problem lub w ogóle się uczyć. Dlatego, nie uzyskując żadnej nagrody, większość algorytmów nie jest w stanie z powodzeniem wykonać zadania, jeśli nigdy nie osiągną docelowego stanu. Wymagane są specjalne techniki eksploracji, aby osiągnąć wymagające stany docelowe i w końcu nauczyć się na podstawie uzyskanej nagrody. Hindsight Experience Replay (HER) jest jedną z takich technik uczenia, która pozwala na szybkie uczenie się w warunkach rzadkich nagród. Unikalność HER polega na tym, że jest to bardzo proste i intuicyjne rozszerzenie, które może zostać włączone do wielu algorytmów uczenia ze wzmocnieniem poza polityką (off-policy learning). Dzięki temu prostemu dodaniu, algorytmy są teraz w stanie rozwiązywać ustawienia z rzadkimi nagrodami, czego nie byłyby w stanie zrobić bez HER.
+W niniejszym artykule problem sterowania sygnalizacją świetlną został rozwiązany za pomocą modelu bezmodelowego, wykorzystującego wieloagentowe głębokie uczenie ze wzmocnieniem (Multi-Agent Deep Reinforcement Learning), które używa Double DQN oraz HER w celu optymalizacji czasu sygnalizacji świetlnej dla wielu sygnalizacji świetlnych jednocześnie. Proponujemy inteligentny system wieloagentowy dla skrzyżowań czterofazowych, w którym agenci współpracują i dzielą się istotnymi informacjami, aby osiągnąć stabilny model i skalowalną sieć. W kolejnych sekcjach omówimy powiązane prace, proponowane ramy, symulację oraz wyniki.
+
+
+
+2. POWIĄZANE PRACE
+Implementacja uczenia ze wzmocnieniem (Reinforcement Learning, RL) była intensywnie badana w celu znalezienia optymalnej polityki czasowej sygnalizacji świetlnej od lat 90-tych. Wcześniejsze prace były ograniczone do tablicowego uczenia Q-learning w RL. Niektórzy badacze proponowali model dyskretny oparty na współuczeniu, w którym pojazdy mogą głosować i przyczyniać się do decyzji sygnalizacji świetlnej w celu skrócenia całkowitego czasu oczekiwania.
+Te metody mogą obsługiwać jedynie dyskretne reprezentacje stanów. Tutaj stany są definiowane przez dyskretne wartości, takie jak lokalizacja pojazdów, liczba czekających pojazdów lub długość kolejki. Jednak skonstruowanie tablicy do przechowywania wartości par stan-akcja wymaga ogromnej przestrzeni do przechowywania i jest ograniczone do małego zbioru stanów. Jednakże, złożoność rzeczywistego ruchu drogowego wymaga wysokowymiarowych przestrzeni stanów i akcji.
+Najnowsze prace wykorzystujące głębokie uczenie ze wzmocnieniem (Deep Reinforcement Learning) wykazały imponujące wyniki w obsłudze bardziej złożonych reprezentacji stanów. Osiąga ono wyższą wydajność niż wyczerpująca reprezentacja za pomocą tablicy. Pierwsza próba wdrożenia głębokich sieci Q (DQN) w problemie sterowania sygnalizacją świetlną została przeprowadzona przez Li i in. Tutaj badacze użyli głębokich autoenkoderów (Stacked Auto-Encoders, SAE) do nauki funkcji Q w celu sterowania izolowanym skrzyżowaniem. Genders opracował DQN do sterowania skrzyżowaniem czterofazowym, ale zakładał nierealistyczne założenia, ignorując stałą sekwencję faz sygnalizacji świetlnej. Mousavi pokazał przewagę głębokiego gradientu polityki (Deep Policy Gradient) nad podejściem opartym na funkcji wartości w znalezieniu bardziej stabilnych polityk kontrolnych. Wszystkie wcześniejsze metody miały problemy ze skalowalnością i w związku z tym były w stanie kontrolować jedynie pojedyncze skrzyżowanie lub małą sieć ruchu drogowego.
+Pomimo wszystkich ulepszeń w zakresie skalowalności uzyskanych dzięki zastosowaniu głębokiego uczenia ze wzmocnieniem w treningu scentralizowanego RL, nadal jest to niepraktyczne dla dużych sieci. Jednym z alternatywnych podejść jest zastosowanie wieloagentowego uczenia ze wzmocnieniem (Multi-Agent Reinforcement Learning, MARL), gdzie agenci współpracują i dzielą się istotnymi informacjami.
+Chociaż istnieje bogata historia stosowania RL, większość prac dotyczących problemu sterowania ruchem koncentrowała się wyłącznie na niezależnych agentach, a tylko niewielka część z nich korzystała z MARL. Wiering zaproponował tablicowe uczenie Q oparte na modelu dyskretnym, podczas gdy inne prace korzystały z modelu bez modelu. Abdoos rozszerzył swoje badania na system wieloagentowy holonicznego uczenia Q (Holonic Q-Learning) z użyciem algorytmu opartego na grafach i podzielił problem na podproblemy, dzieląc pięćdziesiąt skrzyżowań na trzynaście holonów. Jednak to podejście jest niepraktyczne z powodu problemów ze skalowalnością, ponieważ modelowanie sieci wymaga dużej przestrzeni dyskowej i intensywnych obliczeń.
+
+
+Zbiory danych od ekspertów są często drogie, niepewne lub po prostu niedostępne. Systemy uczenia ze wzmocnieniem (Reinforcement Learning) są trenowane na podstawie własnych doświadczeń, co w zasadzie pozwala im przewyższać ludzkie zdolności i działać w dziedzinach, w których brakuje ludzkiej ekspertyzy. 
+
+
+
