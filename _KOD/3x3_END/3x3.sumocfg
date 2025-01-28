@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-08-12 22:06:54 by Eclipse SUMO sumo Version 1.18.0
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="3x3.net.xml"/>
+        <route-files value="3x3.rou.xml"/>
+    </input>
+
+
+ <time>
+        <begin value="0"/> <!-- Początek symulacji -->
+        <end value="10000"/> <!-- Koniec symulacji po 3 minutach -->
+    </time>
+
+
+ <output>
+        <!-- Statystyki dla pojedynczych podróży -->
+        <tripinfo-output value="stat/tripinfo.xml"/>
+
+        <!-- Statystyki pojazdów (czas oczekiwania, zatrzymania) -->
+        <vehroute-output value="stat/vehroute.xml"/>
+
+
+    </output>
+
+</configuration>
+
