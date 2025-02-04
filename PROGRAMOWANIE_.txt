@@ -1,0 +1,28 @@
+dane wejściowe do sieci Actor-Critic
+
+
+Wektor wejściowy do sieci Actora
+Liczba pojazdów na pasie			Ile pojazdów znajduje się na danym pasie prowadzącym do skrzyżowania		traci.lane.getLastStepVehicleNumber(lane_id)
+Średnia prędkość pojazdów			Średnia prędkość na danym pasie (niższa prędkość = większe korki)			traci.lane.getLastStepMeanSpeed(lane_id)
+Długość kolejki pojazdów			Liczba pojazdów, które stoją (prędkość = 0 m/s)								traci.lane.getLastStepHaltingNumber(lane_id)
+Średni czas oczekiwania				Jak długo pojazdy czekają na przejazd przez skrzyżowanie					traci.lane.getWaitingTime(lane_id)
+Obecna faza świateł					Aktualny stan sygnalizacji świetlnej (one-hot encoding)						traci.trafficlight.getPhase(tls_id)
+Pozostały czas do zmiany świateł	Czas do zmiany fazy	traci.trafficlight.getNextSwitch(tls_id) - 				traci.simulation.getTime()
+
+
+
+
+
+Proponowane nagrody (Rewards)
+Cele sterowania sygnalizacją:
+Minimalizacja czasu oczekiwania pojazdów 🚗⏳
+Minimalizacja długości kolejek 🛑🚗🚗🚗
+Maksymalizacja przepustowośc
+
+Minimalizacja czasu oczekiwania	- \sum \text{waiting_time}	traci.lane.getWaitingTime(lane_id)
+Minimalizacja długości kolejek	- \sum \text{queue_length}	traci.lane.getLastStepHaltingNumber(lane_id)
+Maksymalizacja płynności ruchu	\sum \text{avg_speed}	traci.lane.getLastStepMeanSpeed(lane_id)
+📌 Finalna funkcja nagrody (np. kombinacja powyższych):
+
+R = -\alpha \sum \text{queue_length} - \beta \sum \text{waiting_time} + \gamma \sum \text{avg_speed}
+Gdzie α, β, γ to współczynniki dostosowujące wagę każdej części nagrody.
