@@ -1,0 +1,18 @@
+Wykres ruchu na skrzyżowaniu 
+
+# Rysowanie wszystkich wartości na jednym wykresie
+plt.figure(figsize=(12, 6))
+
+# Rysowanie każdej wartości
+plt.plot(df["# Time"], df["running vehicles [#]"], marker='o', linestyle='-', label="Pojazdy w ruchu")
+plt.plot(df["# Time"], df["halting [#]"], marker='s', linestyle='-', label="Zatrzymane pojazdy")
+plt.plot(df["# Time"], df["avg. speed [m/s]"], marker='^', linestyle='-', label="Średnia prędkość [m/s]")
+plt.plot(df["# Time"], df["avg. relative speed"], marker='d', linestyle='-', label="Średnia względna prędkość")
+
+# Oznaczenia osi i tytuł
+plt.xlabel("Czas [s]")
+plt.ylabel("Wartości")
+plt.title("Parametry ruchu drogowego w czasie")
+plt.legend()
+plt.grid(True)
+plt.show()
