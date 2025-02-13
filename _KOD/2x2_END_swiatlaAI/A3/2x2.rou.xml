@@ -8,9 +8,11 @@
     
 <flow id="flow_random1" probability="0.01" from="E0" to="E3" departLane="free" departSpeed="random" begin="0" end="3600"/>
 <flow id="flow_random4" probability="0.1" from="E0" to="E7" departLane="free" departSpeed="random" begin="0" end="3600"/>	
-<!--
-<flow id="flow_random7" probability="0.01" from="-E3" to="E22" via="-E2 E1" departLane="free" departSpeed="random" begin="0" end="3600"/>	
+
+<!-- <flow id="flow_random7" probability="0.01" from="-E3" to="E22" via="-E2 E1" departLane="free" departSpeed="random" begin="0" end="3600"/>	
 -->
+
+
 <flow id="flow_random8" probability="0.1" from="-E3" to="-E0"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
 
 <flow id="flow_random5" probability="0.1" from="E4" to="E7" departLane="free" departSpeed="random" begin="0" end="3600"/>

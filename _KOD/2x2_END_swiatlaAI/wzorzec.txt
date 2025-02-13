@@ -1,0 +1,143 @@
+import os
+import sys
+import traci
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import layers
+
+# 🔹 SUMO - ścieżka do konfiguracji
+SUMO_BINARY = "sumo"
+CONFIG_FILE = "/content/SUMO/2x2.sumocfg"
+
+# 🔹 Lista sygnalizatorów (teraz tylko P4, P5, P8, P9)
+TLS_IDS = ["P4", "P5", "P8", "P9"]
+
+# 🔹 Model Actor-Critic
+class ActorCritic(tf.keras.Model):
+    def __init__(self, action_dim):
+        super().__init__()
+        self.common = tf.keras.Sequential([
+            layers.Input(shape=(len(TLS_IDS) * 2,)),  # ✅ Dopasowano wejście (dla 4 skrzyżowań: (1,8))
+            layers.Dense(128, activation="relu")
+        ])
+        self.actor = layers.Dense(action_dim, activation="softmax")
+        self.critic = layers.Dense(1)
+
+    def call(self, state):
+        x = self.common(state)
+        return self.actor(x), self.critic(x)
+
+# 🔹 Pobieranie stanu skrzyżowań (normalizacja do [0,1])
+def get_state():
+    max_queue_length = 250   # Maksymalna liczba zatrzymanych pojazdów
+    max_waiting_time = 1000  # Maksymalny czas oczekiwania (sekundy)
+
+    queue_lengths = np.array([
+        sum(traci.lane.getLastStepHaltingNumber(lane) for lane in traci.trafficlight.getControlledLanes(tls_id))
+        for tls_id in TLS_IDS
+    ], dtype=np.float32) / max_queue_length  
+
+    waiting_times = np.array([
+        sum(traci.lane.getWaitingTime(lane) for lane in traci.trafficlight.getControlledLanes(tls_id))
+        for tls_id in TLS_IDS
+    ], dtype=np.float32) / max_waiting_time  
+
+    # 🔹 Łączymy wartości w jeden wektor stanu o kształcie (1, 8)
+    state = np.concatenate([queue_lengths, waiting_times]).reshape(1, -1)  
+    return state
+
+# 🔹 Wybór akcji (Boltzmann Exploration)
+def choose_action(action_probs, temperature=1.0):
+    action_probs = tf.nn.softmax(action_probs / temperature).numpy()
+    return np.array([np.random.choice(len(probs), p=probs) for probs in action_probs])
+
+# 🔹 Ustawianie świateł
+def apply_action(actions):
+    phases = ["GGgrrrGGgrrr", "yyyyyyyyyyyy", "rrrGGgrrrGGg", "GGGGGGGGGGGG"]  # 4 możliwe fazy
+    for tls_id, action in zip(TLS_IDS, actions):  # ✅ Obsługa 4 sygnalizatorów
+        traci.trafficlight.setRedYellowGreenState(tls_id, phases[action])
+
+# 🔹 Obliczanie nagrody (kolejki + czas oczekiwania + kara za długi postój)
+# 🔹 Obliczanie nagrody (kolejki + czas oczekiwania + nagroda za płynny ruch)
+def get_reward():
+    total_queue_length = sum(
+        sum(traci.lane.getLastStepHaltingNumber(lane) for lane in traci.trafficlight.getControlledLanes(tls_id))
+        for tls_id in TLS_IDS
+    )
+
+    total_waiting_time = sum(
+        sum(traci.lane.getWaitingTime(lane) for lane in traci.trafficlight.getControlledLanes(tls_id))
+        for tls_id in TLS_IDS
+    )
+
+    # 🔹 Nowa normalizacja nagrody
+    queue_penalty = total_queue_length / 250  # Normalizacja do [0,1]
+    waiting_penalty = total_waiting_time / 1000  # Normalizacja do [0,1]
+    
+    # 🔹 Nagroda za płynny ruch
+    free_flow_bonus = 1.0 - (queue_penalty + waiting_penalty)  # Większa nagroda, jeśli małe korki
+
+    # 🔹 Ostateczna nagroda
+    reward = free_flow_bonus - (queue_penalty + 0.5 * waiting_penalty)
+
+    # 🔹 Zmniejszamy karę za duże opóźnienia, zamiast -10 stosujemy stopniowaną karę
+    if total_waiting_time > 500:
+        reward -= (total_waiting_time - 500) / 500  # Kara rośnie stopniowo
+
+    return reward
+    
+
+# 🔹 Trening modelu Actor-Critic
+def train_actor_critic():
+    num_actions = 4  
+    model = ActorCritic(num_actions)
+    optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
+    temperature = 1.0  
+    best_reward = float('-inf')
+
+    try:
+        traci.start([SUMO_BINARY, "-c", CONFIG_FILE])
+
+        for episode in range(30):
+            state, total_reward = get_state(), 0
+
+            for step in range(2000):
+                action_probs, value = model(state)
+                actions = choose_action(action_probs.numpy(), temperature)  
+                apply_action(actions)
+
+                traci.simulationStep()
+                next_state, reward = get_state(), get_reward()
+                total_reward += reward
+
+                _, next_value = model(next_state)
+                advantage = reward + 0.9 * next_value - value
+                advantage = tf.stop_gradient(advantage)
+
+                with tf.GradientTape() as tape:
+                    action_probs, value = model(state)
+                    selected_log_probs = tf.reduce_sum(tf.math.log(action_probs + 1e-8) * tf.one_hot(actions, num_actions), axis=1)
+                    actor_loss = -tf.reduce_mean(selected_log_probs * advantage)
+                    critic_loss = tf.reduce_mean(tf.square(advantage))
+                    loss = actor_loss + 0.5 * critic_loss
+
+                grads = tape.gradient(loss, model.trainable_variables)
+                optimizer.apply_gradients(zip(grads, model.trainable_variables))
+                state = next_state
+
+            print(f"Epizod {episode}, Całkowita nagroda: {total_reward}")
+
+            model.save_weights(f"model_epizod_{episode}.weights.h5")
+            print(f"💾 Model zapisany dla epizodu {episode}")
+
+
+
+
+            temperature *= 0.99
+
+    finally:
+        traci.close()
+
+# 🔹 Uruchamiamy trening modelu
+if __name__ == "__main__":
+    train_actor_critic()
