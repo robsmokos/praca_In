@@ -1,0 +1,31 @@
+## "Diagram architektury systemu sterowania sygnalizacj?"
+@startuml
+skinparam conditionStyle diamond
+
+start
+:Inicjalizacja;
+:Po??czenie z TraCI API;
+:Utworzenie modelu ActorCritic;
+
+while (Jeszcze kroki symulacji?) is (Tak)
+    :Pobranie stanu (get_state);
+    :Wyb¨®r akcji (choose_action);
+
+    if (Czy zmiana fazy?) then (Tak)
+        :Zastosowanie akcji (apply_action);
+    else (Nie)
+    endif
+
+    :Wykonanie kroku symulacji (simulationStep);
+    :Obliczenie nagrody (get_reward);
+
+    if (Czy trwa trening?) then (Tak)
+        :Aktualizacja wag modelu (update weights);
+    else (Nie)
+        :Zapis modelu (save model);
+        stop
+    endif
+endwhile (Nie)
+
+stop
+@enduml
