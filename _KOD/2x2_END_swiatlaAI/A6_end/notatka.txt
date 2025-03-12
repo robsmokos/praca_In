@@ -1,0 +1,30 @@
+budowa_medelu_END.txt
+krzywa_uczenia.py
+
+uczenie tylko prze 2000 kroków 
+duza niestabilność modelu
+
+
+
+
+/content/drive/MyDrive/SUMO
+
+
+
+
+1
+uczy się ze wszystkich 5000 stpów
+
+
+
+
+2
+-------------------
+epsilon = max(0.01, 0.2 * (0.89 ** episode))  # 50 epizodów do osiągnięcia 0.01   hmm to nie działą :(
+gamma = 0.95 
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.0005)
+
+
+3
+------------------------------------
+epsilon = max(0.01, 0.2 * (0.89 ** episode))  # 50 epizodów do osiągnięcia 0.01   hmm to nie działą :(
