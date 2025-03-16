@@ -6,15 +6,14 @@ import tensorflow as tf
 from tensorflow.keras import layers
 
 # 🔹 Stałe konfiguracyjne
-SUMO_BINARY = "sumo"            
-CONFIG_FILE = "c:/DATA/ROB/PRACA/praca_In/_KOD/2x2_END_swiatlaAI/2x2.sumocfg"
-TLS_IDS = ["P4", "P5", "P8", "P9"]  
-NUM_TLS = len(TLS_IDS)          
-NUM_PHASES = 4                  
-UNCHANGE_LIMIT = 50             
-FORCED_DURATION = 30            
+SUMO_BINARY = "sumo"
+CONFIG_FILE = "/content/SUMO/2x2.sumocfg"
+TLS_IDS = ["P4", "P5", "P8", "P9"]
+NUM_TLS = len(TLS_IDS)
+NUM_PHASES = 4
+UNCHANGE_LIMIT = 50
+FORCED_DURATION = 30
 PENALTY = -150  # Zwiększona kara za wymuszone fazy!
-epsilon = 0.05  # 🔹 10% szansy na losową akcję (dla eksploracji)
 CRITICAL_PENALTY = -50  # Duża kara za totalny korek
 MAX_CRITICAL_QUEUE = 300  # Definiujemy krytyczny poziom korka
 MAX_WAITING_TIME = 10000  # Maksymalny czas oczekiwania przed nałożeniem kary
@@ -41,7 +40,7 @@ class ActorCritic(tf.keras.Model):
 # 🔹 Pobieranie stanu skrzyżowań
 def get_state():
     max_queue_length = 400
-    max_waiting_time = 10000  
+    max_waiting_time = 10000
 
     queue_lengths = np.array([
         sum(traci.lane.getLastStepHaltingNumber(lane) for lane in traci.trafficlight.getControlledLanes(tls_id))
@@ -53,17 +52,16 @@ def get_state():
         for tls_id in TLS_IDS
     ], dtype=np.float32) / max_waiting_time
 
-    # 🔹 Debugowanie wartości kolejek i czasu oczekiwania
-    #print(f"📊 Debug - queue_lengths: {queue_lengths * max_queue_length}")  # Wartości przed normalizacją
-    #print(f"📊 Debug - waiting_times: {waiting_times * max_waiting_time}")  # Wartości przed normalizacją
-    #print(f"✅ Debug - queue_lengths (normalized): {queue_lengths}")  # Po normalizacji
-    #print(f"✅ Debug - waiting_times (normalized): {waiting_times}")  # Po normalizacji
-
+    # Debugowanie wartości kolejek i czasu oczekiwania (zakomentowane)
+    #print(f"📊 Debug - queue_lengths: {queue_lengths * max_queue_length}")
+    #print(f"📊 Debug - waiting_times: {waiting_times * max_waiting_time}")
+    #print(f"✅ Debug - queue_lengths (normalized): {queue_lengths}")
+    #print(f"✅ Debug - waiting_times (normalized): {waiting_times}")
 
     return np.concatenate([queue_lengths, waiting_times]).reshape(1, -1)
 
-# 🔹 Wybór akcji (epsilon-greedy)
-def choose_action(action_probs, num_tls, num_phases):
+# 🔹 Wybór akcji (epsilon-greedy) z przekazywanym epsilon
+def choose_action(action_probs, num_tls, num_phases, epsilon):
     action_probs = action_probs.numpy().reshape(num_tls, num_phases)
     action_probs = np.clip(action_probs, 0, None)
 
@@ -74,7 +72,7 @@ def choose_action(action_probs, num_tls, num_phases):
         else:
             action_probs[i] /= row_sum
 
-    # 🔹 Mechanizm epsilon-greedy (10% szansy na losową akcję)
+    # Mechanizm epsilon-greedy: z prawdopodobieństwem epsilon wybierana jest losowa akcja
     if np.random.rand() < epsilon:
         actions = np.random.randint(0, num_phases, num_tls)
     else:
@@ -89,7 +87,6 @@ def apply_action(actions, step):
         traci.trafficlight.setRedYellowGreenState(tls_id, phases[action])
 
 # 🔹 Obliczanie nagrody
-# 🔹 Obliczanie nagrody
 def get_reward(forced_steps, step):
     total_queue_length = sum(
         sum(traci.lane.getLastStepHaltingNumber(lane) for lane in traci.trafficlight.getControlledLanes(tls_id))
@@ -101,104 +98,89 @@ def get_reward(forced_steps, step):
         for tls_id in TLS_IDS
     )
 
-    queue_penalty = (total_queue_length / 250)   * 0.01
-    waiting_penalty = (total_waiting_time)   * 0.00001
-    free_flow_bonus = max(0, 1.0 - (queue_penalty + waiting_penalty))  
+    queue_penalty = (total_queue_length / 250) * 0.01
+    waiting_penalty = (total_waiting_time) * 0.00001
+    free_flow_bonus = max(0, 1.0 - (queue_penalty + waiting_penalty))
     reward = free_flow_bonus - (queue_penalty * waiting_penalty)
 
-    # 🔹 Kara za wymuszone fazy świateł
+    # Kara za wymuszone fazy świateł
     if forced_steps > 0:
         reward += PENALTY
-        ###print(f"⚠️ [Step {step}] Kara za wymuszone fazy świateł: {PENALTY}")
 
-    # 🔹 Dynamiczna kara za duży korek
+    # Dynamiczna kara za duży korek
     if total_queue_length > MAX_CRITICAL_QUEUE:
         dynamic_penalty = -(total_queue_length) * 0.001  # Kara proporcjonalna do nadmiaru
         reward += dynamic_penalty
-        ###print(f"🚨 [Step {step}] Kara za duży korek: {dynamic_penalty} (Pojazdów w korku: {total_queue_length})")
 
-    # 🔹 Kara za długi czas oczekiwania (dynamiczna)
+    # Kara za długi czas oczekiwania (dynamiczna)
     if total_waiting_time > MAX_WAITING_TIME:
         extra_penalty = -(total_waiting_time - MAX_WAITING_TIME) * 0.00001  # Proporcjonalna kara
         reward += extra_penalty
-        ###print(f"⏳ [Step {step}] Kara za długi czas oczekiwania: {extra_penalty:.2f} (Czas oczekiwania: {total_waiting_time})")
 
-    # 🔹 Kara za długość kolejki (zawsze działa)
+    # Kara za długość kolejki (zawsze działa)
     reward -= queue_penalty
-    ###print(f"🚗 [Step {step}] Kara za długość kolejki: {-queue_penalty:.2f} (Zatrzymane pojazdy: {total_queue_length})")
 
-    # 🔹 Kara za długi czas oczekiwania (zawsze działa)
+    # Kara za długi czas oczekiwania (zawsze działa)
     reward -= waiting_penalty
-    ###print(f"⏱️ [Step {step}] Kara za sumaryczny czas oczekiwania: {-waiting_penalty:.2f} (Łączny czas oczekiwania: {total_waiting_time})")
 
-    # 🔹 Ograniczenie nagród
+    # Ograniczenie nagród
     reward = np.clip(reward, -1000, 10)
 
-    # 🔹 Logowanie wartości nagrody
-    ###print(f"🏆 [Step {step}] Finalna nagroda: {reward:.2f}")
-
     return reward
-
-
-
-
 
 # 🔹 Trening modelu
 def train_actor_critic():
     model = ActorCritic(NUM_TLS, NUM_PHASES)
-    
-    # działa w wersji 0 i 1
-    #optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
+
+    # Wybór optymalizatora (zmniejszona wartość learning_rate)
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0005)
-    
-    for episode in range(100):  
+
+    for episode in range(100):
         print(f"\n🔔 Start epizodu {episode}")
 
-        # ✅ Restart SUMO przed każdym epizodem
+        # Restart SUMO przed każdym epizodem
         try:
             traci.close()
         except traci.exceptions.FatalTraCIError:
-            pass  
+            pass
 
         try:
-            traci.start([SUMO_BINARY, "-c", CONFIG_FILE, "--start"])  # ✅ Zapewnia poprawne resetowanie SUMO
+            traci.start([SUMO_BINARY, "-c", CONFIG_FILE, "--start"])
         except Exception as e:
             print(f"❌ Błąd uruchamiania SUMO: {e}")
-            continue  
+            continue
 
         state = get_state()
         total_reward = 0
         forced_steps = 0
-        
-        # działa w wersji 0 i 1
-        #epsilon_decay = max(0.01, epsilon * (0.99 ** episode))  # 🔹 Stopniowe zmniejszanie epsilon (więcej eksploracji)        
-        epsilon = max(0.01, 0.2 * (0.89 ** episode))  # 50 epizodów do osiągnięcia 0.01
 
+        # Dynamiczna aktualizacja wartości epsilon
+        epsilon = max(0.01, 0.2 * (0.926 ** episode))  # 40 epizodów do osiągnięcia 0.01
 
         start_training_step = np.random.randint(1, 3)
-        end_training_step = start_training_step + 5997
+        end_training_step = start_training_step + 6997
         print(f"🔄 Epizod {episode}: Uczenie od kroku {start_training_step} do {end_training_step - 1}")
 
-        for step in range(5000):  
+        for step in range(7000):
             if step % 10 == 0:
                 if forced_steps > 0:
                     actions = np.random.randint(0, NUM_PHASES, NUM_TLS)
                     forced_steps -= 10
                 else:
                     action_probs, _ = model(state)
-                    actions = choose_action(action_probs, NUM_TLS, NUM_PHASES)
+                    actions = choose_action(action_probs, NUM_TLS, NUM_PHASES, epsilon)
 
                 apply_action(actions, step)
-                ##print(f"🔄 Step {step}: Wybrane akcje -> {actions}")  # 📊 Logowanie akcji dla debugowania
+                # print(f"🔄 Step {step}: Wybrane akcje -> {actions}")
 
             traci.simulationStep()
             next_state = get_state()
-            reward = get_reward(forced_steps, step)  
+            reward = get_reward(forced_steps, step)
 
-            # 🔹 Reset epizodu po 10 krokach płynnego ruchu
-            if reward == 1.0 and step > 100:
+            # Reset epizodu po 10 krokach płynnego ruchu
+            if reward == 1.0 and step > 100  and step < 2000 :
                 print(f"✅ Płynny ruch wykryty w kroku {step} (queue=0, wait=0.0). Reset epizodu!")
-                break  
+                break
 
             total_reward += reward
 
@@ -219,7 +201,7 @@ def train_actor_critic():
                 grads, _ = tf.clip_by_global_norm(grads, 5.0)
                 optimizer.apply_gradients(zip(grads, model.trainable_variables))
 
-            state = next_state  
+            state = next_state
 
         print(f"✅ Epizod {episode} zakończony, Całkowita nagroda: {total_reward}")
         model.save_weights(f"/content/drive/MyDrive/SUMO/{total_reward}model_epizod_{episode}.weights.h5")
@@ -228,9 +210,7 @@ def train_actor_critic():
         try:
             traci.close()
         except traci.exceptions.FatalTraCIError:
-            pass  
-
-
+            pass
 
 # 🔹 Uruchomienie treningu
 if __name__ == "__main__":

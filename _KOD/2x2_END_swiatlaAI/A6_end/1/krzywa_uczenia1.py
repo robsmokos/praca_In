@@ -25,12 +25,13 @@ rolling_mean = np.convolve(total_rewards, np.ones(window_size)/window_size, mode
 # 🔹 Rysowanie wykresu
 plt.figure(figsize=(12, 6))
 plt.plot(episodes, total_rewards, marker='o', linestyle='-', color='b', label="Całkowita nagroda")
-plt.plot(episodes[window_size-1:], rolling_mean, linestyle='--', color='r', label="Średnia ruchoma (5 epizodów)")
+plt.plot(episodes[window_size-1:], rolling_mean, linestyle=':', color='r', label="Średnia")
+plt.axhline(y=0, color='black', linestyle='--', linewidth=1)  # Linia y=0 dla odniesienia
 
 # 🔹 Opisy osi
 plt.xlabel("Epizod")
-plt.ylabel("Całkowita nagroda")
-plt.title("Postęp nauki modelu w kolejnych epizodach")
+plt.ylabel("Nagroda")
+plt.title("Nagroda w epizodach")
 plt.legend()
 plt.grid()
 

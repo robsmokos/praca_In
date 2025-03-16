@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras import layers
 
 # 🔹 Stałe konfiguracyjne
-SUMO_BINARY = "sumo-gui"  # Możesz użyć "sumo", jeśli nie potrzebujesz interfejsu graficznego
+SUMO_BINARY = "sumo"  # Możesz użyć "sumo", jeśli nie potrzebujesz interfejsu graficznego
 CONFIG_FILE = "2x2.sumocfg"
 TLS_IDS = ["P4", "P5", "P8", "P9"]  # Lista sygnalizatorów
 NUM_TLS = len(TLS_IDS)  # Liczba sygnalizatorów

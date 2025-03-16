@@ -4,27 +4,34 @@
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <!-- Vehicles, persons and containers (sorted by depart) 
     
-<flow id="flow_random1" probability="0.01" from="E0" to="E3" departLane="free" departSpeed="random" begin="0" end="3600"/>
+<flow id="flow_random1" probability="0.01" from="E0" to="E3" departLane="free" departSpeed="random" begin="0" end="3600"  />
+
+
 <flow id="flow_random4" probability="0.1" from="E0" to="E7" departLane="free" departSpeed="random" begin="0" end="3600"/>	
 
+
+
 <flow id="flow_random7" probability="0.01" from="-E3" to="E22" via="-E2 E1" departLane="free" departSpeed="random" begin="0" end="3600"/>	
-
-
 
 <flow id="flow_random8" probability="0.1" from="-E3" to="-E0"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
 
 <flow id="flow_random5" probability="0.1" from="E4" to="E7" departLane="free" departSpeed="random" begin="0" end="3600"/>
+
 <flow id="flow_random6" probability="0.1" from="E4" to="E3" departLane="free" departSpeed="random" begin="0" end="3600"/>
 
 <flow id="flow_random9" probability="0.01" from="-E7" to="-E4"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
+
 <flow id="flow_random10" probability="0.1" from="E12" to="E14"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
+
 <flow id="flow_random12" probability="0.1" from="-E14" to="-E12"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
+-->
 <flow id="flow_random3" probability="0.01" from="E20" to="E14" departLane="free" departSpeed="random" begin="0" end="3600"/>
+<!--
 <flow id="flow_random11" probability="0.1" from="E20" to="E22"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
 <flow id="flow_random14" probability="0.1" from="-E22" to="-E20"  departLane="free" departSpeed="random" begin="0" end="3600"/>	
-
+-->
 
 </routes>
 

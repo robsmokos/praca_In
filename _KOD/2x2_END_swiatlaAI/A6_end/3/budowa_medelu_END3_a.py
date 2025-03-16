@@ -7,14 +7,14 @@ from tensorflow.keras import layers
 
 # 🔹 Stałe konfiguracyjne
 SUMO_BINARY = "sumo"            
-CONFIG_FILE = "c:/DATA/ROB/PRACA/praca_In/_KOD/2x2_END_swiatlaAI/2x2.sumocfg"
+CONFIG_FILE = "/content/SUMO/2x2.sumocfg"
 TLS_IDS = ["P4", "P5", "P8", "P9"]  
 NUM_TLS = len(TLS_IDS)          
 NUM_PHASES = 4                  
 UNCHANGE_LIMIT = 50             
 FORCED_DURATION = 30            
 PENALTY = -150  # Zwiększona kara za wymuszone fazy!
-epsilon = 0.05  # 🔹 10% szansy na losową akcję (dla eksploracji)
+#epsilon = 0.05  # 🔹 10% szansy na losową akcję (dla eksploracji)
 CRITICAL_PENALTY = -50  # Duża kara za totalny korek
 MAX_CRITICAL_QUEUE = 300  # Definiujemy krytyczny poziom korka
 MAX_WAITING_TIME = 10000  # Maksymalny czas oczekiwania przed nałożeniem kary
@@ -26,6 +26,7 @@ class ActorCritic(tf.keras.Model):
         self.num_tls = num_tls
         self.num_phases = num_phases
         self.common = tf.keras.Sequential([
+            layers.Dense(256, activation="relu", kernel_initializer="he_normal"),  # NOWA WARSTWA
             layers.Dense(128, activation="relu", kernel_initializer="he_normal"),
             layers.Dense(64, activation="relu", kernel_initializer="he_normal")
         ])
@@ -63,7 +64,7 @@ def get_state():
     return np.concatenate([queue_lengths, waiting_times]).reshape(1, -1)
 
 # 🔹 Wybór akcji (epsilon-greedy)
-def choose_action(action_probs, num_tls, num_phases):
+def choose_action(action_probs, num_tls, num_phases, epsilon):
     action_probs = action_probs.numpy().reshape(num_tls, num_phases)
     action_probs = np.clip(action_probs, 0, None)
 
@@ -74,13 +75,18 @@ def choose_action(action_probs, num_tls, num_phases):
         else:
             action_probs[i] /= row_sum
 
-    # 🔹 Mechanizm epsilon-greedy (10% szansy na losową akcję)
+    # 🔹 Mechanizm epsilon-greedy
     if np.random.rand() < epsilon:
         actions = np.random.randint(0, num_phases, num_tls)
     else:
         actions = [np.random.choice(num_phases, p=probs) for probs in action_probs]
 
     return actions
+
+
+
+
+
 
 # 🔹 Funkcja ustawiająca fazy świateł
 def apply_action(actions, step):
@@ -151,8 +157,10 @@ def train_actor_critic():
     #optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0005)
     
-    for episode in range(100):  
+    for episode in range(70):  
         print(f"\n🔔 Start epizodu {episode}")
+        epsilon = max(0.01, 0.2 * (0.926 ** episode))  # 40 epizodów do osiągnięcia 0.01
+        print(f"\n🔔 Start epizodu {episode} | epsilon = {epsilon:.4f}")
 
         # ✅ Restart SUMO przed każdym epizodem
         try:
@@ -179,14 +187,14 @@ def train_actor_critic():
         end_training_step = start_training_step + 5997
         print(f"🔄 Epizod {episode}: Uczenie od kroku {start_training_step} do {end_training_step - 1}")
 
-        for step in range(5000):  
+        for step in range(7000):  
             if step % 10 == 0:
                 if forced_steps > 0:
                     actions = np.random.randint(0, NUM_PHASES, NUM_TLS)
                     forced_steps -= 10
                 else:
                     action_probs, _ = model(state)
-                    actions = choose_action(action_probs, NUM_TLS, NUM_PHASES)
+                    actions = choose_action(action_probs, NUM_TLS, NUM_PHASES, epsilon)
 
                 apply_action(actions, step)
                 ##print(f"🔄 Step {step}: Wybrane akcje -> {actions}")  # 📊 Logowanie akcji dla debugowania

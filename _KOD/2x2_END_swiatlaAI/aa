@@ -1,0 +1,40 @@
+ Volume in drive C has no label.
+ Volume Serial Number is DE89-B4E1
+
+ Directory of c:\DATA\ROB\PRACA\praca_In\_KOD\2x2_END_swiatlaAI
+
+15.03.2025  16:06    <DIR>          .
+15.03.2025  16:06    <DIR>          ..
+10.02.2025  10:38               285 1x1.add.xml
+10.02.2025  10:38               271 1x1.dat.xml
+10.02.2025  10:38            21ÿ440 1x1.net.xml
+10.02.2025  10:38             1ÿ092 1x1.netecfg
+10.02.2025  10:49             1ÿ509 1x1.rou.xml
+10.02.2025  10:38               463 1x1.sumocfg
+10.02.2025  10:22               285 2x2.add.xml
+10.02.2025  10:26               271 2x2.dat.xml
+10.02.2025  10:27            39ÿ278 2x2.net.xml
+10.02.2025  10:27             1ÿ898 2x2.rou.xml
+10.02.2025  17:38               463 2x2.sumocfg
+09.02.2025  09:29    <DIR>          A1
+09.02.2025  10:20    <DIR>          A2
+09.02.2025  11:35    <DIR>          A3
+09.02.2025  11:56    <DIR>          A4
+10.02.2025  17:38    <DIR>          A5
+12.03.2025  20:55    <DIR>          A6_end
+15.03.2025  16:06                 0 aa
+06.02.2025  07:44             2ÿ731 aaa.csv
+09.02.2025  10:17             4ÿ474 czytani_A2.py
+09.02.2025  11:19             4ÿ473 czytani_A3.py
+09.02.2025  20:29             6ÿ579 czytani_A4.py
+09.02.2025  20:47             9ÿ306 czytani_A5.py
+06.02.2025  04:56               781 kod01.py
+09.02.2025  02:17             4ÿ473 kod04.py
+09.02.2025  09:32             9ÿ182 KOD_A2.py
+09.02.2025  20:21           130ÿ976 model_epizod_15.weights.h5
+09.02.2025  11:18            62ÿ736 model_epizod_2.weights.h5
+05.02.2025  21:58               899 reset.py
+06.02.2025  18:50             5ÿ467 wzorzec.txt
+08.02.2025  01:56             5ÿ098 wzorzec2.txt
+              25 File(s)        314ÿ430 bytes
+               8 Dir(s)  352ÿ234ÿ328ÿ064 bytes free

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-02-05 16:29:17 by Eclipse SUMO sumo Version 1.21.0
+-->
+
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="2x2.net.xml"/>
+        <route-files value="2x2.rou.xml"/>
+        <additional-files value="2x2.add.xml"/>
+    </input>
+	
+<configuration>
+    <simulation>
+        <time-to-teleport value="50000"/>
+    </simulation>
+</configuration>
+
+
+
+
+
+</sumoConfiguration>
