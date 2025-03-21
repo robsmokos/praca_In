@@ -1,0 +1,2 @@
+budowa_medelu_END_simply_02.py
+zmiana trybu swiecenia na 3 tryby

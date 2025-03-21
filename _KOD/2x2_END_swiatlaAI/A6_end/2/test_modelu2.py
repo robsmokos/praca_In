@@ -4,6 +4,8 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers
 
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
 # 🔹 Stałe konfiguracyjne
 SUMO_BINARY = "sumo-gui"
 CONFIG_FILE = "c:/DATA/ROB/PRACA/praca_In/_KOD/2x2_END_swiatlaAI/2x2.sumocfg"
@@ -89,8 +91,12 @@ def test_model(model_path, steps=7000):
     for step in range(steps):
         state = get_state()
         action_probs, _ = model(state)
-        actions = choose_action(action_probs, NUM_TLS, NUM_PHASES)
-        apply_action(actions)
+        
+        if step % 10 == 0:
+            actions = choose_action(action_probs, NUM_TLS, NUM_PHASES)
+            apply_action(actions)            
+        
+        
         traci.simulationStep()
         print(f"🔄 Step {step}: Wybrane akcje -> {actions}")
 
@@ -99,4 +105,11 @@ def test_model(model_path, steps=7000):
 
 # 🔹 Uruchomienie testowania
 if __name__ == "__main__":
-    test_model("epizod_52.weights.h5")
+    test_model("epizod_42.weights.h5")
+
+
+##25   7000>
+##36   7000>
+##42   6100
+##52   5400
+##60   6100

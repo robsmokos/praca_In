@@ -135,4 +135,9 @@ def test_model(model_path, steps=7000):
 
 # 🔹 Uruchomienie testowania
 if __name__ == "__main__":
-    test_model("epizod_63.weights.h5")
+    test_model("Aepizod_62.weights.h5")
+    
+    
+## 36   7000>
+## 47   7000>
+## 62   7000>

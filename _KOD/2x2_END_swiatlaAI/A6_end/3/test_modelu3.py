@@ -5,6 +5,8 @@ import tensorflow as tf
 from tensorflow.keras import layers
 import matplotlib.pyplot as plt
 
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
 # 🔹 Stałe konfiguracyjne
 SUMO_BINARY = "sumo-gui"
 CONFIG_FILE = "c:/DATA/ROB/PRACA/praca_In/_KOD/2x2_END_swiatlaAI/2x2.sumocfg"
@@ -93,8 +95,13 @@ def test_model(model_path, steps=500):
     for step in range(steps):
         state = get_state()
         action_probs, _ = model(state)
-        actions = choose_action(action_probs, NUM_TLS, NUM_PHASES)
-        apply_action(actions)
+        
+        # Zmiana świateł co 10 kroków
+        if step % 10 == 0:
+            actions = choose_action(action_probs, NUM_TLS, NUM_PHASES)
+            apply_action(actions)
+        
+        
         traci.simulationStep()
 
         reward = -sum(
@@ -124,4 +131,15 @@ def test_model(model_path, steps=500):
 
 # 🔹 Uruchomienie testowania
 if __name__ == "__main__":
-    test_model("epizod_63.weights.h5", steps=6000)  # 🔹 Zmień ścieżkę na poprawną
+    test_model("Aepizod_59.weights.h5", steps=6000)  # 🔹 Zmień ścieżkę na poprawną
+    
+    ##69    6000>
+    ##52    5320
+    ##42    6000>
+    ##32    6000>
+    ## AAAAAAAAAAAA
+    ##14    6000>
+    ##27    6000>
+    ##42    6000>       
+    ##55    6000>
+    ##59    6000>

@@ -1,0 +1,18 @@
+ Volume in drive C has no label.
+ Volume Serial Number is DE89-B4E1
+
+ Directory of c:\DATA\ROB\PRACA\praca_In\_KOD\2x2_END_swiatlaAI\A6_end_simply
+
+17.03.2025  21:53    <DIR>          .
+17.03.2025  21:53    <DIR>          ..
+10.02.2025  10:22               285 2x2.add.xml
+10.02.2025  10:27            39ÿ278 2x2.net.xml
+15.03.2025  17:17               464 2x2_simply.sumocfg
+17.03.2025  17:32             1ÿ929 a2x2.rou.xml
+17.03.2025  21:53                 0 aa
+17.03.2025  17:38             8ÿ383 budowa_medelu_END_simply.py
+17.03.2025  21:51            62ÿ736 epizod_31.weights.h5
+17.03.2025  21:49             1ÿ688 krzywa_uczenia2_simply.py
+16.03.2025  23:32             4ÿ961 test_modelu_simply.py
+               9 File(s)        119ÿ724 bytes
+               2 Dir(s)  340ÿ101ÿ709ÿ824 bytes free
