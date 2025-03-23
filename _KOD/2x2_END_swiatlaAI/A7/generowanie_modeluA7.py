@@ -148,7 +148,7 @@ def train_actor_critic():
         apply_action(old_actions)
 
         # Symulujemy określoną liczbę kroków
-        for step in range(1, 4001):
+        for step in range(1, 6001):
             # Wykonujemy jeden krok symulacji w SUMO
             traci.simulationStep()
 

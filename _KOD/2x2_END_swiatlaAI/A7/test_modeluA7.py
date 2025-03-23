@@ -7,7 +7,7 @@ from tensorflow.keras import layers
 # Stałe konfiguracyjne
 SUMO_BINARY = "sumo-gui"
 CONFIG_FILE = "c:\DATA\ROB\PRACA\praca_In\_KOD\\2x2_END_swiatlaAI\\2x2.sumocfg"
-MODEL_PATH = "80__BB__.weights.h5"  # Ścieżka do zapisanych wag
+MODEL_PATH = "24__BB__.weights.h5"  # Ścieżka do zapisanych wag
 
 TLS_IDS = ["P4", "P5", "P8", "P9"]
 NUM_TLS = len(TLS_IDS)
@@ -84,7 +84,7 @@ def test_model():
 
     total_reward = 0.0
 
-    for step in range(5000):
+    for step in range(7000):
         if step % CONTROL_INTERVAL == 0:
             state = get_state()
             action_probs = model(state)
