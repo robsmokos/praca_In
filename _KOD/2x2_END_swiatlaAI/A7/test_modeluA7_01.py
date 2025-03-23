@@ -131,5 +131,5 @@ def test_model(model_path, steps=6000, csv_path="test_output.csv"):
 # === Główne wywołanie ===
 if __name__ == "__main__":
     # Zmień na swoją ścieżkę do wag
-    model_path = "158_01_BB__.weights.h5"
+    model_path = "ep_260_01_BB__.weights.h5"
     test_model(model_path, steps=6000, csv_path="wyniki_testu.csv")

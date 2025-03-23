@@ -1,0 +1,1500 @@
+
+=== Start epizodu 0 ===
+ Retrying in 1 seconds
+Epizod 0 zakończony. Całkowita nagroda: -3633.20
+Model zapisany dla epizodu 0
+
+=== Start epizodu 1 ===
+ Retrying in 1 seconds
+Epizod 1 zakończony. Całkowita nagroda: -8892.46
+Model zapisany dla epizodu 1
+
+=== Start epizodu 2 ===
+ Retrying in 1 seconds
+Epizod 2 zakończony. Całkowita nagroda: -7489.38
+Model zapisany dla epizodu 2
+
+=== Start epizodu 3 ===
+ Retrying in 1 seconds
+Epizod 3 zakończony. Całkowita nagroda: -10653.99
+Model zapisany dla epizodu 3
+
+=== Start epizodu 4 ===
+ Retrying in 1 seconds
+Epizod 4 zakończony. Całkowita nagroda: -15834.42
+Model zapisany dla epizodu 4
+
+=== Start epizodu 5 ===
+ Retrying in 1 seconds
+Epizod 5 zakończony. Całkowita nagroda: 29.01
+Model zapisany dla epizodu 5
+
+=== Start epizodu 6 ===
+ Retrying in 1 seconds
+Epizod 6 zakończony. Całkowita nagroda: 3939.81
+Model zapisany dla epizodu 6
+
+=== Start epizodu 7 ===
+ Retrying in 1 seconds
+Epizod 7 zakończony. Całkowita nagroda: 4547.02
+Model zapisany dla epizodu 7
+
+=== Start epizodu 8 ===
+ Retrying in 1 seconds
+Epizod 8 zakończony. Całkowita nagroda: -4506.90
+Model zapisany dla epizodu 8
+
+=== Start epizodu 9 ===
+ Retrying in 1 seconds
+Epizod 9 zakończony. Całkowita nagroda: -1384.77
+Model zapisany dla epizodu 9
+
+=== Start epizodu 10 ===
+ Retrying in 1 seconds
+Epizod 10 zakończony. Całkowita nagroda: 3695.19
+Model zapisany dla epizodu 10
+
+=== Start epizodu 11 ===
+ Retrying in 1 seconds
+Epizod 11 zakończony. Całkowita nagroda: -25675.08
+Model zapisany dla epizodu 11
+
+=== Start epizodu 12 ===
+ Retrying in 1 seconds
+Epizod 12 zakończony. Całkowita nagroda: 3562.55
+Model zapisany dla epizodu 12
+
+=== Start epizodu 13 ===
+ Retrying in 1 seconds
+Epizod 13 zakończony. Całkowita nagroda: -23091.03
+Model zapisany dla epizodu 13
+
+=== Start epizodu 14 ===
+ Retrying in 1 seconds
+Epizod 14 zakończony. Całkowita nagroda: -37835.33
+Model zapisany dla epizodu 14
+
+=== Start epizodu 15 ===
+ Retrying in 1 seconds
+Epizod 15 zakończony. Całkowita nagroda: 4421.54
+Model zapisany dla epizodu 15
+
+=== Start epizodu 16 ===
+ Retrying in 1 seconds
+Epizod 16 zakończony. Całkowita nagroda: 4093.18
+Model zapisany dla epizodu 16
+
+=== Start epizodu 17 ===
+ Retrying in 1 seconds
+Epizod 17 zakończony. Całkowita nagroda: 4875.00
+Model zapisany dla epizodu 17
+
+=== Start epizodu 18 ===
+ Retrying in 1 seconds
+Epizod 18 zakończony. Całkowita nagroda: -7483.31
+Model zapisany dla epizodu 18
+
+=== Start epizodu 19 ===
+ Retrying in 1 seconds
+Epizod 19 zakończony. Całkowita nagroda: -32064.53
+Model zapisany dla epizodu 19
+
+=== Start epizodu 20 ===
+ Retrying in 1 seconds
+Epizod 20 zakończony. Całkowita nagroda: 4703.72
+Model zapisany dla epizodu 20
+
+=== Start epizodu 21 ===
+ Retrying in 1 seconds
+Epizod 21 zakończony. Całkowita nagroda: 4605.37
+Model zapisany dla epizodu 21
+
+=== Start epizodu 22 ===
+ Retrying in 1 seconds
+Epizod 22 zakończony. Całkowita nagroda: 4438.60
+Model zapisany dla epizodu 22
+
+=== Start epizodu 23 ===
+ Retrying in 1 seconds
+Epizod 23 zakończony. Całkowita nagroda: -36208.10
+Model zapisany dla epizodu 23
+
+=== Start epizodu 24 ===
+ Retrying in 1 seconds
+Epizod 24 zakończony. Całkowita nagroda: 4974.17
+Model zapisany dla epizodu 24
+
+=== Start epizodu 25 ===
+ Retrying in 1 seconds
+Epizod 25 zakończony. Całkowita nagroda: 4497.64
+Model zapisany dla epizodu 25
+
+=== Start epizodu 26 ===
+ Retrying in 1 seconds
+Epizod 26 zakończony. Całkowita nagroda: 4559.78
+Model zapisany dla epizodu 26
+
+=== Start epizodu 27 ===
+ Retrying in 1 seconds
+Epizod 27 zakończony. Całkowita nagroda: -7014.22
+Model zapisany dla epizodu 27
+
+=== Start epizodu 28 ===
+ Retrying in 1 seconds
+Epizod 28 zakończony. Całkowita nagroda: -25457.10
+Model zapisany dla epizodu 28
+
+=== Start epizodu 29 ===
+ Retrying in 1 seconds
+Epizod 29 zakończony. Całkowita nagroda: -22776.06
+Model zapisany dla epizodu 29
+
+=== Start epizodu 30 ===
+ Retrying in 1 seconds
+Epizod 30 zakończony. Całkowita nagroda: -25253.33
+Model zapisany dla epizodu 30
+
+=== Start epizodu 31 ===
+ Retrying in 1 seconds
+Epizod 31 zakończony. Całkowita nagroda: 4959.65
+Model zapisany dla epizodu 31
+
+=== Start epizodu 32 ===
+ Retrying in 1 seconds
+Epizod 32 zakończony. Całkowita nagroda: -13332.34
+Model zapisany dla epizodu 32
+
+=== Start epizodu 33 ===
+ Retrying in 1 seconds
+Epizod 33 zakończony. Całkowita nagroda: 3957.80
+Model zapisany dla epizodu 33
+
+=== Start epizodu 34 ===
+ Retrying in 1 seconds
+Epizod 34 zakończony. Całkowita nagroda: -2387.13
+Model zapisany dla epizodu 34
+
+=== Start epizodu 35 ===
+ Retrying in 1 seconds
+Epizod 35 zakończony. Całkowita nagroda: 3100.17
+Model zapisany dla epizodu 35
+
+=== Start epizodu 36 ===
+ Retrying in 1 seconds
+Epizod 36 zakończony. Całkowita nagroda: 4934.07
+Model zapisany dla epizodu 36
+
+=== Start epizodu 37 ===
+ Retrying in 1 seconds
+Epizod 37 zakończony. Całkowita nagroda: -4214.41
+Model zapisany dla epizodu 37
+
+=== Start epizodu 38 ===
+ Retrying in 1 seconds
+Epizod 38 zakończony. Całkowita nagroda: 4838.02
+Model zapisany dla epizodu 38
+
+=== Start epizodu 39 ===
+ Retrying in 1 seconds
+Epizod 39 zakończony. Całkowita nagroda: 4363.34
+Model zapisany dla epizodu 39
+
+=== Start epizodu 40 ===
+ Retrying in 1 seconds
+Epizod 40 zakończony. Całkowita nagroda: 3925.80
+Model zapisany dla epizodu 40
+
+=== Start epizodu 41 ===
+ Retrying in 1 seconds
+Epizod 41 zakończony. Całkowita nagroda: -13676.91
+Model zapisany dla epizodu 41
+
+=== Start epizodu 42 ===
+ Retrying in 1 seconds
+Epizod 42 zakończony. Całkowita nagroda: -761.68
+Model zapisany dla epizodu 42
+
+=== Start epizodu 43 ===
+ Retrying in 1 seconds
+Epizod 43 zakończony. Całkowita nagroda: -5706.18
+Model zapisany dla epizodu 43
+
+=== Start epizodu 44 ===
+ Retrying in 1 seconds
+Epizod 44 zakończony. Całkowita nagroda: 3979.79
+Model zapisany dla epizodu 44
+
+=== Start epizodu 45 ===
+ Retrying in 1 seconds
+Epizod 45 zakończony. Całkowita nagroda: 4686.50
+Model zapisany dla epizodu 45
+
+=== Start epizodu 46 ===
+ Retrying in 1 seconds
+Epizod 46 zakończony. Całkowita nagroda: -8.95
+Model zapisany dla epizodu 46
+
+=== Start epizodu 47 ===
+ Retrying in 1 seconds
+Epizod 47 zakończony. Całkowita nagroda: 1323.69
+Model zapisany dla epizodu 47
+
+=== Start epizodu 48 ===
+ Retrying in 1 seconds
+Epizod 48 zakończony. Całkowita nagroda: 4434.11
+Model zapisany dla epizodu 48
+
+=== Start epizodu 49 ===
+ Retrying in 1 seconds
+Epizod 49 zakończony. Całkowita nagroda: -16602.79
+Model zapisany dla epizodu 49
+
+=== Start epizodu 50 ===
+ Retrying in 1 seconds
+Epizod 50 zakończony. Całkowita nagroda: -9370.94
+Model zapisany dla epizodu 50
+
+=== Start epizodu 51 ===
+ Retrying in 1 seconds
+Epizod 51 zakończony. Całkowita nagroda: 4274.20
+Model zapisany dla epizodu 51
+
+=== Start epizodu 52 ===
+ Retrying in 1 seconds
+Epizod 52 zakończony. Całkowita nagroda: 4401.13
+Model zapisany dla epizodu 52
+
+=== Start epizodu 53 ===
+ Retrying in 1 seconds
+Epizod 53 zakończony. Całkowita nagroda: -12610.98
+Model zapisany dla epizodu 53
+
+=== Start epizodu 54 ===
+ Retrying in 1 seconds
+Epizod 54 zakończony. Całkowita nagroda: -10220.86
+Model zapisany dla epizodu 54
+
+=== Start epizodu 55 ===
+ Retrying in 1 seconds
+Epizod 55 zakończony. Całkowita nagroda: 4061.07
+Model zapisany dla epizodu 55
+
+=== Start epizodu 56 ===
+ Retrying in 1 seconds
+Epizod 56 zakończony. Całkowita nagroda: 4029.20
+Model zapisany dla epizodu 56
+
+=== Start epizodu 57 ===
+ Retrying in 1 seconds
+Epizod 57 zakończony. Całkowita nagroda: -4389.49
+Model zapisany dla epizodu 57
+
+=== Start epizodu 58 ===
+ Retrying in 1 seconds
+Epizod 58 zakończony. Całkowita nagroda: 1524.70
+Model zapisany dla epizodu 58
+
+=== Start epizodu 59 ===
+ Retrying in 1 seconds
+Epizod 59 zakończony. Całkowita nagroda: -34503.27
+Model zapisany dla epizodu 59
+
+=== Start epizodu 60 ===
+ Retrying in 1 seconds
+Epizod 60 zakończony. Całkowita nagroda: 1997.20
+Model zapisany dla epizodu 60
+
+=== Start epizodu 61 ===
+ Retrying in 1 seconds
+Epizod 61 zakończony. Całkowita nagroda: 4493.77
+Model zapisany dla epizodu 61
+
+=== Start epizodu 62 ===
+ Retrying in 1 seconds
+Epizod 62 zakończony. Całkowita nagroda: -29036.27
+Model zapisany dla epizodu 62
+
+=== Start epizodu 63 ===
+ Retrying in 1 seconds
+Epizod 63 zakończony. Całkowita nagroda: -9790.94
+Model zapisany dla epizodu 63
+
+=== Start epizodu 64 ===
+ Retrying in 1 seconds
+Epizod 64 zakończony. Całkowita nagroda: -32134.32
+Model zapisany dla epizodu 64
+
+=== Start epizodu 65 ===
+ Retrying in 1 seconds
+Epizod 65 zakończony. Całkowita nagroda: -7570.37
+Model zapisany dla epizodu 65
+
+=== Start epizodu 66 ===
+ Retrying in 1 seconds
+Epizod 66 zakończony. Całkowita nagroda: 1750.37
+Model zapisany dla epizodu 66
+
+=== Start epizodu 67 ===
+ Retrying in 1 seconds
+Epizod 67 zakończony. Całkowita nagroda: -41219.16
+Model zapisany dla epizodu 67
+
+=== Start epizodu 68 ===
+ Retrying in 1 seconds
+Epizod 68 zakończony. Całkowita nagroda: -2801.77
+Model zapisany dla epizodu 68
+
+=== Start epizodu 69 ===
+ Retrying in 1 seconds
+Epizod 69 zakończony. Całkowita nagroda: -720.17
+Model zapisany dla epizodu 69
+
+=== Start epizodu 70 ===
+ Retrying in 1 seconds
+Epizod 70 zakończony. Całkowita nagroda: -1057.57
+Model zapisany dla epizodu 70
+
+=== Start epizodu 71 ===
+ Retrying in 1 seconds
+Epizod 71 zakończony. Całkowita nagroda: -22981.08
+Model zapisany dla epizodu 71
+
+=== Start epizodu 72 ===
+ Retrying in 1 seconds
+Epizod 72 zakończony. Całkowita nagroda: -37702.43
+Model zapisany dla epizodu 72
+
+=== Start epizodu 73 ===
+ Retrying in 1 seconds
+Epizod 73 zakończony. Całkowita nagroda: -29829.56
+Model zapisany dla epizodu 73
+
+=== Start epizodu 74 ===
+ Retrying in 1 seconds
+Epizod 74 zakończony. Całkowita nagroda: -38458.22
+Model zapisany dla epizodu 74
+
+=== Start epizodu 75 ===
+ Retrying in 1 seconds
+Epizod 75 zakończony. Całkowita nagroda: -33964.54
+Model zapisany dla epizodu 75
+
+=== Start epizodu 76 ===
+ Retrying in 1 seconds
+Epizod 76 zakończony. Całkowita nagroda: -33123.46
+Model zapisany dla epizodu 76
+
+=== Start epizodu 77 ===
+ Retrying in 1 seconds
+Epizod 77 zakończony. Całkowita nagroda: -27580.49
+Model zapisany dla epizodu 77
+
+=== Start epizodu 78 ===
+ Retrying in 1 seconds
+Epizod 78 zakończony. Całkowita nagroda: -43317.44
+Model zapisany dla epizodu 78
+
+=== Start epizodu 79 ===
+ Retrying in 1 seconds
+Epizod 79 zakończony. Całkowita nagroda: -14062.26
+Model zapisany dla epizodu 79
+
+=== Start epizodu 80 ===
+ Retrying in 1 seconds
+Epizod 80 zakończony. Całkowita nagroda: -27880.22
+Model zapisany dla epizodu 80
+
+=== Start epizodu 81 ===
+ Retrying in 1 seconds
+Epizod 81 zakończony. Całkowita nagroda: -32795.78
+Model zapisany dla epizodu 81
+
+=== Start epizodu 82 ===
+ Retrying in 1 seconds
+Epizod 82 zakończony. Całkowita nagroda: -62442.39
+Model zapisany dla epizodu 82
+
+=== Start epizodu 83 ===
+ Retrying in 1 seconds
+Epizod 83 zakończony. Całkowita nagroda: -35800.88
+Model zapisany dla epizodu 83
+
+=== Start epizodu 84 ===
+ Retrying in 1 seconds
+Epizod 84 zakończony. Całkowita nagroda: -47118.74
+Model zapisany dla epizodu 84
+
+=== Start epizodu 85 ===
+ Retrying in 1 seconds
+Epizod 85 zakończony. Całkowita nagroda: -64528.28
+Model zapisany dla epizodu 85
+
+=== Start epizodu 86 ===
+ Retrying in 1 seconds
+Epizod 86 zakończony. Całkowita nagroda: -23500.13
+Model zapisany dla epizodu 86
+
+=== Start epizodu 87 ===
+ Retrying in 1 seconds
+Epizod 87 zakończony. Całkowita nagroda: -65784.50
+Model zapisany dla epizodu 87
+
+=== Start epizodu 88 ===
+ Retrying in 1 seconds
+Epizod 88 zakończony. Całkowita nagroda: -50310.06
+Model zapisany dla epizodu 88
+
+=== Start epizodu 89 ===
+ Retrying in 1 seconds
+Epizod 89 zakończony. Całkowita nagroda: -54069.65
+Model zapisany dla epizodu 89
+
+=== Start epizodu 90 ===
+ Retrying in 1 seconds
+Epizod 90 zakończony. Całkowita nagroda: -61190.76
+Model zapisany dla epizodu 90
+
+=== Start epizodu 91 ===
+ Retrying in 1 seconds
+Epizod 91 zakończony. Całkowita nagroda: -40055.33
+Model zapisany dla epizodu 91
+
+=== Start epizodu 92 ===
+ Retrying in 1 seconds
+Epizod 92 zakończony. Całkowita nagroda: -52045.02
+Model zapisany dla epizodu 92
+
+=== Start epizodu 93 ===
+ Retrying in 1 seconds
+Epizod 93 zakończony. Całkowita nagroda: -12309.04
+Model zapisany dla epizodu 93
+
+=== Start epizodu 94 ===
+ Retrying in 1 seconds
+Epizod 94 zakończony. Całkowita nagroda: -7923.48
+Model zapisany dla epizodu 94
+
+=== Start epizodu 95 ===
+ Retrying in 1 seconds
+Epizod 95 zakończony. Całkowita nagroda: -32395.91
+Model zapisany dla epizodu 95
+
+=== Start epizodu 96 ===
+ Retrying in 1 seconds
+Epizod 96 zakończony. Całkowita nagroda: -65796.12
+Model zapisany dla epizodu 96
+
+=== Start epizodu 97 ===
+ Retrying in 1 seconds
+Epizod 97 zakończony. Całkowita nagroda: -48134.99
+Model zapisany dla epizodu 97
+
+=== Start epizodu 98 ===
+ Retrying in 1 seconds
+Epizod 98 zakończony. Całkowita nagroda: -52922.02
+Model zapisany dla epizodu 98
+
+=== Start epizodu 99 ===
+ Retrying in 1 seconds
+Epizod 99 zakończony. Całkowita nagroda: -60708.49
+Model zapisany dla epizodu 99
+
+=== Start epizodu 100 ===
+ Retrying in 1 seconds
+Epizod 100 zakończony. Całkowita nagroda: -68651.33
+Model zapisany dla epizodu 100
+
+=== Start epizodu 101 ===
+ Retrying in 1 seconds
+Epizod 101 zakończony. Całkowita nagroda: -50899.72
+Model zapisany dla epizodu 101
+
+=== Start epizodu 102 ===
+ Retrying in 1 seconds
+Epizod 102 zakończony. Całkowita nagroda: -57742.86
+Model zapisany dla epizodu 102
+
+=== Start epizodu 103 ===
+ Retrying in 1 seconds
+Epizod 103 zakończony. Całkowita nagroda: -57135.91
+Model zapisany dla epizodu 103
+
+=== Start epizodu 104 ===
+ Retrying in 1 seconds
+Epizod 104 zakończony. Całkowita nagroda: -8090.55
+Model zapisany dla epizodu 104
+
+=== Start epizodu 105 ===
+ Retrying in 1 seconds
+Epizod 105 zakończony. Całkowita nagroda: -47737.14
+Model zapisany dla epizodu 105
+
+=== Start epizodu 106 ===
+ Retrying in 1 seconds
+Epizod 106 zakończony. Całkowita nagroda: -43962.85
+Model zapisany dla epizodu 106
+
+=== Start epizodu 107 ===
+ Retrying in 1 seconds
+Epizod 107 zakończony. Całkowita nagroda: -51852.85
+Model zapisany dla epizodu 107
+
+=== Start epizodu 108 ===
+ Retrying in 1 seconds
+Epizod 108 zakończony. Całkowita nagroda: -32248.92
+Model zapisany dla epizodu 108
+
+=== Start epizodu 109 ===
+ Retrying in 1 seconds
+Epizod 109 zakończony. Całkowita nagroda: 3971.03
+Model zapisany dla epizodu 109
+
+=== Start epizodu 110 ===
+ Retrying in 1 seconds
+Epizod 110 zakończony. Całkowita nagroda: -3591.97
+Model zapisany dla epizodu 110
+
+=== Start epizodu 111 ===
+ Retrying in 1 seconds
+Epizod 111 zakończony. Całkowita nagroda: 3880.56
+Model zapisany dla epizodu 111
+
+=== Start epizodu 112 ===
+ Retrying in 1 seconds
+Epizod 112 zakończony. Całkowita nagroda: 4908.39
+Model zapisany dla epizodu 112
+
+=== Start epizodu 113 ===
+ Retrying in 1 seconds
+Epizod 113 zakończony. Całkowita nagroda: 4230.26
+Model zapisany dla epizodu 113
+
+=== Start epizodu 114 ===
+ Retrying in 1 seconds
+Epizod 114 zakończony. Całkowita nagroda: -9587.21
+Model zapisany dla epizodu 114
+
+=== Start epizodu 115 ===
+ Retrying in 1 seconds
+Epizod 115 zakończony. Całkowita nagroda: -18653.72
+Model zapisany dla epizodu 115
+
+=== Start epizodu 116 ===
+ Retrying in 1 seconds
+Epizod 116 zakończony. Całkowita nagroda: -29216.20
+Model zapisany dla epizodu 116
+
+=== Start epizodu 117 ===
+ Retrying in 1 seconds
+Epizod 117 zakończony. Całkowita nagroda: -20813.94
+Model zapisany dla epizodu 117
+
+=== Start epizodu 118 ===
+ Retrying in 1 seconds
+Epizod 118 zakończony. Całkowita nagroda: -1718.63
+Model zapisany dla epizodu 118
+
+=== Start epizodu 119 ===
+ Retrying in 1 seconds
+Epizod 119 zakończony. Całkowita nagroda: -195.09
+Model zapisany dla epizodu 119
+
+=== Start epizodu 120 ===
+ Retrying in 1 seconds
+Epizod 120 zakończony. Całkowita nagroda: 3906.79
+Model zapisany dla epizodu 120
+
+=== Start epizodu 121 ===
+ Retrying in 1 seconds
+Epizod 121 zakończony. Całkowita nagroda: 4678.48
+Model zapisany dla epizodu 121
+
+=== Start epizodu 122 ===
+ Retrying in 1 seconds
+Epizod 122 zakończony. Całkowita nagroda: 4266.90
+Model zapisany dla epizodu 122
+
+=== Start epizodu 123 ===
+ Retrying in 1 seconds
+Epizod 123 zakończony. Całkowita nagroda: 4139.06
+Model zapisany dla epizodu 123
+
+=== Start epizodu 124 ===
+ Retrying in 1 seconds
+Epizod 124 zakończony. Całkowita nagroda: 3043.77
+Model zapisany dla epizodu 124
+
+=== Start epizodu 125 ===
+ Retrying in 1 seconds
+Epizod 125 zakończony. Całkowita nagroda: -36311.17
+Model zapisany dla epizodu 125
+
+=== Start epizodu 126 ===
+ Retrying in 1 seconds
+Epizod 126 zakończony. Całkowita nagroda: -62580.86
+Model zapisany dla epizodu 126
+
+=== Start epizodu 127 ===
+ Retrying in 1 seconds
+Epizod 127 zakończony. Całkowita nagroda: -13032.61
+Model zapisany dla epizodu 127
+
+=== Start epizodu 128 ===
+ Retrying in 1 seconds
+Epizod 128 zakończony. Całkowita nagroda: -35795.88
+Model zapisany dla epizodu 128
+
+=== Start epizodu 129 ===
+ Retrying in 1 seconds
+Epizod 129 zakończony. Całkowita nagroda: -36264.40
+Model zapisany dla epizodu 129
+
+=== Start epizodu 130 ===
+ Retrying in 1 seconds
+Epizod 130 zakończony. Całkowita nagroda: -8215.46
+Model zapisany dla epizodu 130
+
+=== Start epizodu 131 ===
+ Retrying in 1 seconds
+Epizod 131 zakończony. Całkowita nagroda: 5011.61
+Model zapisany dla epizodu 131
+
+=== Start epizodu 132 ===
+ Retrying in 1 seconds
+Epizod 132 zakończony. Całkowita nagroda: 4220.00
+Model zapisany dla epizodu 132
+
+=== Start epizodu 133 ===
+ Retrying in 1 seconds
+Epizod 133 zakończony. Całkowita nagroda: -46664.02
+Model zapisany dla epizodu 133
+
+=== Start epizodu 134 ===
+ Retrying in 1 seconds
+Epizod 134 zakończony. Całkowita nagroda: -16166.72
+Model zapisany dla epizodu 134
+
+=== Start epizodu 135 ===
+ Retrying in 1 seconds
+Epizod 135 zakończony. Całkowita nagroda: -4238.89
+Model zapisany dla epizodu 135
+
+=== Start epizodu 136 ===
+ Retrying in 1 seconds
+Epizod 136 zakończony. Całkowita nagroda: -49724.54
+Model zapisany dla epizodu 136
+
+=== Start epizodu 137 ===
+ Retrying in 1 seconds
+Epizod 137 zakończony. Całkowita nagroda: -56232.06
+Model zapisany dla epizodu 137
+
+=== Start epizodu 138 ===
+ Retrying in 1 seconds
+Epizod 138 zakończony. Całkowita nagroda: -46910.83
+Model zapisany dla epizodu 138
+
+=== Start epizodu 139 ===
+ Retrying in 1 seconds
+Epizod 139 zakończony. Całkowita nagroda: -9288.65
+Model zapisany dla epizodu 139
+
+=== Start epizodu 140 ===
+ Retrying in 1 seconds
+Epizod 140 zakończony. Całkowita nagroda: -36016.96
+Model zapisany dla epizodu 140
+
+=== Start epizodu 141 ===
+ Retrying in 1 seconds
+Epizod 141 zakończony. Całkowita nagroda: -15190.12
+Model zapisany dla epizodu 141
+
+=== Start epizodu 142 ===
+ Retrying in 1 seconds
+Epizod 142 zakończony. Całkowita nagroda: 3474.52
+Model zapisany dla epizodu 142
+
+=== Start epizodu 143 ===
+ Retrying in 1 seconds
+Epizod 143 zakończony. Całkowita nagroda: -9051.72
+Model zapisany dla epizodu 143
+
+=== Start epizodu 144 ===
+ Retrying in 1 seconds
+Epizod 144 zakończony. Całkowita nagroda: -6510.83
+Model zapisany dla epizodu 144
+
+=== Start epizodu 145 ===
+ Retrying in 1 seconds
+Epizod 145 zakończony. Całkowita nagroda: 4344.30
+Model zapisany dla epizodu 145
+
+=== Start epizodu 146 ===
+ Retrying in 1 seconds
+Epizod 146 zakończony. Całkowita nagroda: 4308.22
+Model zapisany dla epizodu 146
+
+=== Start epizodu 147 ===
+ Retrying in 1 seconds
+Epizod 147 zakończony. Całkowita nagroda: -25533.90
+Model zapisany dla epizodu 147
+
+=== Start epizodu 148 ===
+ Retrying in 1 seconds
+Epizod 148 zakończony. Całkowita nagroda: 3876.23
+Model zapisany dla epizodu 148
+
+=== Start epizodu 149 ===
+ Retrying in 1 seconds
+Epizod 149 zakończony. Całkowita nagroda: -6168.60
+Model zapisany dla epizodu 149
+
+=== Start epizodu 150 ===
+ Retrying in 1 seconds
+Epizod 150 zakończony. Całkowita nagroda: 4430.68
+Model zapisany dla epizodu 150
+
+=== Start epizodu 151 ===
+ Retrying in 1 seconds
+Epizod 151 zakończony. Całkowita nagroda: 4249.15
+Model zapisany dla epizodu 151
+
+=== Start epizodu 152 ===
+ Retrying in 1 seconds
+Epizod 152 zakończony. Całkowita nagroda: -15526.92
+Model zapisany dla epizodu 152
+
+=== Start epizodu 153 ===
+ Retrying in 1 seconds
+Epizod 153 zakończony. Całkowita nagroda: 4362.93
+Model zapisany dla epizodu 153
+
+=== Start epizodu 154 ===
+ Retrying in 1 seconds
+Epizod 154 zakończony. Całkowita nagroda: 4473.10
+Model zapisany dla epizodu 154
+
+=== Start epizodu 155 ===
+ Retrying in 1 seconds
+Epizod 155 zakończony. Całkowita nagroda: 4343.36
+Model zapisany dla epizodu 155
+
+=== Start epizodu 156 ===
+ Retrying in 1 seconds
+Epizod 156 zakończony. Całkowita nagroda: 4085.08
+Model zapisany dla epizodu 156
+
+=== Start epizodu 157 ===
+ Retrying in 1 seconds
+Epizod 157 zakończony. Całkowita nagroda: 3703.25
+Model zapisany dla epizodu 157
+
+=== Start epizodu 158 ===
+ Retrying in 1 seconds
+Epizod 158 zakończony. Całkowita nagroda: 4691.84
+Model zapisany dla epizodu 158
+
+=== Start epizodu 159 ===
+ Retrying in 1 seconds
+Epizod 159 zakończony. Całkowita nagroda: -9879.78
+Model zapisany dla epizodu 159
+
+=== Start epizodu 160 ===
+ Retrying in 1 seconds
+Epizod 160 zakończony. Całkowita nagroda: 4158.01
+Model zapisany dla epizodu 160
+
+=== Start epizodu 161 ===
+ Retrying in 1 seconds
+Epizod 161 zakończony. Całkowita nagroda: 4685.45
+Model zapisany dla epizodu 161
+
+=== Start epizodu 162 ===
+ Retrying in 1 seconds
+Epizod 162 zakończony. Całkowita nagroda: -6968.99
+Model zapisany dla epizodu 162
+
+=== Start epizodu 163 ===
+ Retrying in 1 seconds
+Epizod 163 zakończony. Całkowita nagroda: 4055.60
+Model zapisany dla epizodu 163
+
+=== Start epizodu 164 ===
+ Retrying in 1 seconds
+Epizod 164 zakończony. Całkowita nagroda: -4273.15
+Model zapisany dla epizodu 164
+
+=== Start epizodu 165 ===
+ Retrying in 1 seconds
+Epizod 165 zakończony. Całkowita nagroda: -1858.75
+Model zapisany dla epizodu 165
+
+=== Start epizodu 166 ===
+ Retrying in 1 seconds
+Epizod 166 zakończony. Całkowita nagroda: 4033.52
+Model zapisany dla epizodu 166
+
+=== Start epizodu 167 ===
+ Retrying in 1 seconds
+Epizod 167 zakończony. Całkowita nagroda: 3911.32
+Model zapisany dla epizodu 167
+
+=== Start epizodu 168 ===
+ Retrying in 1 seconds
+Epizod 168 zakończony. Całkowita nagroda: -4193.37
+Model zapisany dla epizodu 168
+
+=== Start epizodu 169 ===
+ Retrying in 1 seconds
+Epizod 169 zakończony. Całkowita nagroda: -21133.81
+Model zapisany dla epizodu 169
+
+=== Start epizodu 170 ===
+ Retrying in 1 seconds
+Epizod 170 zakończony. Całkowita nagroda: 4229.55
+Model zapisany dla epizodu 170
+
+=== Start epizodu 171 ===
+ Retrying in 1 seconds
+Epizod 171 zakończony. Całkowita nagroda: 4442.49
+Model zapisany dla epizodu 171
+
+=== Start epizodu 172 ===
+ Retrying in 1 seconds
+Epizod 172 zakończony. Całkowita nagroda: 4673.79
+Model zapisany dla epizodu 172
+
+=== Start epizodu 173 ===
+ Retrying in 1 seconds
+Epizod 173 zakończony. Całkowita nagroda: -4145.14
+Model zapisany dla epizodu 173
+
+=== Start epizodu 174 ===
+ Retrying in 1 seconds
+Epizod 174 zakończony. Całkowita nagroda: 440.84
+Model zapisany dla epizodu 174
+
+=== Start epizodu 175 ===
+ Retrying in 1 seconds
+Epizod 175 zakończony. Całkowita nagroda: 4388.43
+Model zapisany dla epizodu 175
+
+=== Start epizodu 176 ===
+ Retrying in 1 seconds
+Epizod 176 zakończony. Całkowita nagroda: 4644.02
+Model zapisany dla epizodu 176
+
+=== Start epizodu 177 ===
+ Retrying in 1 seconds
+Epizod 177 zakończony. Całkowita nagroda: 4626.85
+Model zapisany dla epizodu 177
+
+=== Start epizodu 178 ===
+ Retrying in 1 seconds
+Epizod 178 zakończony. Całkowita nagroda: -404.77
+Model zapisany dla epizodu 178
+
+=== Start epizodu 179 ===
+ Retrying in 1 seconds
+Epizod 179 zakończony. Całkowita nagroda: 4215.14
+Model zapisany dla epizodu 179
+
+=== Start epizodu 180 ===
+ Retrying in 1 seconds
+Epizod 180 zakończony. Całkowita nagroda: -946.12
+Model zapisany dla epizodu 180
+
+=== Start epizodu 181 ===
+ Retrying in 1 seconds
+Epizod 181 zakończony. Całkowita nagroda: 4925.11
+Model zapisany dla epizodu 181
+
+=== Start epizodu 182 ===
+ Retrying in 1 seconds
+Epizod 182 zakończony. Całkowita nagroda: 4665.00
+Model zapisany dla epizodu 182
+
+=== Start epizodu 183 ===
+ Retrying in 1 seconds
+Epizod 183 zakończony. Całkowita nagroda: 3809.96
+Model zapisany dla epizodu 183
+
+=== Start epizodu 184 ===
+ Retrying in 1 seconds
+Epizod 184 zakończony. Całkowita nagroda: -3352.03
+Model zapisany dla epizodu 184
+
+=== Start epizodu 185 ===
+ Retrying in 1 seconds
+Epizod 185 zakończony. Całkowita nagroda: 3857.60
+Model zapisany dla epizodu 185
+
+=== Start epizodu 186 ===
+ Retrying in 1 seconds
+Epizod 186 zakończony. Całkowita nagroda: 4422.76
+Model zapisany dla epizodu 186
+
+=== Start epizodu 187 ===
+ Retrying in 1 seconds
+Epizod 187 zakończony. Całkowita nagroda: 1289.03
+Model zapisany dla epizodu 187
+
+=== Start epizodu 188 ===
+ Retrying in 1 seconds
+Epizod 188 zakończony. Całkowita nagroda: 4716.25
+Model zapisany dla epizodu 188
+
+=== Start epizodu 189 ===
+ Retrying in 1 seconds
+Epizod 189 zakończony. Całkowita nagroda: 3746.63
+Model zapisany dla epizodu 189
+
+=== Start epizodu 190 ===
+ Retrying in 1 seconds
+Epizod 190 zakończony. Całkowita nagroda: 4946.74
+Model zapisany dla epizodu 190
+
+=== Start epizodu 191 ===
+ Retrying in 1 seconds
+Epizod 191 zakończony. Całkowita nagroda: -511.22
+Model zapisany dla epizodu 191
+
+=== Start epizodu 192 ===
+ Retrying in 1 seconds
+Epizod 192 zakończony. Całkowita nagroda: 3435.48
+Model zapisany dla epizodu 192
+
+=== Start epizodu 193 ===
+ Retrying in 1 seconds
+Epizod 193 zakończony. Całkowita nagroda: 4652.45
+Model zapisany dla epizodu 193
+
+=== Start epizodu 194 ===
+ Retrying in 1 seconds
+Epizod 194 zakończony. Całkowita nagroda: 4512.83
+Model zapisany dla epizodu 194
+
+=== Start epizodu 195 ===
+ Retrying in 1 seconds
+Epizod 195 zakończony. Całkowita nagroda: 4177.74
+Model zapisany dla epizodu 195
+
+=== Start epizodu 196 ===
+ Retrying in 1 seconds
+Epizod 196 zakończony. Całkowita nagroda: -18500.14
+Model zapisany dla epizodu 196
+
+=== Start epizodu 197 ===
+ Retrying in 1 seconds
+Epizod 197 zakończony. Całkowita nagroda: 4557.11
+Model zapisany dla epizodu 197
+
+=== Start epizodu 198 ===
+ Retrying in 1 seconds
+Epizod 198 zakończony. Całkowita nagroda: 3370.46
+Model zapisany dla epizodu 198
+
+=== Start epizodu 199 ===
+ Retrying in 1 seconds
+Epizod 199 zakończony. Całkowita nagroda: 4356.25
+Model zapisany dla epizodu 199
+
+=== Start epizodu 200 ===
+ Retrying in 1 seconds
+Epizod 200 zakończony. Całkowita nagroda: 4582.10
+Model zapisany dla epizodu 200
+
+=== Start epizodu 201 ===
+ Retrying in 1 seconds
+Epizod 201 zakończony. Całkowita nagroda: 4303.79
+Model zapisany dla epizodu 201
+
+=== Start epizodu 202 ===
+ Retrying in 1 seconds
+Epizod 202 zakończony. Całkowita nagroda: 4304.09
+Model zapisany dla epizodu 202
+
+=== Start epizodu 203 ===
+ Retrying in 1 seconds
+Epizod 203 zakończony. Całkowita nagroda: -44476.12
+Model zapisany dla epizodu 203
+
+=== Start epizodu 204 ===
+ Retrying in 1 seconds
+Epizod 204 zakończony. Całkowita nagroda: 4329.91
+Model zapisany dla epizodu 204
+
+=== Start epizodu 205 ===
+ Retrying in 1 seconds
+Epizod 205 zakończony. Całkowita nagroda: 3880.62
+Model zapisany dla epizodu 205
+
+=== Start epizodu 206 ===
+ Retrying in 1 seconds
+Epizod 206 zakończony. Całkowita nagroda: -20436.74
+Model zapisany dla epizodu 206
+
+=== Start epizodu 207 ===
+ Retrying in 1 seconds
+Epizod 207 zakończony. Całkowita nagroda: 2092.57
+Model zapisany dla epizodu 207
+
+=== Start epizodu 208 ===
+ Retrying in 1 seconds
+Epizod 208 zakończony. Całkowita nagroda: 4549.55
+Model zapisany dla epizodu 208
+
+=== Start epizodu 209 ===
+ Retrying in 1 seconds
+Epizod 209 zakończony. Całkowita nagroda: 4224.51
+Model zapisany dla epizodu 209
+
+=== Start epizodu 210 ===
+ Retrying in 1 seconds
+Epizod 210 zakończony. Całkowita nagroda: -39082.15
+Model zapisany dla epizodu 210
+
+=== Start epizodu 211 ===
+ Retrying in 1 seconds
+Epizod 211 zakończony. Całkowita nagroda: 4382.81
+Model zapisany dla epizodu 211
+
+=== Start epizodu 212 ===
+ Retrying in 1 seconds
+Epizod 212 zakończony. Całkowita nagroda: 4509.17
+Model zapisany dla epizodu 212
+
+=== Start epizodu 213 ===
+ Retrying in 1 seconds
+Epizod 213 zakończony. Całkowita nagroda: 4783.90
+Model zapisany dla epizodu 213
+
+=== Start epizodu 214 ===
+ Retrying in 1 seconds
+Epizod 214 zakończony. Całkowita nagroda: 4471.40
+Model zapisany dla epizodu 214
+
+=== Start epizodu 215 ===
+ Retrying in 1 seconds
+Epizod 215 zakończony. Całkowita nagroda: 4512.63
+Model zapisany dla epizodu 215
+
+=== Start epizodu 216 ===
+ Retrying in 1 seconds
+Epizod 216 zakończony. Całkowita nagroda: 3787.99
+Model zapisany dla epizodu 216
+
+=== Start epizodu 217 ===
+ Retrying in 1 seconds
+Epizod 217 zakończony. Całkowita nagroda: 4383.78
+Model zapisany dla epizodu 217
+
+=== Start epizodu 218 ===
+ Retrying in 1 seconds
+Epizod 218 zakończony. Całkowita nagroda: 748.70
+Model zapisany dla epizodu 218
+
+=== Start epizodu 219 ===
+ Retrying in 1 seconds
+Epizod 219 zakończony. Całkowita nagroda: -2993.92
+Model zapisany dla epizodu 219
+
+=== Start epizodu 220 ===
+ Retrying in 1 seconds
+Epizod 220 zakończony. Całkowita nagroda: 4473.50
+Model zapisany dla epizodu 220
+
+=== Start epizodu 221 ===
+ Retrying in 1 seconds
+Epizod 221 zakończony. Całkowita nagroda: 4073.85
+Model zapisany dla epizodu 221
+
+=== Start epizodu 222 ===
+ Retrying in 1 seconds
+Epizod 222 zakończony. Całkowita nagroda: 4449.34
+Model zapisany dla epizodu 222
+
+=== Start epizodu 223 ===
+ Retrying in 1 seconds
+Epizod 223 zakończony. Całkowita nagroda: 3736.07
+Model zapisany dla epizodu 223
+
+=== Start epizodu 224 ===
+ Retrying in 1 seconds
+Epizod 224 zakończony. Całkowita nagroda: 4455.94
+Model zapisany dla epizodu 224
+
+=== Start epizodu 225 ===
+ Retrying in 1 seconds
+Epizod 225 zakończony. Całkowita nagroda: -143.14
+Model zapisany dla epizodu 225
+
+=== Start epizodu 226 ===
+ Retrying in 1 seconds
+Epizod 226 zakończony. Całkowita nagroda: 4735.36
+Model zapisany dla epizodu 226
+
+=== Start epizodu 227 ===
+ Retrying in 1 seconds
+Epizod 227 zakończony. Całkowita nagroda: 4418.37
+Model zapisany dla epizodu 227
+
+=== Start epizodu 228 ===
+ Retrying in 1 seconds
+Epizod 228 zakończony. Całkowita nagroda: -6392.10
+Model zapisany dla epizodu 228
+
+=== Start epizodu 229 ===
+ Retrying in 1 seconds
+Epizod 229 zakończony. Całkowita nagroda: -21262.68
+Model zapisany dla epizodu 229
+
+=== Start epizodu 230 ===
+ Retrying in 1 seconds
+Epizod 230 zakończony. Całkowita nagroda: 4468.20
+Model zapisany dla epizodu 230
+
+=== Start epizodu 231 ===
+ Retrying in 1 seconds
+Epizod 231 zakończony. Całkowita nagroda: 4104.70
+Model zapisany dla epizodu 231
+
+=== Start epizodu 232 ===
+ Retrying in 1 seconds
+Epizod 232 zakończony. Całkowita nagroda: 4224.43
+Model zapisany dla epizodu 232
+
+=== Start epizodu 233 ===
+ Retrying in 1 seconds
+Epizod 233 zakończony. Całkowita nagroda: 3928.02
+Model zapisany dla epizodu 233
+
+=== Start epizodu 234 ===
+ Retrying in 1 seconds
+Epizod 234 zakończony. Całkowita nagroda: 3925.79
+Model zapisany dla epizodu 234
+
+=== Start epizodu 235 ===
+ Retrying in 1 seconds
+Epizod 235 zakończony. Całkowita nagroda: 4447.54
+Model zapisany dla epizodu 235
+
+=== Start epizodu 236 ===
+ Retrying in 1 seconds
+Epizod 236 zakończony. Całkowita nagroda: 2429.35
+Model zapisany dla epizodu 236
+
+=== Start epizodu 237 ===
+ Retrying in 1 seconds
+Epizod 237 zakończony. Całkowita nagroda: -63154.26
+Model zapisany dla epizodu 237
+
+=== Start epizodu 238 ===
+ Retrying in 1 seconds
+Epizod 238 zakończony. Całkowita nagroda: 4252.62
+Model zapisany dla epizodu 238
+
+=== Start epizodu 239 ===
+ Retrying in 1 seconds
+Epizod 239 zakończony. Całkowita nagroda: -2268.56
+Model zapisany dla epizodu 239
+
+=== Start epizodu 240 ===
+ Retrying in 1 seconds
+Epizod 240 zakończony. Całkowita nagroda: -1840.31
+Model zapisany dla epizodu 240
+
+=== Start epizodu 241 ===
+ Retrying in 1 seconds
+Epizod 241 zakończony. Całkowita nagroda: 3852.81
+Model zapisany dla epizodu 241
+
+=== Start epizodu 242 ===
+ Retrying in 1 seconds
+Epizod 242 zakończony. Całkowita nagroda: 4168.49
+Model zapisany dla epizodu 242
+
+=== Start epizodu 243 ===
+ Retrying in 1 seconds
+Epizod 243 zakończony. Całkowita nagroda: 3989.71
+Model zapisany dla epizodu 243
+
+=== Start epizodu 244 ===
+ Retrying in 1 seconds
+Epizod 244 zakończony. Całkowita nagroda: 1186.07
+Model zapisany dla epizodu 244
+
+=== Start epizodu 245 ===
+ Retrying in 1 seconds
+Epizod 245 zakończony. Całkowita nagroda: 4160.96
+Model zapisany dla epizodu 245
+
+=== Start epizodu 246 ===
+ Retrying in 1 seconds
+Epizod 246 zakończony. Całkowita nagroda: 3720.06
+Model zapisany dla epizodu 246
+
+=== Start epizodu 247 ===
+ Retrying in 1 seconds
+Epizod 247 zakończony. Całkowita nagroda: -1179.76
+Model zapisany dla epizodu 247
+
+=== Start epizodu 248 ===
+ Retrying in 1 seconds
+Epizod 248 zakończony. Całkowita nagroda: -711.30
+Model zapisany dla epizodu 248
+
+=== Start epizodu 249 ===
+ Retrying in 1 seconds
+Epizod 249 zakończony. Całkowita nagroda: 4059.15
+Model zapisany dla epizodu 249
+
+=== Start epizodu 250 ===
+ Retrying in 1 seconds
+Epizod 250 zakończony. Całkowita nagroda: -16260.10
+Model zapisany dla epizodu 250
+
+=== Start epizodu 251 ===
+ Retrying in 1 seconds
+Epizod 251 zakończony. Całkowita nagroda: 3925.80
+Model zapisany dla epizodu 251
+
+=== Start epizodu 252 ===
+ Retrying in 1 seconds
+Epizod 252 zakończony. Całkowita nagroda: 3532.66
+Model zapisany dla epizodu 252
+
+=== Start epizodu 253 ===
+ Retrying in 1 seconds
+Epizod 253 zakończony. Całkowita nagroda: -2700.49
+Model zapisany dla epizodu 253
+
+=== Start epizodu 254 ===
+ Retrying in 1 seconds
+Epizod 254 zakończony. Całkowita nagroda: 4369.85
+Model zapisany dla epizodu 254
+
+=== Start epizodu 255 ===
+ Retrying in 1 seconds
+Epizod 255 zakończony. Całkowita nagroda: 1931.97
+Model zapisany dla epizodu 255
+
+=== Start epizodu 256 ===
+ Retrying in 1 seconds
+Epizod 256 zakończony. Całkowita nagroda: 4445.32
+Model zapisany dla epizodu 256
+
+=== Start epizodu 257 ===
+ Retrying in 1 seconds
+Epizod 257 zakończony. Całkowita nagroda: 4348.03
+Model zapisany dla epizodu 257
+
+=== Start epizodu 258 ===
+ Retrying in 1 seconds
+Epizod 258 zakończony. Całkowita nagroda: -34124.83
+Model zapisany dla epizodu 258
+
+=== Start epizodu 259 ===
+ Retrying in 1 seconds
+Epizod 259 zakończony. Całkowita nagroda: 4342.20
+Model zapisany dla epizodu 259
+
+=== Start epizodu 260 ===
+ Retrying in 1 seconds
+Epizod 260 zakończony. Całkowita nagroda: 5090.55
+Model zapisany dla epizodu 260
+
+=== Start epizodu 261 ===
+ Retrying in 1 seconds
+Epizod 261 zakończony. Całkowita nagroda: 3953.85
+Model zapisany dla epizodu 261
+
+=== Start epizodu 262 ===
+ Retrying in 1 seconds
+Epizod 262 zakończony. Całkowita nagroda: 3913.02
+Model zapisany dla epizodu 262
+
+=== Start epizodu 263 ===
+ Retrying in 1 seconds
+Epizod 263 zakończony. Całkowita nagroda: 4680.34
+Model zapisany dla epizodu 263
+
+=== Start epizodu 264 ===
+ Retrying in 1 seconds
+Epizod 264 zakończony. Całkowita nagroda: 4178.08
+Model zapisany dla epizodu 264
+
+=== Start epizodu 265 ===
+ Retrying in 1 seconds
+Epizod 265 zakończony. Całkowita nagroda: -10349.36
+Model zapisany dla epizodu 265
+
+=== Start epizodu 266 ===
+ Retrying in 1 seconds
+Epizod 266 zakończony. Całkowita nagroda: -1823.52
+Model zapisany dla epizodu 266
+
+=== Start epizodu 267 ===
+ Retrying in 1 seconds
+Epizod 267 zakończony. Całkowita nagroda: -28858.58
+Model zapisany dla epizodu 267
+
+=== Start epizodu 268 ===
+ Retrying in 1 seconds
+Epizod 268 zakończony. Całkowita nagroda: 3958.17
+Model zapisany dla epizodu 268
+
+=== Start epizodu 269 ===
+ Retrying in 1 seconds
+Epizod 269 zakończony. Całkowita nagroda: 4350.94
+Model zapisany dla epizodu 269
+
+=== Start epizodu 270 ===
+ Retrying in 1 seconds
+Epizod 270 zakończony. Całkowita nagroda: -10185.87
+Model zapisany dla epizodu 270
+
+=== Start epizodu 271 ===
+ Retrying in 1 seconds
+Epizod 271 zakończony. Całkowita nagroda: 1133.68
+Model zapisany dla epizodu 271
+
+=== Start epizodu 272 ===
+ Retrying in 1 seconds
+Epizod 272 zakończony. Całkowita nagroda: 4337.55
+Model zapisany dla epizodu 272
+
+=== Start epizodu 273 ===
+ Retrying in 1 seconds
+Epizod 273 zakończony. Całkowita nagroda: -26131.45
+Model zapisany dla epizodu 273
+
+=== Start epizodu 274 ===
+ Retrying in 1 seconds
+Epizod 274 zakończony. Całkowita nagroda: 3940.88
+Model zapisany dla epizodu 274
+
+=== Start epizodu 275 ===
+ Retrying in 1 seconds
+Epizod 275 zakończony. Całkowita nagroda: 4256.74
+Model zapisany dla epizodu 275
+
+=== Start epizodu 276 ===
+ Retrying in 1 seconds
+Epizod 276 zakończony. Całkowita nagroda: 4206.45
+Model zapisany dla epizodu 276
+
+=== Start epizodu 277 ===
+ Retrying in 1 seconds
+Epizod 277 zakończony. Całkowita nagroda: 4101.68
+Model zapisany dla epizodu 277
+
+=== Start epizodu 278 ===
+ Retrying in 1 seconds
+Epizod 278 zakończony. Całkowita nagroda: 4375.02
+Model zapisany dla epizodu 278
+
+=== Start epizodu 279 ===
+ Retrying in 1 seconds
+Epizod 279 zakończony. Całkowita nagroda: 4689.24
+Model zapisany dla epizodu 279
+
+=== Start epizodu 280 ===
+ Retrying in 1 seconds
+Epizod 280 zakończony. Całkowita nagroda: 4052.07
+Model zapisany dla epizodu 280
+
+=== Start epizodu 281 ===
+ Retrying in 1 seconds
+Epizod 281 zakończony. Całkowita nagroda: -6944.91
+Model zapisany dla epizodu 281
+
+=== Start epizodu 282 ===
+ Retrying in 1 seconds
+Epizod 282 zakończony. Całkowita nagroda: 1280.87
+Model zapisany dla epizodu 282
+
+=== Start epizodu 283 ===
+ Retrying in 1 seconds
+Epizod 283 zakończony. Całkowita nagroda: 1964.59
+Model zapisany dla epizodu 283
+
+=== Start epizodu 284 ===
+ Retrying in 1 seconds
+Epizod 284 zakończony. Całkowita nagroda: 4378.92
+Model zapisany dla epizodu 284
+
+=== Start epizodu 285 ===
+ Retrying in 1 seconds
+Epizod 285 zakończony. Całkowita nagroda: 4223.08
+Model zapisany dla epizodu 285
+
+=== Start epizodu 286 ===
+ Retrying in 1 seconds
+Epizod 286 zakończony. Całkowita nagroda: 4908.98
+Model zapisany dla epizodu 286
+
+=== Start epizodu 287 ===
+ Retrying in 1 seconds
+Epizod 287 zakończony. Całkowita nagroda: 4519.61
+Model zapisany dla epizodu 287
+
+=== Start epizodu 288 ===
+ Retrying in 1 seconds
+Epizod 288 zakończony. Całkowita nagroda: 4249.76
+Model zapisany dla epizodu 288
+
+=== Start epizodu 289 ===
+ Retrying in 1 seconds
+Epizod 289 zakończony. Całkowita nagroda: -20797.82
+Model zapisany dla epizodu 289
+
+=== Start epizodu 290 ===
+ Retrying in 1 seconds
+Epizod 290 zakończony. Całkowita nagroda: 3986.18
+Model zapisany dla epizodu 290
+
+=== Start epizodu 291 ===
+ Retrying in 1 seconds
+Epizod 291 zakończony. Całkowita nagroda: -8848.69
+Model zapisany dla epizodu 291
+
+=== Start epizodu 292 ===
+ Retrying in 1 seconds
+Epizod 292 zakończony. Całkowita nagroda: 2959.97
+Model zapisany dla epizodu 292
+
+=== Start epizodu 293 ===
+ Retrying in 1 seconds
+Epizod 293 zakończony. Całkowita nagroda: 3710.35
+Model zapisany dla epizodu 293
+
+=== Start epizodu 294 ===
+ Retrying in 1 seconds
+Epizod 294 zakończony. Całkowita nagroda: 4296.55
+Model zapisany dla epizodu 294
+
+=== Start epizodu 295 ===
+ Retrying in 1 seconds
+Epizod 295 zakończony. Całkowita nagroda: 1950.29
+Model zapisany dla epizodu 295
+
+=== Start epizodu 296 ===
+ Retrying in 1 seconds
+Epizod 296 zakończony. Całkowita nagroda: 4257.08
+Model zapisany dla epizodu 296
+
+=== Start epizodu 297 ===
+ Retrying in 1 seconds
+Epizod 297 zakończony. Całkowita nagroda: 4395.72
+Model zapisany dla epizodu 297
+
+=== Start epizodu 298 ===
+ Retrying in 1 seconds
+Epizod 298 zakończony. Całkowita nagroda: 4287.67
+Model zapisany dla epizodu 298
+
+=== Start epizodu 299 ===
+ Retrying in 1 seconds
+Epizod 299 zakończony. Całkowita nagroda: -39640.73
+Model zapisany dla epizodu 299
