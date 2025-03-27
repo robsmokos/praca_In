@@ -1,0 +1,38 @@
+@startuml
+
+start
+:Inicjalizacja (model, parametry, itp.);
+
+while (episode < 300) is (Tak)
+  :Uruchom SUMO;
+  :Pobierz stan (old_state);
+  :Wybierz i zastosuj akcj? (old_actions);
+
+  while (step < 6000) is (Tak)
+    :traci.simulationStep();
+    :reward = get_reward();
+    :cumulated_reward += reward;
+
+    if (step % CONTROL_INTERVAL == 0 or step == 6000) then (Tak)
+      :current_state = get_state();
+      :Oblicz target = cumulated_reward + gamma*next_value;
+      :Policz i zastosuj gradient (aktualizacja modelu);
+      :old_state = current_state;
+      :Wybierz now? akcj? i ustaw;
+      :zeruj cumulated_reward;
+    else (Nie)
+    endif
+
+    :step++;
+
+  endwhile (Nie)
+
+  :Wy?wietl i zapisz total_reward;
+  :Zamknij SUMO;
+  :episode++;
+
+endwhile (Nie)
+
+stop
+
+@enduml

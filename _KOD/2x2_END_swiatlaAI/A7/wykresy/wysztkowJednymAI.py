@@ -15,22 +15,22 @@ fig, ax1 = plt.subplots(figsize=(14, 6))
 
 # Oś lewa - Średnia prędkość
 ax1.set_xlabel("Krok")
-ax1.set_ylabel("Średnia prędkość (m/s)", color="royalblue")
-ln1 = ax1.plot(df_sampled["Krok"], df_sampled["SredniaPredkosc(m/s)"], color="royalblue", label="Średnia prędkość (m/s)")
-ax1.tick_params(axis='y', labelcolor="royalblue")
+ax1.set_ylabel("Średnia prędkość (m/s)", color="#fc5a50")
+ln1 = ax1.plot(df_sampled["Krok"], df_sampled["SredniaPredkosc(m/s)"], color="#fc5a50", label="Średnia prędkość (m/s)")
+ax1.tick_params(axis='y', labelcolor="#fc5a50")
 
 # Oś prawa - Zatrzymane pojazdy
 ax2 = ax1.twinx()
-ax2.set_ylabel("Zatrzymane pojazdy", color="orange")
-ln2 = ax2.plot(df_sampled["Krok"], df_sampled["ZatrzymanePojazdy"], color="orange", label="Zatrzymane pojazdy")
-ax2.tick_params(axis='y', labelcolor="darkorange")
+ax2.set_ylabel("Zatrzymane pojazdy", color="#25a36f")
+ln2 = ax2.plot(df_sampled["Krok"], df_sampled["ZatrzymanePojazdy"], color="#25a36f", label="Zatrzymane pojazdy")
+ax2.tick_params(axis='y', labelcolor="#25a36f")
 
 # Druga oś prawa - Czas oczekiwania
 ax3 = ax1.twinx()
 ax3.spines["right"].set_position(("axes", 1.1))  # przesunięcie drugiej osi
-ax3.set_ylabel("Czas oczekiwania (s)", color="seagreen")
-ln3 = ax3.plot(df_sampled["Krok"], df_sampled["CzasOczekiwania(s)"], color="seagreen", label="Czas oczekiwania (s)")
-ax3.tick_params(axis='y', labelcolor="seagreen")
+ax3.set_ylabel("Czas oczekiwania (s)", color="#6488ea")
+ln3 = ax3.plot(df_sampled["Krok"], df_sampled["CzasOczekiwania(s)"], color="#6488ea", label="Czas oczekiwania (s)")
+ax3.tick_params(axis='y', labelcolor="#6488ea")
 
 # Dodanie legendy
 lns = ln1 + ln2 + ln3

@@ -11,16 +11,16 @@ plt.figure(figsize=(12, 6))
 
 # Wykresy scatter z większą przezroczystością (alpha) dla lepszego przenikania
 plt.scatter(ai_df["ZatrzymanePojazdy"], ai_df["SredniaPredkosc(m/s)"], 
-            alpha=0.2, label="AI", color="skyblue", edgecolors='k', linewidths=0.3)
+            alpha=0.2, label="Aktor-Krytyk AI", color="#fc5a50",  linewidths=0.3)
 
 plt.scatter(seq_df["ZatrzymanePojazdy"], seq_df["SredniaPredkosc(m/s)"], 
-            alpha=0.2, label="Sekwencyjne", color="orange", edgecolors='k', linewidths=0.3)
+            alpha=0.2, label="sterowanie sekwencyjne", color="#6488ea",  linewidths=0.3)
 
 plt.scatter(opt_df["ZatrzymanePojazdy"], opt_df["SredniaPredkosc(m/s)"], 
-            alpha=0.2, label="Optymalne", color="lightgreen", edgecolors='k', linewidths=0.3)
+            alpha=0.2, label="optymalizator SUMO", color="#25a36f",  linewidths=0.3)
 
 # Opisy wykresu
-plt.title("Analiza rozrzutu z przenikającymi się barwami")
+plt.title("Analiza rozrzutu")
 plt.xlabel("Zatrzymane pojazdy")
 plt.ylabel("Średnia prędkość (m/s)")
 plt.grid(True)
