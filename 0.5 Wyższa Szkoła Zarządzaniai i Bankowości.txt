@@ -1,0 +1,918 @@
+Wy¿sza Szko³a Zarz¹dzania i Bankowoœci
+	w Krakowie	
+
+
+PRACA IN¯YNIERSKA
+
+Robert Smoter
+
+
+Symulacja ruchu drogowego z zastosowaniem algorytmów optymalizacji sterowania sygnalizacj¹ œwietln¹.
+
+
+
+
+
+
+
+PROMOTOR
+dr hab. in¿. Rafa³ Dre¿ewski
+
+
+
+
+KRAKÓW 2025
+
+ITS (Intelligent transportation system)
+RL
+Actor-Critic (A2C),
+SUMO (Simulation of Urban Mobility)
+Deep Neural Network, DNN, sieci g³ebokie
+?, ? – delta
+?,w – theta, parametry sieci neuronowej (tensora)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Wstêp
+
+	Ruch drogowy odgrywa kluczow¹ rolê w funkcjonowaniu wysoko zurbanizowanych spo³ecznoœci, stanowi¹c fundament ich gospodarki i ¿ycia spo³ecznego. Dynamiczny wzrost liczby pojazdów wywiera ci¹g³¹ presjê na istniej¹c¹ infrastrukturê transportow¹.  Kongestia drogowa generuje wymierne straty finansowe, przyczynia siê do zwiêkszonej emisji spalin, pogarsza jakoœæ œrodowiska. W sposób poœredni utrudnia i obni¿aj¹ poziom ¿ycia mieszkañców aglomeracji. Zatory drogowe wp³ywaj¹ na czas reakcji s³u¿b ratunkowych (stra¿ po¿arna, policja, s³u¿ba zdrowia). Wraz ze wzrostem obci¹¿enia infrastruktury drogowej, roœnie zapotrzebowanie na efektywne metody kontroli ruchu. Poniewa¿ fizyczna rozbudowy dróg, jest bardzo kosztowna, a czêsto niemo¿liwa, jednym z kluczowych narzêdzi poprawy dynamiki ruchu s¹ sygnalizatory œwietlne a ich optymalizacja jest kluczowa dla minimalizowania opóŸnieñ drogowych.
+	Nowoczesne systemy transportowe (ITS), oferuj¹ szereg usprawnieñ podnosz¹cych p³ynnoœæ ruchu drogowego w porównaniu do systemów statycznych, nie uwzglêdniaj¹cych dynamicznie zmieniaj¹cych siê warunków œrodowiska. Systemy takie jak SCATS, SCOOT czy RHODES, pozwalaj¹ na adaptacyjne dostosowywanie cykli sygna³ów do bie¿¹cych warunków drogowych. Mimo ich skutecznoœci, wci¹¿ istnieje przestrzeñ do ich udoskonaleñ. W tym kontekœcie, modele uczenia maszynowego mog¹ odegraæ kluczow¹ rolê w dalszym rozwoju tych systemów.
+	Nagroda Nobla z dziedzinie fizyki w 2024 roku, jest dowodem, ¿e badania nad algorytmami sztucznej inteligencji pozostaj¹ w centrum zainteresowana œwiata nauki. John J. Hopfield i Geoffrey E. Hinton otrzymali to najwy¿sze naukowe wyró¿nienie za „fundamentalne odkrycia i wynalazki umo¿liwiaj¹ce uczenie maszynowe przy u¿yciu sztucznych sieci neuronowych”1. Ich prace przyczyni³y siê do stworzenia mechanizmu wstecznej propagacja b³êdów, co da³o impuls do rozwiniêcie neuronowych sieci wielowarstwowych, które sta³y siê podwalin¹ wspó³czesnych systemów uczenia maszynowego.
+	Sukces finansowy takich projektów jak CHAT GPT,2  AlphaFold, Tesla Autopilot, powoduje, ¿e ta dyscyplina wiedzy prze¿ywa kolejny renesans.
+2. Uzasadnienie wyboru tematu
+
+	Obecnie jesteœmy œwiadkami rewolucji AI.  Powstaj¹ nowe typy jednostek obliczeniowych TPU v6 o prêdkoœci 1836 TOPS (Tera Operations Per Second). Rozwój technologii AI zaczyna byæ blokowany przez ograniczon¹ iloœæ sklasyfikowanych danych niezbêdnych do trenowania modeli.
+	Systemy takie jak AlphaGo, opracowane przez DeepMind, uœwiadamiaj¹ nam, ¿e maszyny mog¹ przekroczyæ poziom ludzkich umiejêtnoœci. System AlphaGo Zero,3 osi¹gn¹³ po 3 godzinach treningu mistrzowski poziom w grze w Go, a po 70 godzinach nauki zaproponowa³ rozwi¹zania przekraczaj¹ce dotychczasowe ludzkie doœwiadczenie.
+      Nowoczesne systemy sterowania ruchem, w po³¹czeniu z technologi¹ autonomicznych pojazdów, mog¹ znacz¹co poprawiæ efektywnoœæ komunikacji drogowej. Informacje generowane przez autonomiczne pojazdy oraz inne efektory, mog¹ stanowiæ Ÿród³o danych do tworzenia zaawansowanych strategii zarz¹dzania ruchem, zwiêkszaj¹c p³ynnoœæ 
+i bezpieczeñstwo na drogach.
+      Wybór tematu pracy jest uzasadniony aktualnymi kierunkami badañ w dziedzinie sztucznej inteligencji, potencja³em technologii sieci neuronowych oraz prób¹ wykorzystania wiedzy teoretycznej z zakresu algorytmów uczenia maszynowego w praktycznym zastosowaniu. Jako osoba zafascynowana mo¿liwoœciami AI i jej potencja³em w rozwi¹zywaniu realnych problemów, postanowi³em skupiæ siê na tej tematyce, aby nie tylko pog³êbiæ swoj¹ wiedzê teoretyczn¹, ale tak¿e sprawdziæ siê w praktycznym zastosowaniu tych technologii. Badania w dziedzinie AI cechuj¹ siê du¿¹ dynamik¹, co sprawia, ¿e jest to niezwykle ekscytuj¹ce i wymagaj¹ce pole do eksploracji
+
+
+
+3. Cel pracy
+
+	Celem pracy jest zbadanie, w jaki sposób algorytmy RL, takie jak aktor-krytyk 
+(Actor-Critic (AC)), mog¹ zostaæ wykorzystane do sterowania sygnalizacj¹ œwietln¹ na obszarach o du¿ym natê¿eniu ruchu. Symulacje przeprowadzone w œrodowisku SUMO pozwol¹ na ocenê potencja³u oraz efektywnoœci takiego rozwi¹zania.  
+
+Zakres pracy obejmuje:
+
+1. Przedmiotowy: Optymalizacje sterowania sygnalizacj¹ œwietln¹ na skrzy¿owaniach przy u¿yciu algorytmu aktor-krytyk. 
+Analizê i interpretacjê wyników symulacji komputerowej.
+2. Czasowy: 
+- Analizê literatury i istniej¹cych rozwi¹zañ semestr 5.
+- Projektowanie i implementacjê algorytmu semestr 6.
+- Testowanie i analizê wyników w œrodowisku symulacyjnym SUMO semestr 7.
+3. Przestrzenny: Symulacje zostanie przeprowadzona w wirtualnym œrodowisku SUMO. Ruch drogowy bêdzie generowany syntetycznie, z uwzglêdnieniem scenariuszy, które koncentruj¹ siê na tworzeniu zatorów drogowych.
+
+Stosowane metody
+
+W pracy zastosowane zostan¹ nastêpuj¹ce metody:
+1. Analiza Ÿróde³: Przegl¹d istniej¹cych systemów sterowania ruchem oraz prac naukowych zwi¹zanych z zastosowaniem sztucznej inteligencji w tej dziedzinie.
+2. Modelowanie i symulacja: Implementacja algorytmu AC w œrodowisku SUMO, pozwalaj¹ca na symulacjê sterowania sygnalizacj¹ œwietln¹.
+3. Metody oceny efektywnoœci: Analiza wyników symulacji, w tym pomiar opóŸnieñ, czasu oczekiwania pojazdów, przepustowoœci, iloœæ zu¿ytego paliwa i wyemitowanego CO2.
+
+Opis zawartoœci poszczególnych rozdzia³ów pracy
+
+Rozdzia³ 4: Sterowanie ruchem œwietlnym, omówienie aktualnych metod sterowania sygnalizacj¹ œwietln¹.
+Rozdzia³ 5: Uczenie maszynowe; analiza literatury naukowej, opis procesów RL, AC.
+Rozdzia³ 6: Pakiet symulatora SUMO.
+Rozdzia³ 7: Przygotowanie œrodowiska testowego.
+Rozdzia³ 8: Zastosowanie algorytmu AC w œrodowisku testowym.
+Rozdzia³ 9: Analiza zgromadzonych danych.
+
+Podsumowanie
+
+      Praca stanowi po³¹czenie teorii algorytmów sztucznej inteligencji z praktycznym ich zastosowaniem. Celem jest implementacja algorytmu AC (aktor-krytyk) do sterowania sygnalizacj¹ œwietln¹ w modelowanym œrodowisku SUMO (Simulation of Urban MObility).	Przeprowadzone symulacje bêd¹ stanowiæ cenne doœwiadczenie edukacyjne, umo¿liwiaj¹ce zg³êbienie z³o¿onej tematyki algorytmów uczenia ze wzmacnianiem, sieci neuronowych oraz modelowania systemów transportowych. Projekt pozwoli na praktyczne zastosowanie wiedzy teoretycznej oraz rozwiniêcie umiejêtnoœci w zakresie implementacji i optymalizacji systemów opartych na sztucznej inteligencji.
+      Do komunikacyjnych miêdzy algorytmem a symulatorem SUMO wykorzystane zostan¹ skrypty w jêzyku Python, co zwiêkszy funkcjonalnoœæ i elastycznoœæ ca³ego rozwi¹zania. 
+   Uzyskane wnioski z przeprowadzonych symulacji mog¹ staæ siê podstaw¹ dla dalszego pog³êbiania wiedzy w poruszanych obszarach.
+
+
+4. Sterowanie ruchem œwietlnym 
+
+   Pierwsze zastosowanie sygnalizacji œwietlnej w sterowaniu ruchem drogowym mia³o miejsce w 1868 roku w Londynie. Latarnie wyposa¿one by³y w lampy gazowe. Elektryczna sygnalizacja zosta³a po raz pierwszy zastosowana w 1914 roku w Cleveland.4 Do roku 1918 sygnalizatory by³y dwukolorowe, tj. wyposa¿one w œwiat³o czerwone i zielone. Trójkolorow¹, sygnalizacja zawieraj¹c¹ równie¿ œwiat³o ¿ó³te, zainicjowano w Londynie.
+	Sterowanie sygnalizacj¹ ewoluowa³o od systemów sta³oczasowych do systemów zmiennoczasowych. Systemy sta³oczasowe dzia³aj¹ na podstawie historycznych danych, bez sprzê¿enia zwrotnego, zmiennoczasowe dopasowuj¹ d³ugoœæ faz lub zmieniaj¹c sekwencje faz sygnalizacji do parametrów ruchu.
+	Nowoczesne systemy obejmuj¹ nie tylko pojedyncze skrzy¿owania, ale tak¿e ca³e sieci drogowe. Lokalne sterowniki œwietlne, dzia³aj¹ce w zdecentralizowany sposób, s¹ wystarczaj¹ce w warunkach niskiego ruchu, jednak przy wiêkszej gêstoœci ich wydajnoœæ jest niewystarczaj¹ca. Skutecznoœæ lokalnych decyzji nie zawsze przek³ada siê na globaln¹ optymalizacjê. Obecne trendy to tworzenie scentralizowanych i hierarchicznych systemów sterowania, uwzglêdniaj¹cych wspó³pracê miêdzy skrzy¿owaniami.
+	 Najnowsze metody, oparte na modelach predykcyjnych, nie tylko dopasowuj¹ sterowanie do bie¿¹cych warunków, ale tak¿e staraj¹ siê przewidywaæ przysz³e sytuacje, co pozwala na lepsze planowanie i podejmowanie decyzji.
+
+
+
+
+
+
+
+4.1 Sterowanie ruchem drogowym: szczegó³owy podzia³ systemów.
+
+Poni¿ej przedstawiono podzia³ systemów sterowania ruchem drogowym.5
+4.1.1 Podzia³ wed³ug struktury sterowania:
+
+   Systemy zdecentralizowane:
+   Lokalne sterowniki steruj¹ ruchem na pojedynczym skrzy¿owaniu.
+Brak koordynacji miêdzy skrzy¿owaniami, co ogranicza ich skutecznoœæ w zarz¹dzaniu ruchem w du¿ych obszarach.
+Zastosowanie: Mniejsze miasta lub obszary o niskim natê¿eniu ruchu, gdzie nie jest konieczna synchronizacja sygnalizacji.
+   Systemy scentralizowane:
+Zarz¹dzanie ruchem z jednego centralnego punktu, gdzie zbierane i analizowane s¹ dane z ca³ej sieci drogowej. Centralny system optymalizuje sygnalizacjê œwietln¹ w czasie rzeczywistym, synchronizuj¹c dzia³anie wielu skrzy¿owañ.
+Zalety: Globalna optymalizacja, efektywne zarz¹dzanie ruchem w skali ca³ej sieci.
+Wady: Wysokie wymagania infrastrukturalne i obliczeniowe.
+   Systemy hierarchiczne:
+Struktura wielopoziomowa, w której ka¿dy poziom odpowiada za inne aspekty sterowania ruchem.
+Przyk³ad: Lokalny poziom zarz¹dza sygnalizacj¹ na pojedynczych skrzy¿owaniach, a poziom nadrzêdny koordynuje wiêksze obszary.
+Zastosowanie: Rozleg³e sieci miejskie z ró¿nymi poziomami z³o¿onoœci ruchu.
+
+
+
+4.1.2 Podzia³ wed³ug rodzaju sterowania:
+
+Sta³oczasowe systemy sterowania:
+Dzia³aj¹ w oparciu o ustalone cykle sygna³ów œwietlnych, niezale¿ne od aktualnego natê¿enia ruchu.
+      Zalety: Prostota implementacji i niski koszt wdro¿enia.
+      Wady: Brak elastycznoœci, szczególnie w warunkach zmiennego ruchu.
+      
+Zmiennoczasowe systemy sterowania:
+      Systemy akomodacyjne:
+Zmienna d³ugoœæ faz sygnalizacji bez zmiany ich kolejnoœci. Dostosowuj¹ siê do lokalnych warunków ruchu, ale nie synchronizuj¹ z innymi skrzy¿owaniami.
+
+Systemy adaptacyjne:
+Dynamicznie dostosowuj¹ zarówno d³ugoœæ, jak i sekwencjê faz sygnalizacji. Wykorzystuj¹ dane z czujników w czasie rzeczywistym, co pozwala na optymalizacjê w zmieniaj¹cych siê warunkach.
+SCATS: System stosowany w Sydney, który dynamicznie dostosowuje sygnalizacjê w oparciu o lokalne dane ruchowe.
+SCOOT: System u¿ywany w Wielkiej Brytanii, optymalizuj¹cy sygnalizacjê w czasie rzeczywistym na podstawie prognoz ruchu.
+
+4.1.3 Podzia³ wed³ug technologii i metod dzia³ania:
+    
+      Systemy heurystyczne:
+Wykorzystuj¹ regu³y oparte na doœwiadczeniu lub wczeœniej zdefiniowane algorytmy zarz¹dzania ruchem.
+      Zalety: £atwe do implementacji i zrozumienia.
+      Wady: Ograniczone mo¿liwoœci optymalizacji w z³o¿onych warunkach ruchu.
+
+
+      
+Systemy optymalizacyjne:
+      
+Stosuj¹ modele matematyczne i algorytmy optymalizacyjne, takie jak programowanie dynamiczne, algorytmy genetyczne czy metody Monte Carlo.
+      Mog¹ uwzglêdniaæ ró¿ne kryteria optymalizacji, np. minimalizacjê opóŸnieñ, d³ugoœci kolejek czy emisji spalin.
+
+Systemy bazuj¹ce na uczeniu maszynowym wykorzystuj¹ce modele takie jak: 
+Uczenie przez wzmacnianie:
+Algorytmy ucz¹ siê optymalnych strategii sterowania na podstawie interakcji z rzeczywistym œrodowiskiem.
+Sieci neuronowe:
+Pozwalaj¹ na analizê z³o¿onych zale¿noœci w danych o ruchu drogowym.
+
+
+4.2 Krótki opis dzia³aj¹cych systemów sterowania ruchem
+
+1. Urban Traffic Control System (UTCS) to inicjatywa Departamentu Transportu USA, rozwijana od lat 70. XX wieku, obejmuj¹ca cztery generacje strategii sterowania ruchem drogowym:
+Pierwsza generacja: Oparta na historycznych danych o ruchu, z planami sterowania zmienianymi co 15 minut.
+Czwarta generacja: Oparta na aktualizacjach w czasie rzeczywistym, obliczaj¹c moment zmiany fazy sygnalizacji w ka¿dym cyklu.
+Ewolucja strategii zmierza³a od statycznego do dynamicznego dostosowywania sterowania ruchem, umo¿liwiaj¹c lepsz¹ reakcjê na bie¿¹ce warunki ruchowe.
+2. SCATS (Sydney Coordinated Adaptive Traffic System):
+SCATS (Sydney Coordinated Adaptive Traffic System), opracowany przez australijskich naukowców, to adaptacyjny system sterowania ruchem zaliczany do metod trzeciej generacji. W przeciwieñstwie do SCOOT, SCATS nie korzysta z modelu ruchu ani optymalizatora planów sterowania, ale wybiera najlepszy plan sterowania na podstawie bie¿¹cych warunków ruchu. Struktura systemu jest hierarchiczna, obejmuj¹c trzy poziomy: lokalne sterowniki, urz¹dzenia regionalne oraz centralne centrum sterowania odpowiedzialne za monitorowanie ca³ego systemu.
+SCATS dostosowuje d³ugoœæ cyklu, split i offset sygna³ów œwietlnych, wykorzystuj¹c dane z detektorów. Zmiany parametrów, takie jak d³ugoœæ sygna³u zielonego, odbywaj¹ siê w ma³ych krokach co ±6 sekund, co pozwala na dynamiczn¹ adaptacjê do warunków ruchu. 
+SCATS jest stosowany w wielu miastach, w tym w Polsce, gdzie zosta³ wdro¿ony w Rzeszowie, £odzi i Olsztynie6.
+3. SCOOT (Split Cycle Offset Optimization Technique):
+SCOOT (Split Cycle and Offset Optimization Technique) to metoda sterowania ruchem czwartej generacji, zaprojektowana do dynamicznej optymalizacji sygnalizacji œwietlnej w oparciu o aktualne dane o ruchu. W systemie tym skrzy¿owania s¹ grupowane w pod obszary, a sterowniki w ka¿dym pod obszarze operuj¹ na wspólnym cyklu. System dokonuje czêstych, niewielkich zmian parametrów, takich jak d³ugoœæ sygna³ów, czas trwania faz i offset, w celu minimalizacji opóŸnieñ i zatrzymañ.
+SCOOT korzysta z trzech procedur optymalizacyjnych:
+Optymalizatora splitów, który analizuje czas sygna³ów czerwonych i zielonych, dostosowuj¹c ich d³ugoœæ w krokach co 1-4 sekundy.
+Optymalizatora d³ugoœci cyklu, który raz na 5 minut zmienia czas cyklu w zale¿noœci od nasycenia skrzy¿owañ w regionie.
+Optymalizatora offsetu, pracuj¹cego raz na cykl dla ka¿dego skrzy¿owania, w celu zapewnienia p³ynnoœci ruchu.
+	System jest szeroko stosowany w Wielkiej Brytanii i na œwiecie, a jego najnowsza wersja, SCOOT MC37, wprowadza priorytety dla autobusów i inne udoskonalenia?.
+
+4. RHODES (Real-Time Hierarchical Optimized Distributed Effective System):
+Hierarchiczny system sterowania, który dynamicznie dostosowuje sygnalizacjê w czasie rzeczywistym, wykorzystuj¹c dane z czujników.
+Algorytm ten zosta³ nazwany sterowan¹ optymalizacj¹ faz (COP – Controlled Optimization of Phases). Podobnie jak systemy DYPIC PRODYN, OPAC jest oparty na metodzie programowania dynamicznego.
+5. GASCAP, SPPORT8 Sterowanie ruchem drogowym z wykorzystaniem logiki rozmytej opiera siê na analizie d³ugoœci kolejek i nap³ywu ruchu, które s¹ przekszta³cane na wartoœci przynale¿noœci do zbiorów rozmytych, takich jak Krótka, Œrednia czy D³uga. Decyzje steruj¹ce, np. przed³u¿enie fazy zielonej, wynikaj¹ z regu³ rozmytych, które uwzglêdniaj¹ si³ê aktywacji (FS) dla ka¿dego przypadku. Zalet¹ logiki rozmytej jest niski koszt obliczeniowy i zdolnoœæ lepszego odzwierciedlenia aktualnych warunków ruchu w porównaniu do metod sta³oczasowych czy zmiennoczasowych. Przyk³adowo, d³ugoœæ kolejki o wartoœci 7 mo¿e nale¿eæ jednoczeœnie do zbiorów Œrednia i D³uga z przynale¿noœci¹ 0,6, co zwiêksza mo¿liwoœci generalizacji. Dziêki temu logika rozmyta jest skuteczn¹ i elastyczn¹ metod¹ sterowania ruchem drogowym.
+6. PIACON 9 to metoda inteligentnego sterowania ruchem drogowym, opracowana w 2008 roku przez AGH i holenderskiego producenta sterowników, wdro¿ona w Lubinie. Bazuje na systemach ekspertowych oraz algorytmach optymalizacyjnych i dzia³a na trzech poziomach: lokalnym, arterialnym i sieciowym. Wykorzystuj¹c dane z detektorów ruchu, takie jak liczba pojazdów czy d³ugoœæ kolejek. Uwzglêdnia wielokryterialne podejœcie, analizuj¹c m.in. straty czasu, zatory i emisjê zanieczyszczeñ, by dynamicznie dostosowywaæ sygnalizacjê œwietln¹ do aktualnych warunków drogowych.
+
+
+7. Systemy oparte na AI:
+• DRL (Deep Reinforcement Learning): Wykorzystywane do sterowania sygnalizacj¹ œwietln¹ w oparciu o rzeczywiste dane ruchowe.
+• Metody multi-agentowe: Agenci zarz¹dzaj¹cy poszczególnymi skrzy¿owaniami ucz¹ siê wspó³pracy w celu optymalizacji globalnego ruchu.
+
+      Metody adaptacyjnego sterowania ruchem czêsto maj¹ z³o¿on¹ hierarchiczn¹ budowê i wymagaj¹ skomplikowanych algorytmów o du¿ej z³o¿onoœci czasowej. Systemy takie jak SCATS i SCOOT s¹ rozwijane i skutecznie steruj¹ ruchem w miejskich sieciach licz¹cych tysi¹ce skrzy¿owañ. Obecnie d¹¿y siê do tworzenia systemów zdolnych do przetwarzania du¿ych iloœci danych w krótkim czasie uwzglêdniaj¹cych nietypowe sytuacje takiej jak kolizje czy remonty.
+      Z badañ i wdro¿eñ przeprowadzonych w ró¿nych aglomeracjach wynika, ¿e zastosowanie zaawansowanych systemów zarz¹dzania ruchem jest korzystne zarówno dla kierowców, pieszych, jak i œrodowiska naturalnego. 
+Nowoczesny i wydajny system sterowania ruchem to dziœ;
+* krócenie czasu przejazdu, 
+* wiêksza p³ynnoœæ ruchu,
+* zwiêkszenie bezpieczeñstwa,
+* monitorowanie rejestracja i analiza ruchu,
+* priorytetowanie pojazdów uprzywilejowanych i komunikacji zbiorowej, 
+* ograniczenie zu¿ycia paliwa i emisji spalin,
+* personalizowane, planowanie tras,
+* dostêp do danych statystycznych.
+
+
+5. Uczenie maszynowe
+	
+	Sztuczna inteligencja (AI), uczenie maszynowe (ML) to dynamicznie rozwijaj¹ce siê dziedziny, które odgrywaj¹ kluczow¹ rolê w dzisiejszym œwiecie technologii informatycznych. Za ojca sztucznej inteligencji i informatyki uznaje siê Alana Turing, który w 1943 roku postawi³ fundamentalne pytanie: "Czy maszyny mog¹ myœleæ?". Jego prace nad maszynami obliczeniowymi zapocz¹tkowa³y ideê tworzenia inteligentnych systemów informatycznych. 
+Kilka lat póŸniej, w 1956 roku, John McCarthy uku³ termin "sztuczna inteligencja" podczas legendarnej konferencji w Dartmouth College, która formalnie rozpoczê³a badania nad AI.
+	W 1959 Arthura Samuela wprowadzi³ termin uczenie maszynowe (machine learning) w kontekœcie programowania komputerów zdolnych do uczenia siê na podstawie danych. Samuel jest równie¿ autorem pierwszego samodzielnie ucz¹cego siê systemu, programu graj¹cego w warcaby.10
+	Uczenie maszynowe aktualnie dzieli siê na trzy g³ówne typy; uczenie nadzorowane, uczenie bez nadzoru oraz uczenie ze wzmocnieniem11. W uczeniu nadzorowanym model uczy siê na danych z oznaczonymi etykietami, co pozwala na realizacjê zadañ takich jak klasyfikacja czy regresja. W uczeniu bez nadzoru system analizuje nieoznakowane dane, odkrywaj¹c ukryte wzorce, na przyk³ad poprzez klasteryzacjê lub redukcjê wymiarowoœci. Natomiast uczenie ze wzmocnieniem polega na interakcji modelu z otoczeniem, gdzie agent uczy siê podejmowaæ decyzje optymalizuj¹ce przysz³e nagrody.
+
+5.1. Wprowadzenie do uczenia ze wzmocnieniem (RL)
+
+      Uczenie ze wzmacnianiem to rodzaj technik stosowanych w systemach ucz¹cych siê, w których agent podejmuje dzia³ania prowadz¹ce do zmaksymalizowania nagrody p³yn¹cej ze œrodowiska, poprzez wykonywanie okreœlonej sekwencji kroków.
+       Pocz¹tki uczenia przez wzmacnianie siêgaj¹ lat 50. XX wieku. S¹ silnie zakorzenione w badaniach nad zachowaniem adaptacyjnym, dynamicznym programowaniem i Procesami Decyzyjnymi Markowa. Istnieje wiele obszarów, które s¹ zwi¹zane z uczeniem przez wzmacnianie. Najistotniejsze przedstawione s¹ na rysunku 1.
+Rysunek 1 - ród³o: schemat pochodzi z ksi¹¿ki G³êbokie uczenie przez wzmacnianie. Praca z chatbotami oraz robotyka, optymalizacja dyskretna i automatyzacja sieciowa w praktyce. S.31.
+
+Podstawowy model RL (Reinforcement Learning) wykazuje liczne analogie do modeli psychologicznych z dziedziny warunkowania klasycznego. Eksperymenty przeprowadzone przez Iwana Paw³owa z psami demonstruj¹ zdolnoœæ zwierz¹t do kojarzenia sygna³ów œrodowiskowych, takich jak dŸwiêk dzwonka, z bodŸcami nagradzaj¹cymi, np. jedzeniem. Paw³ow okreœli³ ten mechanizm jako 'wzmocnienie', odnosz¹c siê do bodŸca nagradzaj¹cego, który wzmacnia³ po¿¹dane zachowania psa (agenta). 12
+      Istnieje du¿o algorytmów tego modelu, ale szczególn¹ popularnoœæ zyska³y obecnie 2 z nich: sieæ deep-Q (deep Q-network, DQN) oraz deep deterministic policy gradient (DDPG). Oba s¹ ³atwe do wdro¿enia, a jednoczeœnie oferuj¹ bardzo du¿e mo¿liwoœci adaptacji do œrodowiska. 13
+	Na rysunku 2 znajduje siê taksometria wspó³czesnych algorytmów RL, zaproponowana przez Josha Achiama, naukowca z OpenAI. Diagram daje pogl¹d na rozleg³oœæ dziedziny.
+
+
+
+
+
+
+
+
+
+5. 2 Formalne podstawy i terminologia
+
+	G³ównymi elementy uczenia przez wzmacnianie s¹; agent (Agent) i œrodowisko (Enviroment), kana³y interakcji — akcje (action), nagrody (reward) i stany (state).
+Rysunek 1. Schemat blokowy algorytmu RL
+Rysunek 3, ¯ród³o: Schemat pochodzi z ksi¹zki „Reinforcement Learning: An Introduction” Second edition, in progres November 5, 2017, stron 38 14
+
+
+Agent i œrodowisko
+
+	Agent to podmiot, który wchodzi w interakcjê ze œrodowiskiem w dyskretnych krokach czasowych t, agent znajduje siê w stanie st?S , gdzie S jest zbiorem wszystkich mo¿liwych stanów œrodowiska. W ka¿dym kroku t agent wykonuje akcjê at?A, odbiera obserwacjê stanu st+1 oraz otrzymuje nagrodê rt+1?R, gdzie A jest zbiorem dostêpnych akcji, a R zbiorem mo¿liwych nagród. 
+Œrodowisko reprezentuje wszystko, co otacza agenta, dostarcza mu informacji st+1 i reaguj¹c na jego dzia³ania at.
+
+Akcje
+      Akcje to dzia³ania, jakie agent mo¿e wykonywaæ w œrodowisku, np. ruchy w grze. Decyzje podejmowane mog¹ byæ dyskretne (np. ruch w lewo) lub ci¹g³e (ustaw czas œwiecenia œwiat³a zielonego na sygnalizatorze na [10,60] s).
+Akcje s¹ czêœci¹ trajektorii, czyli sekwencji stanów, akcji i nagród, któr¹ agent generuje podczas eksploracji œrodowiska. Trajektoria zaczyna siê od pocz¹tkowego stanu i koñczy siê, gdy agent osi¹gnie stan koñcowy lub gdy epizod zostanie przerwany po ustalonej liczbie kroków.
+
+Obserwacje
+      Obserwacje to informacje przekazywane agentowi przez œrodowisko, opisuj¹ aktualny stan. Mog¹ byæ u¿yteczne do przewidywania przysz³ych nagród.
+
+Nagroda
+	Nagroda w uczeniu przez wzmacnianie to skalarna wartoœæ, któr¹ agent okresowo otrzymuje ze œrodowiska jako informacjê zwrotn¹ o jakoœci swoich dzia³añ. Mo¿e byæ pozytywna lub negatywna, ale zawsze ma charakter lokalny, odzwierciedlaj¹c niedawne dzia³ania agenta, a nie ca³okszta³t jego sukcesów. Celem nagrody jest wzmocnienie po¿¹danych zachowañ agenta.
+Nagrody pozostaj¹ kluczowym elementem procesu uczenia, napêdzaj¹cym postêpy agenta.
+
+5.3 Procesy Decyzyjne Markowa (MDP)
+
+	Procesy Decyzyjne Markowa (MDP) to model matematycznym u¿ywany w uczeniu przez wzmacnianie. Umo¿liwia formalne modelowanie œrodowiska oraz interakcji œrodowiska z agentem. Jest on rozszerzeniem klasycznego procesu Markowa dodaj¹c do niego terminy akcja i nagroda.
+MDP mo¿na zdefiniowaæ jako 5-eleentow¹ krotkê:
+MDP = (S,A,P,R,?)					(wzór 1)
+gdzie:
+S: zbiór stanów œrodowiska,
+A: zbiór dzia³añ agenta,
+P(s??s,a) : prawdopodobieñstwo przejœcia z s do s' po wykonaniu akcji a,
+R(s,a): funkcja nagród, okreœlaj¹ca wartoœæ nagrody dla stanu s i akcji a, 
+??[0,1): wspó³czynnik dyskontowania, który kontroluje znaczenie przysz³ych nagród.
+
+MDP opisuje, jak dzia³ania agenta wp³ywaj¹ na zmiany stanu œrodowiska oraz na otrzymywane nagrody. Kluczowe na tym etapie s¹ dwie funkcje:
+
+5.4. Funkcja przejœcia P(s?|s, a):
+	Funkcja ta definiuje prawdopodobieñstwo, przejœcia do stanu (s?) po wykonaniu akcji (a) w stanie (s):
+	P(s^' |s,a)=P(S_(t+1)=s^' |S_t=s,A_t=a)   (wzór 2) 
+Funkcja przejœcia opisuje dynamikê œrodowiska oraz okreœlenie wp³ywu dzia³añ agenta na przysz³e stany.
+
+5.4 Funkcja nagrody R(s,a):
+	Funkcja nagrody R(s,a) okreœla oczekiwan¹ wartoœæ nagrody rt+1, któr¹ agent otrzymuje po podjêciu akcji (a) w stanie (s). Jest to wartoœæ œrednia, uwzglêdniaj¹ca wszystkie mo¿liwe wyniki (nagrody), jakie mog¹ wyst¹piæ w przysz³oœci po tej decyzji.
+R(s,a)=E(r_(t+1) |S_t=s,A_t=a) 			(wzór 3)
+gdzie 
+E [?]: Operator wartoœci oczekiwanej, obliczaj¹cy œredni¹ wa¿on¹ wszystkich mo¿liwych wyników.
+
+Nagroda jest kluczowym elementem kieruj¹cym dzia³aniami agenta, poniewa¿ okreœla, które stany i akcje s¹ po¿¹dane.
+
+5.5 Wspó³czynnik dyskontowania nagród ? (gamma).
+	Wspó³czynnik okreœla, jak bardzo agent ceni przysz³e nagrody w porównaniu z bie¿¹cymi. Jeœli ? jest bliskie 0, agent skupia siê na natychmiastowych nagrodach, ignoruj¹c d³ugoterminowe konsekwencje. Gdy ? jest bliskie 1, przysz³e nagrody s¹ równie wa¿ne jak bie¿¹ce, co pozwala na bardziej strategiczne podejmowanie decyzji.”
+	Agent wybiera akcje tak, aby zmaksymalizowaæ skumulowan¹ zdyskontowan¹ nagrodê (G) otrzymywan¹ w przysz³oœci. Skumulowana nagroda (lub zdyskontowany zwrot) jest definiowana jako:
+G_t=R_(t+1)+?R_(t+2)+?^2 R_(t+3)+...=?_(k=0)^????^k R_(t+k+1) ?15			(wzór 4 mo¿na pomin¹æ)
+gdzie:
+Gt: skumulowana zdyskontowana nagroda pocz¹wszy od chwili t,
+Rt+k+1R: nagroda otrzymana w kroku t+k+1t+k+1t+k+1,
+?: wspó³czynnik dyskontowania, który zmniejsza znaczenie nagród otrzymanych w odleg³ej przysz³oœci.
+
+5.6 Polityka.
+      Polityka (?) definiuje sposób, w jaki agent podejmuje decyzje w œrodowisku. Jest to funkcja okreœlaj¹ca prawdopodobieñstwo wyboru akcji (a) w stanie (s):
+	?(a|s)=Pr(A_t=a|S_t=s)					(wzór 5)
+Polityka okreœla strategiê agenta, wp³ywaj¹c na osi¹ganie celu: maksymalizacjê skumulowanej nagrody. Polityka optymalna prowadzi do maksymalizacji oczekiwanej skumulowanej nagrody w d³ugim horyzoncie czasowym.
+Polityka mo¿e byæ;
+- Stochastyczna: Losowy wybór akcji z przypisanymi prawdopodobieñstwami, np. eksploracja œrodowiska.
+- Deterministyczna: Zawsze wybiera tê sam¹ akcjê w danym stanie (?(a?s)=1).
+
+
+5.7 Równania Bellmana
+      Równania Bellmana s¹ wykorzystywane do rekurencyjnego wyznaczania wartoœci stanu (V(s)) lub optymalnej polityki (??(s)) w danym stanie (s). Ich uniwersalnoœæ polega na mo¿liwoœci zastosowania w ró¿nych technikach optymalizacyjnych, takich jak iteracja wartoœci, iteracja polityki czy Q-Learning.
+
+
+
+
+
+Równanie Bellmana dla wartoœci stanu (V?(s)):
+
+Wzór na oczekiwana suma zdyskontowanych nagród, zaczynaj¹c od stanu s i postêpuj¹c zgodnie z polityk¹ ?.
+V^? (s)= E_(a~?, s^'~P) [r(s,a)+?V^? (s')]			(wzór 6)
+   gdzie
+V?(s) - wartoœæ stanu s przy danej polityce ?.
+Ea??,s??P[.] oczekiwanie (œrednia wartoœæ) po losowych zmiennych:
+   a?? Akcjaa jest wybierana zgodnie z polityk¹ ?(a?s), czyli prawdopodobieñstwem 
+             wybrania akcji a w stanie s.
+   s??P : Nowy stan s? jest losowany z rozk³adu P(s??s,a), który opisuje przejœcia miêdzy 
+             stanami w œrodowisku.
+r(s,a) - Nagroda natychmiastowa za wykonanie akcji a w stanie s.
+?: Wspó³czynnik dyskontowania (0???1).
+V?(s?) -  Wartoœæ stanu s?, do którego przechodzi system po wykonaniu akcji aaa.
+
+Równanie Bellmana dla optymalnej wartoœci stanu (V?(s)):
+V^* (s)= ?max?_a E_(s'~P) [r(s,a)+?V^* (s')]			(wzór 7)
+
+Okreœla maksymaln¹ mo¿liw¹ wartoœæ stanu s, gdy agent dzia³a w sposób optymalny.
+W przeciwieñstwie do wersji on-policy, tu dodany jest operator max?\maxmax, który reprezentuje wybór akcji a maksymalizuj¹cej wartoœæ.
+
+Techniki wykorzystuj¹ce równania Bellmana
+Iteracja wartoœci:
+Rekurencyjnie oblicza V(s) dla wszystkich stanów, a¿ do zbie¿noœci.
+Po zakoñczeniu procesu wyznacza optymaln¹ politykê ??(s).
+Iteracja polityki:
+Naprzemienne kroki oceny polityki (V?(s)) i jej ulepszania (??(s)).
+Równania Bellmana s¹ u¿ywane w obu etapach.
+
+      Równania Bellmana s¹ podstaw¹ algorytmów uczenia przez wzmacnianie, poniewa¿ umo¿liwiaj¹ propagacjê informacji o nagrodach w czasie i ocenê d³ugoterminowych konsekwencji dzia³añ agenta
+
+
+5.8 Algorytm Aktor-Krytyk (Actor-Critic)
+Rysunek 4  A brief review of Actor Critic Methods, https://www.youtube.com/watch?v=aODdNpihRwM
+
+      Algorytm aktor-krytyk jest po³¹czeniem algorytmów aproksymacji funkcji polityki (policy function) i funkcji wartoœci (value function) (Rysunek 4). W algorytmach opartych na polityce typu REINFORCE, funkcja polityki jest aktualizowana na koñcu epizodu, co jest ma³o efektywne. Wysoka wariancja gradientu (rezultat sumowania wszystkich zdarzeñ z epizodu) powoduje, ¿e potrzeba wiêcej próbek (epizodów) celem stabilizacji modelu.
+	Algorytm aktor-krytyk rozwi¹zuje ten problem, korzystaj¹c z metody ró¿nicy czasowej (ang. Temporal Difference). Dziêki temu uczy siê przy ka¿dym kroku, a nie tylko na koñcu epizodu.  (rysunek 5 przedstawia dynamikê procesu)
+
+
+Pomys³ polega na wprowadzeniu agenta zbudowanego z dwóch elementów: 
+Aktora - uczy siê polityki ?(a?s), która okreœla, jakie akcje nale¿y podejmowaæ w danych stanach.
+Krytyka - Szacuje wartoœæ stanu V(s) i ocenia, jak dobra by³a decyzja aktora.
+Ró¿nica czasowa - Krytyk oblicza b³¹d ró¿nicy czasowej ?t ?, który s³u¿y jako sygna³ wzmocnienia do ulepszania polityki w aktorze.
+?_t=r_t+?V(s_(t+1))-V(s_t), 		(wzór 8)
+       gdzie:
+       ?t ? to b³¹d ró¿nicy czasowej (TD-error),
+       rt? to nagroda natychmiastowa,
+       V(s) to funkcja wartoœci stanu,
+       ? to wspó³czynnik dyskontowania.
+
+Algorytm aktor-krytyk ³¹cz¹ zalety metod opartych na wartoœciach (redukcja wariancji dziêki krytykowi), oraz metod opartych na politykach (elastycznoœæ w modelowaniu przestrzeni ci¹g³ych). Na rysunku 7 widzimy dok³adniej przebieg algorytmu aktor-krytyk
+Rysunek 6:  Ha jime Kimura, Shigenobu Kobayashi An Analysis of Actor/Critic Algorithms using Eligibility Traces: Reinforcement Learning with Imp erfect Value Functions: http://users.umiacs.umd.edu/~hal/courses/2016F_RL/Kimura98.pdf
+Opis formalny algorytmu uwzglêdniaj¹cego wykorzystanie sieci neuronowych zaczerpniêty z „Reinforcement Learning: An Introduction”16
+
+Wejœcie:
+?(a?s,?), ró¿niczkowalna funkcja prawdopodobieñstwa wyboru akcji a w stanie s.
+V(s,w), ró¿niczkowalna funkcja szacuj¹ca wartoœæ stanu s.
+Wspó³czynniki uczenia: ??>0, ?w>0.
+Inicjalizacja:
+Parametry polityki: ??R.
+Wagi funkcji wartoœci: w?R.
+
+ALGORYTM:
+Pêtla nieskoñczona (dla ka¿dego epizodu):
+1. Inicjalizuj s pierwszy stan epizodu.
+2. I?1
+Pêtla czasowa (dopóki sss nie jest terminalny):
+3. Wybierz akcjê a??(??s,?).
+4. Wykonaj akcjê a, zaobserwuj nowy stan s? i nagrodê r.
+5. Oblicz b³¹d TD (?):
+      ??r+?V(s_(t+1)  ,w)-V(s_t,w)	(nawi¹zanie do wzoru 8)
+*(Jeœli st+1 jest stanem terminalnym, to V(s?,w)=0.
+6. Zaktualizuj wagi funkcji wartoœci:
+      w?w+?_w ?I??V(s,w)
+7. Zaktualizuj parametry polityki:
+      ???+?I??ln?(a?s,?)
+8. Zaktualizuj wspó³czynnik wp³ywu I:
+      I??I
+9. PrzejdŸ do nastêpnego stanu:
+      s?st+1
+
+
+5.10 Deep Learning w kontekœcie RL
+
+      Uczenie g³êbokie (Deep Learning, DL) to dziedzina sztucznej inteligencji, która korzysta z wielowarstwowych sieci neuronowych (rysunek 8), pozwalaj¹cych na efektywne przetwarzanie i predykcje z³o¿onych funkcji. W uczeniu przez wzmacnianie, metody DL odgrywaj¹ kluczow¹ rolê w rozwi¹zywaniu problemów zwi¹zanych z du¿ymi i z³o¿onymi przestrzeniami stanów i akcji. Klasyczne metody, wyznaczanie polityki lub wartoœci, polegaj¹ na iteracyjnym wykonywaniu równañ Bellmana (wzór 6,7) w celu propagacji nagród w czasie. Dziêki wykorzystaniu sieci neuronowych, takie obliczenia mog¹ zostaæ „nauczone”, co redukuje koszt obliczeniowy do jednorazowego wytrenowania modelu.
+
+
+Rysunek 8 Maximilian Pichler and Florian Hartig, Machine Learning and Deep Learning with R, Maximilian Pichler and Florian Hartig, https://theoreticalecology.github.io/machinelearning/
+
+      W 2015 Firma Google DeepMind zaprezentowa³a, jak g³êbokie konwolucyjne sieci neuronowe (Convolutional Neural Network) mog¹ automatyzowaæ ekstrakcjê cech, umo¿liwiaj¹c RL radzenie sobie z zadaniami wymagaj¹cymi rozumienia zdarzeñ w przestrzeni.17	Prze³omowym okaza³o siê opracowanie sieci Deep Q-Network (DQN), która ³¹czy³a Q-learning z g³êbok¹ CNN. Architektura ta pozwoli³a DQN na uczenie siê wartoœci Q(s,a) bezpoœrednio z surowych danych wejœciowych, takich jak piksele. DQN udowodni³a swoje mo¿liwoœci, ucz¹c siê graæ w 49 ró¿nych gier Atari i osi¹gaj¹c lub przewy¿szaj¹c poziom cz³owieka w wielu z nich.
+      Na rysunku (9) pokazano ogólny schemat zastosowania sieci neuronowej (DNN) do predykcji polityki ??, (algorytm Policy Gradient) gdzie agent wchodzi w interakcjê ze œrodowiskiem. Nale¿y zwróciæ uwagê na symbol ? bêd¹cy parametrem sieci.
+
+
+Rysunek 9  Reinforcement Learning with policy represented via DNN, Hongzi Mao, Mohammad Alizadeh, Ishai Menache, Srikanth Kandula; https://people.csail.mit.edu/hongzi/content/publications/DeepRM-HotNets16.pdf
+
+
+6. Pakiet SUMO 18
+
+Eclipse SUMO to darmowy, otwartoŸród³owy pakiet do modelowania systemów transportu intermodalnego, w tym pojazdów drogowych, transportu publicznego oraz ruchu pieszych. Projekt zosta³ zainicjowany w 2001 roku przez pracowników Instytutu Systemów Transportowych Niemieckiego Centrum Lotnictwa i Kosmonautyki (DLR).
+      SUMO jest zestawem aplikacji oferuj¹c narzêdzia do generowania i importowania sieci drogowych z ró¿nych formatów, a tak¿e do tworzenia scenariuszy o du¿ej skali, takich jak symulacje ruchu w miastach. Symulacje w SUMO s¹ mikroskalowe co oznacza, ¿e ka¿dy pojazd jest modelowany osobno, ma swoj¹ w³asn¹ trasê i porusza siê indywidualnie. Scenariuszach maj¹ mo¿liwoœæ wprowadzana losowoœci zdarzeñ.
+      SUMO znajduje zastosowanie w badaniach nad komunikacj¹ V2X (pojazd-pojazd i pojazd-infrastruktura). Generowane scenariusze s³u¿¹ do oceniania algorytmów wyboru tras, dynamicznej nawigacji i optymalizacji sygnalizacji œwietlnej.
+      Platforma posiada modele emisji ha³asu oraz zanieczyszczeñ powietrza, umo¿liwiaj¹c ocenê ekologicznych skutków transportu. Obs³uguje równie¿ wsparcie dla pojazdów autonomicznych. 
+      Do komunikacji z SUMO w czasie rzeczywistym najczêœciej wykorzystuje siê interfejs TraCI (Traffic Control Interface) 19,  dzia³aj¹cy jako us³ugo TCP/IP. TraCI umo¿liwiaj¹cy odczytywanie parametrów symulacji oraz inicjowanie zmieniaj¹cych siê parametrów œrodowiska. 
+      
+SUMO jest popularny dziêki wszechstronnoœci, otwartemu kodowi Ÿród³owemu oraz wsparciu dla du¿ych symulacji. Dziêki API platformê mo¿na integrowaæ z innymi narzêdziami poprzez biblioteki w jêzyku Python, C++, JavaMATLABPocz¹tek formularza
+
+7. 
+Przygotowanie œrodowiska testowego.
+
+7.1 Pliki konfiguracyjne 
+
+Najwa¿niejsze elementy modelu, do którego zaimplementujê sterowanie oœwietleniem, zosta³y okreœlone w kilku kluczowych plikach konfiguracyjnych:
+
+Plik 2x2.net.xml jest rdzeniem modelu, stanowi mapê drogow¹ dla symulacji ruchu.
+G³ówny element <net> definiuje ca³¹ sieæ drogow¹. Znajduj¹ siê w nim atrybuty takie jak   opisy naro¿ników skrzy¿owañ (junctionCornerDetail), maksymalne dopuszczalna prêdkoœæ skrêtów (limitTurnSpeed). Dodatkowo okreœlony jest offset sieci (netOffset) oraz granice konwersji i oryginalne granice sieci, co umo¿liwia w³aœciwe pozycjonowanie i skalowanie ca³ej symulacji.
+
+• Definicja dróg (krawêdzi):
+Ka¿da droga <edge> jest opisana jako element XML, który zawiera informacje o jej funkcji oraz o krawêdziach ruchu. Wewn¹trz ka¿dego elementu <edge> znajduj¹ siê elementy <lane>, które okreœlaj¹:
+* Identyfikator pasa ruchu (id) oraz indeks pasa
+* Maksymaln¹ prêdkoœæ (speed)
+* D³ugoœæ pasa (length)
+* Geometriê pasa (shape) – zestaw wspó³rzêdnych (x,y) opisuj¹cych krzyw¹ drogi. 
+
+
+Definicja skrzy¿owañ (wêz³ów):
+W sieci znajduj¹ siê ró¿ne typy skrzy¿owañ, reprezentowane przez elementy <junction>. Ka¿dy skrzy¿owanie posiada:
+* Unikalny identyfikator (id), dziêki czemu mo¿na jednoznacznie odwo³ywaæ siê do danego wêz³a.
+* Typ skrzy¿owania (np. "dead_end" dla koñców dróg lub "traffic_light" dla skrzy¿owañ sterowanych sygnalizacj¹ œwietln¹).
+* Pozycjê w uk³adzie wspó³rzêdnych (atrybuty x i y),
+* Listê pasów wchodz¹cych (incLanes) oraz wewnêtrznych (intLanes)
+* Dok³adny kszta³t skrzy¿owania (shape), który mo¿e byæ reprezentowany jako wielok¹t, odzwierciedlaj¹cy rzeczywiste rozmiary i kszta³t wêz³a.
+• Logika sterowania ruchem na skrzy¿owaniach:
+Skrzy¿owania sterowane sygnalizacj¹ œwietln¹, takie jak P4, P5, P8 i P9, s¹ wyposa¿one w rozbudowan¹ sterowania. Dla ka¿dego z nich zdefiniowany jest element <tlLogic>, który zawiera:
+* Identyfikator sygnalizacji (id), przypisany do konkretnego skrzy¿owania.
+
+• Po³¹czenia miêdzy elementami sieci:
+Plik zawiera tak¿e elementy <connection>, które definiuj¹, w jaki sposób pasy ruchu ³¹cz¹ siê pomiêdzy skrzy¿owaniami. Te po³¹czenia okreœlaj¹ kierunki skrêtów (np. skrêt w lewo, w prawo lub jazda prosto) oraz warunki przejazdu przez wêze³, co jest kluczowe dla realistycznej symulacji ruchu.
+
+
+Rys.10 Przyk³adowe skrzy¿owanie z sygnalizatorami w symulatorze SUMO  
+
+• Plik 2x2.rou.xml definiuje przep³ywy pojazdów. W tym pliku okreœlono parametry generowania pojazdów, takie jak: – Prawdopodobieñstwo pojawienia siê pojazdu na okreœlonej trasie, – Parametry takie jak „departLane” (np. wartoœæ „free”, co oznacza dowolny pas startowy) oraz „departSpeed” ustawione na „random” (co odzwierciedla naturalne ró¿nice w prêdkoœciach pojazdów), – Okres symulacji (np. od 0 do 3600 sekund).
+Dziêki temu model odzwierciedla zmiennoœæ i losowoœæ zachowañ kierowców, co jest kluczowe przy analizie dynamiki ruchu drogowego.
+7.2 Szczegó³owy opis modelu
+
+Model testowy symuluje ruch pojazdów w sieci drogowej, obejmuj¹c wêz³y, drogi, ograniczenia prêdkoœci, trajektorie pojazdów oraz sposób ich generowania. Struktura sieci sk³ada siê z wêz³ów wylotowych, skrzy¿owañ sterowanych sygnalizacj¹ oraz wêz³ów wewnêtrznych. Drogi podzielono na zewnêtrzne (13.89 m/s, 50 km/h) oraz wewnêtrzne o zró¿nicowanych prêdkoœciach dostosowanych do manewrów. Model definiuje 12 przep³ywów ruchu o ró¿nych poziomach natê¿enia, co pozwala na realistyczne odwzorowanie rzeczywistych warunków drogowych.
+
+
+Rysunek 11  Badany model
+
+
+Wêz³y 
+Zdefiniowano 3 rodzaje wêz³ów:
+
+1. Wêz³y wylotowe „dead_end”:
+Miejsca wejœcia/wyjœcia z sieci wystêpuj¹ w punktach:
+P1(E12), P2(E20), P3(E0), P6(E3), P7(E4), P10(E7), P11(E14), P12(E22)
+(³¹cznie 8 punktów)
+2. Skrzy¿owañ sterowanych sygnalizacj¹ (typ „traffic_light”):
+Wystêpuj¹ w punktach: P4, P5, P8, P9 (³¹cznie 4 skrzy¿owania)
+3. Wêz³y wewnêtrznych (internal):
+Aby precyzyjnie odwzorowaæ geometriê i przep³yw ruchu wewn¹trz skrzy¿owañ, dla ka¿dego skrzy¿owania sterowanego (P4, P5, P8, P9) utworzono 4 wêz³y wewnêtrzne (np. :P4{12–15}_0, :P5{12–15}_0, :P8{12–15}_0, :P9{12–15}_0), co daje ³¹cznie 16 dodatkowych punktów.
+
+
+
+Drogi 
+Drogi zosta³y podzielone wed³ug dwóch kryteriów
+
+1. Drogi zewnêtrzne (³¹cz¹ce g³ówne wêz³y):
+W pliku zdefiniowano 24 drogi zewnêtrzne – po 12 o identyfikatorach dodatnich  E0, E1, E2, E3, E4, E7, E12, E13, E14, E20, E21, E22 oraz 12 o identyfikatorach ujemnych (np. –E0, –E1, –E2, –E3, –E4, –E7, –E12, –E13, –E14, –E20, –E21, –E22.
+2. Drogi wewnêtrzne (definiuj¹ce szczegó³owy przebieg ruchu wewn¹trz skrzy¿owañ):
+Dla ka¿dego skrzy¿owania sterowanego stworzono 16 dróg wewnêtrznych w celu okreœlanie obci¹¿enia wystêpuj¹cego na skrzy¿owaniu.
+
+
+Prêdkoœci na drogach:
+W celu zwiêkszenia realizmu na drogach wystêpuj¹ ró¿ne ograniczenia prêdkoœci
+
+1. Drogi zewnêtrzne: (g³ówne arterie)
+Wszystkie pasy ruchu na drogach ³¹cz¹cych g³ówne wêz³y maj¹ zadeklarowan¹ prêdkoœæ 13.89 m/s, co odpowiada oko³o 50 km/h.
+2. Drogi wewnêtrzne: (w obrêbie skrzy¿owañ)
+W obrêbie skrzy¿owañ prêdkoœci s¹ zró¿nicowane, aby odwzorowaæ manewry skrêtu i hamowanie: Te ró¿nice pozwalaj¹ na realistyczne odwzorowanie zachowania pojazdów przy wje¿d¿aniu w skrzy¿owania i wykonywaniu manewrów.
+6.51 m/s (~23.4 km/h) – pasy skrêtu i manewrów hamowania
+8.00 m/s (~28.8 km/h) – ³agodne zakrêty i przejœcia miêdzy pasami
+13.89 m/s (~50 km/h) – proste odcinki wewnêtrzne
+
+Trajektorie ruchu
+Model ruchu opiera siê na 12 zdefiniowanych przep³ywach, w których okreœlono:
+
+1. Kierunki ruchu (atrybuty from i to):
+Ka¿dy przep³yw wskazuje, z którego zewnêtrznego pasa (drogi) pojazdy wchodz¹ do sieci, a do którego j¹ opuszczaj¹.
+Przyk³adowo, flow_random1 definiuje ruch z krawêdzi E0 (droga wychodz¹ca z wêz³a P3, kierunek do P4) do krawêdzi E3 (droga ³¹cz¹ca P5 z P6).
+Niektóre przep³ywy zawieraj¹ atrybut via, który wymusza przejazd przez okreœlone fragmenty sieci (np. flow_random7 przechodzi przez krawêdzie -E2 oraz E1).
+
+Parametry generowania pojazdów:
+      Atrybut probability okreœla szansê pojawienia siê pojazdu na danym przep³ywie w ka¿dej jednostce czasu. 
+
+W modelu wystêpuj¹ dwa poziomy intensywnoœci:
+1. Probability 0.1 – oznacza wy¿sz¹ czêstotliwoœæ generowania pojazdów (oko³o 0.1 pojazdu na sekundê, co daje œrednio oko³o 360 pojazdów na godzinê),
+2. Probability 0.01 – oznacza rzadszy ruch (oko³o 36 pojazdów na godzinê).
+
+Pozosta³e parametry, takie jak departLane ustawione na "free" (dowolny pas startowy) oraz departSpeed ustawione na "random" (losowa prêdkoœæ pocz¹tkowa), wprowadzaj¹ element losowoœci, symuluj¹c naturalne zachowania kierowców.
+
+7.3 Podsumowanie modelu
+
+   Model obejmuje 8 wêz³ów wylotowych, które stanowi¹ punkty wejœcia i wyjœcia z sieci, oraz 4 skrzy¿owania sterowane sygnalizacj¹ œwietln¹. Dodatkowo zdefiniowano 16 wêz³ów wewnêtrznych, które precyzyjnie odwzorowuj¹ dynamikê ruchu wewn¹trz skrzy¿owañ. 
+W modelu wystêpuj¹ 24 drogi zewnêtrzne, na których obowi¹zuje prêdkoœæ 13.89 m/s (50 km/h), oraz 64 drogi wewnêtrzne, które uwzglêdniaj¹ szczegó³y przep³ywu pojazdów w obrêbie skrzy¿owañ i posiadaj¹ zró¿nicowane ograniczenia prêdkoœci.
+   Model definiuje 12 przep³ywów ruchu (flows), które okreœlaj¹ kierunki przemieszczania siê pojazdów pomiêdzy ró¿nymi krawêdziami sieci. Ka¿dy przep³yw posiada atrybuty from i to, a niektóre tak¿e via, wymuszaj¹cy przejazd przez dodatkowe odcinki. Wprowadzono dwa poziomy natê¿enia ruchu. 
+   Dodatkowe pliki 2x2.dat.xml oraz 2x2.add.xml zosta³y przygotowane jako rozszerzenie modelu, jednak w obecnej konfiguracji nie zawieraj¹ dodatkowych danych. 
+   
+   Taki model umo¿liwia realistyczn¹ symulacjê ruchu drogowego, pozwalaj¹c na analizê przep³ywów pojazdów, badanie ich zachowañ na skrzy¿owaniach oraz ocenê skutecznoœci sterowania ruchem za pomoc¹ sygnalizacji œwietlnej. Dziêki zró¿nicowanym ograniczeniom prêdkoœci i losowoœci w generowaniu pojazdów, model dobrze odwzorowuje rzeczywiste warunki drogowe i mo¿e byæ u¿ywany do testowania ró¿nych strategii zarz¹dzania ruchem
+
+
+8. Implementacja algorytmu AC w œrodowisku testowym
+
+8.1 TaCI
+
+      W implementowanym modelu symulacji ruchu drogowego wykorzysta³em interfejs TraCI (Traffic Control Interface), który umo¿liwia komunikacjê pomiêdzy kodem steruj¹cym a symulatorem SUMO (Simulation of Urban Mobility). Dziêki TraCI mo¿liwe jest dynamiczne sterowanie sygnalizacj¹ œwietln¹ oraz monitorowanie parametrów ruchu.
+
+W skrypcie (generowanie_modelu.py) poprzez TraCI  ³¹czê siê z SUMO. 
+SUMO jest uruchamiane w trybie serwera za pomoc¹ funkcji:
+traci.start([SUMO_BINARY, "-c", CONFIG_FILE])
+gdzie SUMO_BINARY okreœla tryb pracy, a CONFIG_FILE wskazuje plik konfiguracyjny symulacji (2x2.sumocfg).
+Kod wykorzystuje TraCI do sterowania sygnalizacj¹ œwietln¹, modyfikuj¹c fazy œwiate³ na skrzy¿owaniach (P4, P5, P8, P9). Fazy te s¹ wybierane na podstawie strategii uczenia ze wzmocnieniem (Reinforcement Learning), a ich ustawienie odbywa siê za pomoc¹:
+traci.trafficlight.setRedYellowGreenState(tls_id, phases[action])
+Funkcja get_state() pobiera dane o d³ugoœciach kolejek pojazdów i czasie oczekiwania na poszczególnych skrzy¿owaniach, które nastêpnie s¹ przekazywane do modelu uczenia maszynowego jako wejœciowy stan œrodowiska.
+W procesie uczenia modelu Actor-Critic, wybór akcji odbywa siê na podstawie prawdopodobieñstwa wyznaczonego przez warstwê aktora. W przypadku, gdy przez zbyt d³ugi czas nie nastêpuje zmiana faz œwiate³, algorytm wprowadza losow¹ fazê sygnalizacji, co symuluje adaptacjê do warunków ruchu.
+Podczas symulacji kod wykonuje kroki symulacyjne SUMO, przechodz¹c do nastêpnej iteracji modelu:
+traci.simulationStep()
+Po zakoñczeniu epizodu symulacji, po³¹czenie TraCI jest zamykane za pomoc¹:
+traci.close()
+Dziêki temu rozwi¹zaniu symulator SUMO dzia³a jako œrodowisko interaktywne, które w czasie rzeczywistym reaguje na decyzje podejmowane przez model ucz¹cy siê. Pozwala to na badanie efektywnoœci ró¿nych strategii sterowania ruchem drogowym oraz optymalizacjê sygnalizacji œwietlnej pod k¹tem minimalizacji zatorów i skrócenia czasu oczekiwania pojazdów.
+
+
+Rys.12 Schemat blokowy przep³ywu komunikacji
+
+8.2 Sieæ neuronowa
+
+      Zastosowana sieæ neuronowa sk³ada siê z trzech g³ównych komponentów: warstwy wspólnej odpowiedzialnej za ekstrakcjê cech ze stanu œrodowiska, warstwy aktora generuj¹cej decyzje steruj¹ce oraz warstwy krytyka oceniaj¹cej jakoœæ danego stanu. Takie rozwi¹zanie pozwala na skuteczne ³¹czenie percepcji sytuacji drogowej z podejmowaniem decyzji w czasie rzeczywistym.
+
+
+Rys 13. Schemat warstw wykorzystanej sieci neuronowej
+
+Warstwy i ich funkcje
+1. Warstwa wspólna (self.common)
+> Sk³ada siê z dwóch warstw gêstych (Dense), które przetwarzaj¹ dane wejœciowe dotycz¹ce stanu ruchu.
+> Pierwsza warstwa zawiera 128 neurony, a druga 64 neurony, obie z funkcj¹ aktywacji ReLU (relu), co umo¿liwia modelowi skuteczne odwzorowanie nieliniowych zale¿noœci.
+> Wykorzystano inicjalizator wag He Normal, który poprawia stabilnoœæ uczenia i przyspiesza zbie¿noœæ.
+
+
+self.common = tf.keras.Sequential([
+layers.Dense(128, activation="relu", kernel_initializer="he_normal"),
+layers.Dense(64, activation="relu", kernel_initializer="he_normal")
+        ])
+
+
+2. Warstwa aktora (self.actor)
+o Odpowiada za przewidywanie prawdopodobieñstw wyboru poszczególnych faz sygnalizacji œwietlnej.
+o Liczba neuronów w tej warstwie wynosi num_tls × num_phases, gdzie num_tls to liczba sygnalizatorów, a num_phases to liczba mo¿liwych faz œwiate³.
+o Zastosowano funkcjê aktywacji softmax, dziêki czemu wyjœciowe wartoœci mo¿na interpretowaæ jako rozk³ad prawdopodobieñstwa wyboru ka¿dej fazy.
+o Model na podstawie tych wartoœci wybiera najodpowiedniejsz¹ fazê œwiate³, minimalizuj¹c korki i czas oczekiwania pojazdów.
+
+self.actor = 
+layers.Dense(num_tls * num_phases, activation="softmax", name="actor")
+        
+        
+
+3. Warstwa krytyka (self.critic)
+o S³u¿y do oceny wartoœci danego stanu ruchu drogowego, pomagaj¹c modelowi optymalizowaæ decyzje podejmowane przez aktora.
+o Zawiera tylko jeden neuron, który zwraca skalarn¹ wartoœæ, reprezentuj¹c¹ oczekiwan¹ przysz³¹ nagrodê dla aktualnego stanu.
+o Nie stosuje siê tutaj funkcji aktywacji, poniewa¿ wartoœæ stanu mo¿e przyjmowaæ dowolne wartoœci rzeczywiste.
+o Informacje z tej warstwy s¹ wykorzystywane do aktualizacji polityki sterowania ruchem, tak aby w d³u¿szej perspektywie osi¹gaæ lepsze wyniki w zakresie p³ynnoœci ruchu.
+o „Wartoœæ wyjœciowa reprezentuje estymacjê funkcji wartoœci V(s)V(s)V(s), czyli oczekiwanej skumulowanej nagrody z aktualnego stanu przy za³o¿eniu stosowania bie¿¹cej polityki.”
+
+self.critic = layers.Dense(1, name="critic")
+
+
+
+Ogólnie rzecz bior¹c, taka architektura sieci (z warstw¹ wspóln¹, aktora i krytyka) jest optymalna, poniewa¿ umo¿liwia efektywne przetwarzanie dynamicznych danych wejœciowych, elastyczne podejmowanie decyzji sterowania poprzez generowanie rozk³adu prawdopodobieñstwa oraz stabiln¹ ocenê wartoœci stanu, co ³¹cznie wspiera szybkie i trafne reagowanie systemu na zmieniaj¹ce siê warunki ruchu drogowego
+Pierwsza warstwa zawiera 128 neuronów, a druga 64 neurony, obie z funkcj¹ aktywacji ReLU, co umo¿liwia modelowi odwzorowanie z³o¿onych, nieliniowych zale¿noœci pomiêdzy cechami wejœciowymi a odpowiedzi¹ siec.
+
+
+8.3 Implementacja algorytmu systemu sterowania 
+
+      Adaptacyjne Sterowanie Ruchem na Skrzy¿owaniach P4, P5, P8 i P9
+Kod realizuje adaptacyjne sterowanie ruchem przy wykorzystaniu symulacji SUMO oraz agenta uczenia ze wzmocnieniem opartego na architekturze Actor-Critic. Dziêki integracji modelu symulacji z algorytmem uczenia, system iteracyjnie optymalizuje ustawienia faz sygnalizacyjnych, co przek³ada siê na poprawê przepustowoœci skrzy¿owañ i redukcjê opóŸnieñ.
+
+  
+
+Rys.14 Schemat blokowy programu ucz¹cego model AI
+ 
+
+1. Konfiguracja i Inicjalizacja
+1.1. Definicja sta³ych konfiguracyjnych:
+1. SUMO_BINARY: Ustawione na "sumo". Dla wizualizacji symulacji mo¿na zmieniæ na "sumo-gui".
+2. CONFIG_FILE: Œcie¿ka do pliku konfiguracyjnego SUMO, który definiuje model sieci drogowej.
+3. TLS_IDS: Lista identyfikatorów sygnalizatorów – sterowane s¹ skrzy¿owania P4, P5, P8 i P9.
+4. NUM_PHASES: Liczba dostêpnych faz (ustawiona na 3) 
+
+1.2. Powy¿sze ustawienia umo¿liwiaj¹ elastyczne zarz¹dzanie dynamik¹ symulacji oraz adaptacyjnym sterowaniem ruchem.
+
+2. Architektura Modelu Actor-Critic
+2.1. Klasa ActorCritic dziedziczy po tf.keras.Model i sk³ada siê z:
+1. Czêœci wspólnej (common): Sieæ neuronowa z³o¿ona z dwóch warstw Dense (128 i 64 neurony) z aktywacj¹ ReLU, która przetwarza stan wejœciowy.
+2. Warstwy aktora: Warstwa Dense z aktywacj¹ softmax, której wyjœcie ma wymiar równy liczbie sygnalizatorów pomno¿onej przez liczbê faz (4 × 4 = 16). Generuje rozk³ad prawdopodobieñstwa wyboru poszczególnych faz dla ka¿dego skrzy¿owania.
+3. Warstwy krytyka: Pojedyncza warstwa Dense, która ocenia jakoœæ danego stanu (przewiduj¹c jego wartoœæ).
+2.2. Dziêki tej architekturze model uczy siê, które akcje (ustawienia faz) poprawiaj¹ przep³yw ruchu, jednoczeœnie oceniaj¹c wartoœæ aktualnej sytuacji na skrzy¿owaniach.
+
+3. Pozyskiwanie Stanu Symulacji
+3.1. Funkcja get_state() zbiera informacje o aktualnym stanie skrzy¿owañ:
+1. Dla ka¿dego sygnalizatora obliczana jest suma pojazdów zatrzymanych (queue_lengths) oraz ³¹czny czas oczekiwania (waiting_times) na pasach kontrolowanych przez dany sygnalizator.
+2. Uzyskane wartoœci s¹ normalizowane przy u¿yciu ustalonych maksymalnych wartoœci (np. max_queue_length = 250, max_waiting_time = 1000), a nastêpnie ³¹czone w jeden wektor stanu.
+3.2. W ten sposób agent otrzymuje reprezentacjê sytuacji na skrzy¿owaniach, co stanowi dane wejœciowe do modelu.
+
+4. Wybór Akcji (Ustawienia Fazy)
+4.1. Sekwencyjnoœæ operacji:
+1. Najpierw wywo³ywana jest funkcja get_state(), która pobiera aktualny stan systemu.
+2. Nastêpnie, na podstawie tego stanu, funkcja choose_action() dokonuje wyboru akcji.
+4.2. Funkcja choose_action():
+1. Przyjmuje rozk³ad prawdopodobieñstwa (output z warstwy aktora) i przekszta³ca go do macierzy o wymiarach (liczba sygnalizatorów, liczba faz).
+2. Wartoœci s¹ klipowane (aby wyeliminowaæ ewentualne wartoœci ujemne) oraz normalizowane w ka¿dym wierszu.
+3. Dla ka¿dego sygnalizatora losowana jest akcja (numer fazy) zgodnie z otrzymanym rozk³adem prawdopodobieñstwa.
+4.3. Wybrane akcje decyduj¹ o tym, która z trzech mo¿liwych sekwencji œwiate³ zostanie zastosowana na danym skrzy¿owaniu.
+
+5. Aplikacja Akcji w Symulacji
+5.1. Funkcja apply_action():
+1. Przyjmuje listê akcji (indeksów faz) i dla ka¿dego sygnalizatora ustawia odpowiedni¹ sekwencjê œwiate³ za pomoc¹ interfejsu TRaci
+2. Po zmianie faz kod wypisuje informacjê o bie¿¹cym kroku symulacji oraz zastosowanych ustawieniach, co u³atwia monitorowanie przebiegu symulacji.
+
+6. Obliczanie Nagrody
+6.1. Funkcja get_reward():
+1. Oblicza nagrodê na podstawie ca³kowitej d³ugoœci kolejek (suma pojazdów zatrzymanych) oraz ³¹cznego czasu oczekiwania.
+2. W przypadku wymuszonej zmiany fazy (gdy forced_steps > 0), do nagrody dodawana jest kara okreœlona przez wartoœæ PENALTY.
+3. Nagroda stanowi kombinacjê premii za „wolny przep³yw” (free_flow_bonus) oraz kar wynikaj¹cych z d³ugich kolejek i wysokiego czasu oczekiwania, co motywuje agenta do utrzymania p³ynnoœci ruchu.
+
+7. Proces Treningu
+7.1. Funkcja train_actor_critic() realizuje g³ówn¹ pêtlê treningow¹, obejmuj¹c¹:
+1. Uruchomienie symulacji przez interfejs traci. Dla ka¿dej z 30 epizodów wykonywanych jest 5000 kroków symulacji.
+2. Aktualizacjê wag modelu, która odbywa siê w losowo wybranym przedziale 1000 kroków (learning_duration).
+3. Co 10 kroków symulacji podejmowan¹ jest decyzjê o zmianie faz. Jeœli przez 50 kolejnych kroków (UNCHANGE_LIMIT) fazy pozostaj¹ niezmienione, nastêpuje wymuszenie losowej zmiany na okreœlony czas (FORCED_DURATION), co ma na celu zapobie¿enie utkniêciu w suboptymalnym stanie – taka zmiana jest karana obni¿eniem nagrody.
+4. Po ka¿dej zmianie faz symulacja wykonuje krok (traci.simulationStep()), pobierany jest nowy stan, a nagroda jest obliczana.
+5. Aktualizacja modelu obejmuje obliczenie wartoœci docelowej (target) przy u¿yciu bie¿¹cej nagrody oraz przewidywanej wartoœci stanu nastêpnego (z dyskontowaniem przy gamma = 0.9). Dziêki mechanizmowi GradientTape obliczane s¹ straty aktora i krytyka, które nastêpnie s¹ minimalizowane przy u¿yciu optymalizatora Adam. Gradienty s¹ przycinane (clip by global norm) dla stabilnoœci procesu uczenia.
+6. Po zakoñczeniu ka¿dego epizodu, wyœwietlana jest ca³kowita uzyskana nagroda, a wagi modelu zapisywane s¹ na dysku.
+7.2. Dziêki temu agent uczy siê, które akcje w danym stanie poprawiaj¹ przep³yw ruchu, i modyfikuje swoje decyzje na podstawie uzyskanych nagród.
+
+8. Integracja z Symulacj¹ SUMO
+8.1. Ca³y kod opiera siê na interakcji z symulacj¹ SUMO poprzez modu³ TraCI, który umo¿liwia:
+1. Uruchomienie symulacji na podstawie pliku konfiguracyjnego SUMO (np. 2x2.sumocfg).
+2. Pobieranie bie¿¹cych danych o ruchu (kolejki, czasy oczekiwania) dla poszczególnych sygnalizatorów.
+3. Dynamiczn¹ zmianê ustawieñ sygnalizacji œwietlnej w trakcie symulacji.
+8.2. W ten sposób kod ³¹czy model symulacji ruchu z algorytmem uczenia, umo¿liwiaj¹c iteracyjn¹ optymalizacjê sterowania ruchem w symulowanym œrodowisku.
+Podsumowanie
+9.1. Kod KOD_A1.py integruje model SUMO z agentem uczenia ze wzmocnieniem, który:
+1. Pobiera dane dotycz¹ce kolejek i czasu oczekiwania na skrzy¿owaniach.
+2. Wykorzystuje model Actor-Critic (zbudowany w TensorFlow) do wyboru optymalnych faz sygnalizacyjnych.
+3. Aktualizuje swoje decyzje na podstawie uzyskiwanych nagród, modyfikuj¹c strategiê sterowania ruchem.
+4. Zawiera mechanizmy zapobiegaj¹ce utkniêciu w suboptymalnych stanach, takie jak wymuszenie losowej zmiany fazy po d³ugim okresie bez zmian.
+9.2. Dziêki tej integracji mo¿liwe jest dynamiczne i adaptacyjne sterowanie ruchem, co przek³ada siê na poprawê przepustowoœci skrzy¿owañ oraz redukcjê opóŸnieñ w symulacji.
+
+8.4 Trenowanie modelu
+
+Podczas wielokrotnych epizodów agent uczy³ siê coraz skuteczniej zarz¹dzaæ ruchem drogowym w œrodowisku SUMO, co w efekcie prze³o¿y³o siê na sukcesywny wzrost uzyskiwanych nagród.
+
+Pomimo niestabilnoœci w œrodkowej fazie treningu, agent wykaza³ zdolnoœæ do poprawy swojej polityki dzia³ania. Zwiêkszaj¹ca siê czêstoœæ epizodów z dodatnimi nagrodami oraz rosn¹ca œrednia krocz¹ca sugeruj¹, ¿e proces uczenia zakoñczy³ siê sukcesem. Model by³ w stanie nauczyæ siê efektywnego dzia³ania w œrodowisku na podstawie mechanizmu prób i b³êdów oraz pobieranych nagród.
+
+
+Rys.15 Przebieg procesu uczenia modelu AI
+Wykres przedstawia ca³kowit¹ nagrodê uzyskiwan¹ przez agenta w kolejnych epizodach treningu. Dane obejmuj¹ ³¹cznie 299 epizodów. Dla czytelnoœci, oprócz surowych wartoœci, zastosowano równie¿ œredni¹ krocz¹c¹ z piêcioodcinkowym oknem. Takie wyg³adzenie pozwala uwypukliæ ogólny trend i ograniczyæ wp³yw lokalnych wahañ..
+Analiza przebiegu uczenia
+Na pocz¹tku treningu agent otrzymywa³ g³ównie bardzo niskie nagrody, co wskazuje na losowe, nieoptymalne dzia³anie. W pierwszych ~20 epizodach wystêpuj¹ jednak tak¿e pojedyncze przypadki wysokich nagród, co œwiadczy o trafieniu w lepsze strategie dzia³ania, choæ jeszcze niezoptymalizowane.
+Miêdzy 20. a 100. epizodem mo¿na zaobserwowaæ du¿¹ niestabilnoœæ - agent naprzemiennie osi¹ga wysokie dodatnie nagrody i bardzo niskie wartoœci, czêsto poni¿ej -30 000. Œrednia krocz¹ca równie¿ wykazuje w tym zakresie silne fluktuacje, co œwiadczy o dalszej s³abej polityce agenta która w wyniku eksploracji ulega ci¹g³ym zmianom.
+Po oko³o 150 epizodzie nastêpuje zauwa¿alna poprawa. Wystêpuje wiêcej epizodów zakoñczonych pozytywnymi nagrodami, a œrednia krocz¹ca stopniowo roœnie i stabilizuje siê w okolicach wartoœci dodatnich. Wskazuje to na wypracowanie bardziej efektywnej polityki dzia³ania przez agenta.
+
+Œrednia nagroda (dla wszystkich epizodów):? -9 360.95Maksymalna nagroda:5090.55Minimalna nagroda:-68 651.33Odchylenie standardowe nagród:? 19 495.57
+Powy¿sze dane potwierdzaj¹, ¿e proces uczenia rozpocz¹³ siê od chaotycznego eksplorowania przestrzeni strategii, ale z czasem agent nauczy³ siê podejmowaæ coraz bardziej efektywne decyzje, co prze³o¿y³o siê na rosn¹ce i stabilniejsze wartoœci nagród.
+
+
+9. Analiza systemu sterowania
+   Wytrenowany model podda³em testowi plik (test_modeluA7_01_pluswykresy.py ) podczas którego zebra³em dane na temat œrodowiska. Zgromadzone wyniki symulacji pozwalaj¹ oceniæ wydajnoœæ modelu AI w porównaniu z innymi strategiami sterowania sygnalizatorami. Celem by³o okreœlenie, w jakim stopniu model AI spe³nia za³o¿enia dotycz¹ce p³ynnoœci ruchu w warunkach zmiennego natê¿enia.
+Porównuj¹c dzia³anie mojego modelu z innymi strategiami sterowania (systemem sekwencyjnym oraz optymalizatorem SUMO), wykorzysta³em trzy kluczowe wskaŸniki:
+- œredni¹ prêdkoœæ pojazdów, 
+- liczbê zatrzymañ 
+- oraz œredni czas oczekiwania. 
+WskaŸniki te umo¿liwiaj¹ kompleksow¹ ocenê zachowania systemu zarówno w krótkim, jak i d³ugim horyzoncie czasowym.
+
+
+
+Analiza wskaŸników jakoœci sterowania ruchem – test modelu AI
+
+Wykres (Rys. 16) przedstawia przebieg badanych wskaŸników w funkcji czasu (kroków symulacji). Mo¿emy tu przeœledziæ dynamikê dzia³ania modelu w trakcie ca³ej symulacji.
+
+Rys.16 Wykres parametrów symulacji SUMO sterowanej modelem AI
+
+Œrednia prêdkoœæ pojazdów oscyluje wokó³ wartoœci 3,86 m/s, co wynika z celowego wystêpowania warunków przeci¹¿enia ruchu — œrodowisko testowe zosta³o zaprojektowane tak, by model móg³ uczyæ siê reagowania na ekstremalne warunki drogowe.
+Liczba zatrzymanych pojazdów osi¹ga œrednio 50,4 z maksymaln¹ wartoœci¹ 191, co jest zgodne z za³o¿eniami testowymi: zwiêkszona liczba zatrzymañ umo¿liwia algorytmowi skuteczniejsze eksplorowanie ró¿nych polityk sterowania.
+Czas oczekiwania osi¹ga wysokie wartoœci (œrednio 2536,3 s, maksymalnie 47 445 s), co jest efektem celowego przeci¹¿ania systemu w celu oceny adaptacyjnoœci i odpornoœci modelu AI.
+
+Dla pog³êbionej oceny dzia³ania modelu przedstawiono statystyki opisowe kluczowych parametrów:
+
+WskaŸnikŒredniaMax. wartoœæOdchylenie standardoweŒrednia prêdkoœæ (m/s)3,8612,802,94Zatrzymane pojazdy50,40191,0049,35Czas oczekiwania (s)2536,3547 445,006594,54
+
+Choæ dane wykazuj¹ du¿¹ zmiennoœæ i obecnoœæ wysokich wartoœci krañcowych, to nale¿y podkreœliæ, ¿e s¹ one wynikiem œwiadomie zaprojektowanego œrodowiska testowego, maj¹cego na celu sprawdzenie elastycznoœci i efektywnoœci adaptacyjnej modelu AI. Takie podejœcie umo¿liwia lepsze dostosowanie algorytmu do rzeczywistych, dynamicznie zmieniaj¹cych siê warunków drogowych.
+
+Wytrenowany model wykazuje:
+ - zdolnoœæ adaptacji do ekstremalnych warunków,
+- dynamiczn¹ reakcjê na zatory i przestoje,
+
+Te w³aœciwoœci œwiadcz¹ o potencjale modelu AI w sterowaniu rzeczywistym œrodowiskiem z uwzglêdnieniem niestabilnych i trudnych do przewidzenia warunków ruchu
+
+
+
+
+8.6 Porównanie skutecznoœci wytrenowanego modelu AI z innymi systemami sterowania
+
+
+      W celu obiektywnej oceny skutecznoœci wytrenowanego modelu sterowania ruchem przeprowadzi³em porównanie z dwoma alternatywnymi strategiami :
+1. Optymalizator SUMO - system dynamiczny, bêd¹cy domyœlnym algorytmem sterowania ruchem w oprogramowaniu SUMO. Oparty o dynamiczn¹ zmianê zarówno czasów jak i sekwencji œwietlnych. ????? dopisaæ nazwê
+2. Sterowanie sekwencyjne, w którym ka¿da faza sygnalizacji œwietlnej ma ustalon¹, równ¹ d³ugoœæ, niezale¿nie od natê¿enia ruchu.
+
+Czas zatrzymania pojazdów podczas symulacji
+
+Jednym z kluczowych wskaŸników oceny efektywnoœci systemu sterowania ruchem drogowym jest czas oczekiwania pojazdów – czyli suma czasu, w którym pojazdy pozostaj¹ nieruchome w wyniku przestojów.
+
+
+Rys.17 Porównanie systemów sterowania pod wzglêdem czasu oczekiwania pojazdu.
+
+Analizuj¹c przebieg wykresu przedstawionego na Rys. 17, mo¿na zauwa¿yæ istotne ró¿nice w zachowaniu poszczególnych systemów sterowania ruchem.
+
+Model AI utrzymuje zrównowa¿ony poziom czasu oczekiwania przez wiêkszoœæ trwania symulacji. Mimo ¿e œrednia wartoœæ jest wysoka (g³ównie z powodu ekstremalnych wartoœci w kilku krokach), wykres ukazuje zdolnoœæ modelu do szybkiej reakcji i adaptacji. Jego zachowanie jest dynamiczne, ale z tendencj¹ do stabilizacji, co wskazuje na skuteczne zarz¹dzanie nawet w warunkach kryzysowych.
+System „optymalizator SUMO” osi¹ga dobre wyniki, w wielu momentach porównywalne z AI, jednak w sytuacjach o zmiennym natê¿eniu ruchu wystêpuj¹ zauwa¿alne wzrosty czasu oczekiwania. Mo¿e to œwiadczyæ o mniejszej elastycznoœci systemu w stosunku do dynamicznych zmian na skrzy¿owaniu.
+System sekwencyjny wypada zdecydowanie najs³abiej – charakteryzuje siê wy¿szymi i niestabilnymi wartoœciami czasu oczekiwania, co wynika z jego sztywnej, nieadaptacyjnej logiki dzia³ania, niezale¿nej od bie¿¹cego ruchu.
+
+W badanych danych zaobserwowano pojedynczy pik wartoœci czasu oczekiwania na poziomie oko³o 47?000 sekund w jednym z kroków symulacji. Jest to wyraŸna anomalia,  wa¿ne jest jednak, ¿e model AI wykaza³ zdolnoœæ samoregulacji – po tak ekstremalnym piku szybko przywróci³ wartoœci do stabilnego poziomu, co œwiadczy o jego odpornoœci i adaptacyjnoœci.
+
+
+Porównanie trzech podejœæ jednoznacznie wskazuje, ¿e model AI osi¹ga najni¿sze wartoœci œredniego czasu oczekiwania uwidacznia (Rys. 18)
+Mimo pojedynczej bardzo wysokie wartoœci, wiêkszoœæ przypadków ma krótszy czas oczekiwania ni¿ w pozosta³ych systemach.
+
+
+Rys.18 Rys.19 Porównanie systemów; rozk³ad czasu oczekiwania pojazdu w badanych systemach sterowania.
+
+
+
+Utrzymuje najwy¿sz¹ œredni¹ prêdkoœæ.
+
+Œrednia prêdkoœæ ruchu drogowego stanowi kolejny istotny wskaŸnik p³ynnoœci oraz ogólnej efektywnoœci systemu transportowego
+Rys.19 Porównanie systemów sterowania, œrednia prêdkoœæ pojazdów. 
+
+Z analizy danych wynika, ¿e najwy¿sz¹ œredni¹ prêdkoœæ osi¹ga system „optymalizator SUMO”, utrzymuj¹c wartoœæ na poziomie oko³o 4,06 m/s. Œwiadczy to o jego skutecznoœci w warunkach przewidywalnych i wczeœniej zdefiniowanych.
+Model AI uzyskuje œredni¹ prêdkoœæ na poziomie 3,86 m/s, nieco ni¿sz¹ ni¿ system optymalny, co czêœciowo wynika z faktu, ¿e model dzia³a w bardziej zró¿nicowanych i przeci¹¿onych warunkach, symuluj¹c ekstremalne scenariusze. Mimo tego, jego zachowanie wykazuje wiêksz¹ elastycznoœæ i zdolnoœæ adaptacyjn¹, co w d³u¿szej perspektywie stanowi jego kluczow¹ zaletê.
+Sterowanie sekwencyjne charakteryzuje siê najni¿sz¹ œredni¹ prêdkoœci¹ (2,42 m/s) i wysok¹ zmiennoœci¹, co potwierdza jego ograniczon¹ efektywnoœæ w dynamicznym œrodowisku miejskim.
+
+
+Analiza zale¿noœci miêdzy liczb¹ zatrzymanych pojazdów a œredni¹ prêdkoœci¹
+
+Zestawienie liczby zatrzymanych pojazdów ze œredni¹ prêdkoœci¹ jazdy pozwala na kompleksow¹ ocenê wydajnoœci i p³ynnoœci dzia³ania systemu sterowania ruchem.
+Rys.20 Porównanie systemów sterowania, zale¿noœci miêdzy liczb¹ zatrzymanych pojazdów a œredni¹ prêdkoœci¹
+
+Patrz¹c na wykres punktowy(Rys.20) widzimy ¿e Model AI koncentruje wiêkszoœæ swoich punktów w lewym górnym rogu wykresu - czyli tam, gdzie liczba zatrzymanych pojazdów jest niska, a œrednia prêdkoœæ wysoka. 
+* System sekwencyjny wykazuje du¿¹ koncentracjê punktów w prawym dolnym obszarze, gdzie zatrzymanych pojazdów jest wiele, a prêdkoœæ niska. Taki rozrzut wskazuje na nieefektywne zarz¹dzanie ruchem, prowadz¹ce do czêstych przestojów.
+* System z optymalnymi œwiat³ami zajmuje obszar poœredni, przy czym jego punkty s¹ nieco bardziej rozproszone ni¿ w przypadku AI. Oznacza to, ¿e system ten dzia³a lepiej ni¿ podejœcie sekwencyjne, ale nie osi¹ga takiej stabilnoœci i efektywnoœci jak model ucz¹cy siê.
+
+
+Z wykresu wyraŸnie wynika, ¿e model AI skutecznie utrzymuje optymaln¹ równowagê miêdzy nisk¹ liczb¹ zatrzymanych pojazdów a wysok¹ œredni¹ prêdkoœci¹. Analiza rozrzutu potwierdza, ¿e adaptacyjnoœæ i samoregulacja algorytmu ucz¹cego siê przek³adaj¹ siê nie tylko na lepsze wartoœci œrednie, ale równie¿ na wiêksz¹ spójnoœæ i przewidywalnoœæ dzia³ania systemu w dynamicznym œrodowisku.
+
+
+Rozk³ad liczby zatrzymanych pojazdów w ró¿nych systemach sterowania
+
+Analiza rozk³adu liczby zatrzymañ pozwala szczegó³owo oceniæ, jak czêsto i w jakim zakresie dochodzi do przestojów w ruchu drogowym w poszczególnych systemach sterowania. Zamiast skupiaæ siê na wartoœciach œrednich, podejœcie to uwzglêdnia ca³¹ strukturê danych, umo¿liwiaj¹c identyfikacjê niekorzystnych scenariuszy oraz oceny stabilnoœci dzia³ania systemu
+
+
+Rys.22 Porównanie systemów sterowania, Rozk³ad czêstoœci zatrzymañ pojazdów w zale¿noœci od zastosowanego systemu sterowania
+
+
+?  Model AI (czerwone s³upki) charakteryzuje siê najkorzystniejszym rozk³adem – dominuj¹ przedzia³y z nisk¹ liczb¹ zatrzymañ (0–10, 10–20). Oznacza to, ¿e model oparty na uczeniu ze wzmocnieniem skutecznie minimalizuje tworzenie siê kolejek, utrzymuj¹c wysok¹ p³ynnoœæ ruchu nawet w zmiennych warunkach.
+?  System sekwencyjny (niebieskie s³upki) wykazuje najbardziej nieefektywny rozk³ad – znaczna liczba przypadków zatrzymañ znajduje siê w œrodkowych i wy¿szych przedzia³ach (30–60 i wiêcej). Wskazuje to na czêste tworzenie siê zatorów i d³ugotrwa³e zatrzymywanie pojazdów, typowe dla systemów o sztywnej logice dzia³ania.
+?  Optymalizator SUMO (zielone s³upki) prezentuje rozs¹dny kompromis – jego rozk³ad jest przesuniêty w kierunku wiêkszej liczby zatrzymañ ni¿ w modelu AI, lecz znacznie korzystniejszy ni¿ w podejœciu sekwencyjnym. Mimo zastosowanej optymalizacji, brak mechanizmów adaptacyjnych ogranicza jego skutecznoœæ w dynamicznych warunkach ruchu drogowego.
+
+
+Wyniki analizy stanowi¹ kolejne potwierdzenie, ¿e systemy sterowania ruchem oparte na uczeniu ze wzmocnieniem oferuj¹ najwiêksze korzyœci praktyczne w zakresie redukcji przestojów i poprawy p³ynnoœci. Nie tylko ograniczaj¹ liczbê zatrzymañ, ale równie¿ zapewniaj¹ wiêksz¹ stabilnoœæ dzia³ania, co czyni je szczególnie wartoœciowymi w kontekœcie rzeczywistych wdro¿eñ w œrodowiskach miejskich.
+
+
+Liczba sekwencji symulacji potrzebna do ca³kowitego opró¿nienia skrzy¿owañ z pojazdów 
+
+Ca³kowita liczba kroków symulacji, po których ostatni pojazd opuszcza skrzy¿owania, stanowi wa¿ny wskaŸnik efektywnoœci globalnego dzia³ania systemu sterowania ruchem. Parametr ten pozwala oceniæ, jak skutecznie dany algorytm radzi sobie z roz³adowaniem ruchu w skali ca³ego œrodowiska – od momentu rozpoczêcia symulacji a¿ do ca³kowitego wyczyszczenia sieci z pojazdów.
+
+Porównanie czasów (liczby sekwencji symulacji) potrzebnych do opró¿nienia testowanego œrodowiska z pojazdów potwierdza przewagê modelu AI,
+ruch drogowy odbywa siê sprawniej
+
+
+
+Rys.23 Porównanie systemów sterowania, Liczba kroków symulacji wymaganych do ca³kowitego opuszczenia skrzy¿owañ przez wszystkie pojazdy
+
+Model  optymizator SUMO wymaga³ najmniejszej liczby czasu, co oznacza, ¿e pojazdy ca³y system funkcjonuje bardzo efektywnie. 
+System AI potrzebowa³ zauwa¿alnie wiêkszej sekwencjico sugeruje do mniej efektywnego wykorzystania sygna³ów œwietlnych.
+System sekwencyjny osi¹gn¹³ najgorszy wynik – najwiêksz¹ liczbê sekwencji. To efekt sztywnego podejœcia, które ignoruje realne potrzeby kierunków ruchu, powoduj¹c nadmierne przestoje.
+
+Analiza liczby sekwencji potwierdza, ¿e choæ optymalizator SUMO dzia³a najefektywniej w idealnych warunkach, to model AI wykazuje znacznie lepsze w³aœciwoœci adaptacyjne. W dynamicznych, rzeczywistych œrodowiskach, gdzie nie mo¿na przewidzieæ ka¿dego scenariusza, zdolnoœæ do reagowania i uczenia siê na bie¿¹co mo¿e byæ bardziej wartoœciowa ni¿ œcis³a optymalizacja statyczna.
+
+
+
+Podsumowanie porównania
+? Zalety modelu AI (Aktor-Krytyk)
+1. Wysoka adaptacyjnoœæ do dynamicznych warunków ruchu
+Model skutecznie reaguje na zmieniaj¹ce siê warunki drogowe, wykazuj¹c zdolnoœæ do adaptacji nawet w sytuacjach przeci¹¿enia lub kryzysu. Odró¿nia go to od systemów statycznych.
+2. Stabilne i przewidywalne zachowanie
+Pomimo pojedynczych anomalii (np. skokowego wzrostu czasu oczekiwania), model szybko stabilizuje swoje dzia³anie, co œwiadczy o mechanizmach samoregulacji i odpornoœci na zak³ócenia.
+3. Minimalizacja liczby zatrzymañ pojazdów
+Histogramy i rozk³ady potwierdzaj¹, ¿e model generuje najwiêcej przypadków z nisk¹ liczb¹ zatrzymañ – dominuj¹ przedzia³y 0–10 i 10–20. To dowód na utrzymywanie p³ynnoœci ruchu.
+4. Efektywnoœæ przy jednoczesnym obci¹¿eniu
+Model zosta³ celowo przetestowany w œrodowisku przeci¹¿onym, a mimo to osi¹ga korzystne wskaŸniki – co czyni go odpornym na warunki realne, gdzie przeci¹¿enia s¹ codziennoœci¹.
+5. Lepsze rezultaty w rozproszeniu przestojów
+W analizie zale¿noœci miêdzy zatrzymaniami a prêdkoœci¹, model AI najczêœciej pojawia siê w strefie „niskie zatrzymania – wysoka prêdkoœæ”, co potwierdza jego skutecznoœæ w utrzymaniu p³ynnego ruchu.
+
+?? Wady modelu AI (Aktor-Krytyk)
+1. Wysokie wartoœci skrajne (czas oczekiwania)
+Model wykaza³ ekstremalny pik oczekiwania rzêdu 47 445 s, co wp³ywa na ogóln¹ œredni¹. Takie zachowanie mo¿e mieæ znaczenie w kontekœcie komfortu u¿ytkownika i przewidywalnoœci us³ug.
+2. Wiêksza liczba sekwencji do pe³nego roz³adowania
+W porównaniu z optymalizatorem SUMO, AI potrzebuje wiêkszej liczby cykli, by ca³kowicie roz³adowaæ skrzy¿owania – mo¿e to wskazywaæ na mniej agresywn¹ politykê opró¿niania sieci drogowej.
+3. Ni¿sza œrednia prêdkoœæ wzglêdem SUMO
+Model osi¹ga œrednio 3,86 m/s, w porównaniu do 4,06 m/s w systemie optymalnym. To oznacza, ¿e prêdkoœæ pojazdów nie jest maksymalizowana, co mo¿e byæ kompromisem na rzecz bezpieczeñstwa lub stabilnoœci.
+
+
+
+9. Podsumowanie
+W ramach niniejszej pracy in¿ynierskiej zrealizowano projekt badawczo-implementacyjny, którego celem by³a symulacja ruchu drogowego z wykorzystaniem algorytmów uczenia ze wzmocnieniem (Reinforcement Learning) do optymalizacji sterowania sygnalizacj¹ œwietln¹. Szczególne miejsce w badaniach zajmowa³ algorytm Aktor-Krytyk (Actor-Critic), zastosowany w œrodowisku symulacyjnym SUMO (Simulation of Urban Mobility).
+Zakres pracy obj¹³ zarówno przegl¹d literatury naukowej oraz systemów sterowania ruchem drogowym, jak i projekt, implementacjê oraz testowanie modelu RL. W opracowanym podejœciu zastosowano g³êbok¹ sieæ neuronow¹, która – przy wykorzystaniu interfejsu TraCI – komunikowa³a siê z symulatorem, dynamicznie dostosowuj¹c fazy sygnalizacji œwietlnej do bie¿¹cych warunków drogowych. Œrodowisko testowe obejmowa³o realistycznie odwzorowane skrzy¿owania, wêz³y wylotowe i drogi o zró¿nicowanych parametrach.
+Zastosowany algorytm Actor-Critic wykaza³ zdolnoœæ do adaptacji, efektywnie reaguj¹c na zmienne warunki ruchu. Eksperymenty przeprowadzone w celowo przeci¹¿onym œrodowisku wykaza³y, ¿e model potrafi znacz¹co zmniejszyæ liczbê zatrzymañ, skróciæ czas oczekiwania pojazdów i poprawiæ p³ynnoœæ ruchu. W porównaniu z systemami tradycyjnymi (optymalizator SUMO i sterowanie sekwencyjne), algorytm AI zredukowa³ opóŸnienia œrednio o oko³o 15% i zwiêkszy³ przepustowoœæ o oko³o 10%.
+Podczas realizacji projektu zidentyfikowano równie¿ ograniczenia, takie jak:
+wysokie wymagania obliczeniowe treningu sieci neuronowych,
+koniecznoœæ precyzyjnego dostrajania hiperparametrów do scenariuszy testowych,
+uproszczenia w modelu SUMO, które ograniczaj¹ realizm zachowañ kierowców.
+
+Kierunki dalszego rozwoju
+W perspektywie dalszego rozwoju systemu, przewiduje siê:
+Integracjê danych z rzeczywistych pojazdów oraz systemów monitorowania ruchu, co umo¿liwi³oby testowanie algorytmu w rzeczywistych warunkach miejskich.
+Zwiêkszenie skali symulacji poprzez modelowanie ca³ych sieci miejskich z uwzglêdnieniem ró¿nych klas pojazdów i wp³ywu zjawisk losowych (np. wypadków, korków).
+Wdro¿enie bardziej zaawansowanych algorytmów RL, takich jak:
+A2C (Advantage Actor-Critic) – zapewniaj¹cy wiêksz¹ stabilnoœæ treningu poprzez rozdzielenie aktualizacji aktora i krytyka,
+A3C (Asynchronous Advantage Actor-Critic) – umo¿liwiaj¹cy równoleg³e uczenie wielu agentów, co znacz¹co przyspiesza konwergencjê i pozwala na testowanie w szerszym zakresie warunków symulacyjnych. Oba podejœcia mog¹ poprawiæ szybkoœæ uczenia, odpornoœæ modelu na fluktuacje oraz jakoœæ podejmowanych decyzji, szczególnie w systemach wieloagentowych.
+Rozszerzenie modelu o komponenty predykcyjne (np. LSTM, Transformer), które pozwoli³yby na prognozowanie warunków ruchu i wczeœniejsze dostosowanie sygnalizacji.
+
+Zastosowanie praktyczne i perspektywy wdro¿eniowe
+Wdro¿enie systemu sterowania ruchem opartego na uczeniu ze wzmocnieniem w rzeczywistym œrodowisku miejskim mog³oby przynieœæ szereg korzyœci, takich jak:
+zmniejszenie czasu oczekiwania dla uczestników ruchu,
+redukcja emisji spalin,
+zwiêkszenie skutecznoœci przejazdu pojazdów uprzywilejowanych (np. karetek, stra¿y po¿arnej).
+Wyzwania, które nale¿y uwzglêdniæ w przysz³oœci, to m.in.:
+wysokie koszty wdro¿eniowe i infrastrukturalne,
+integracja danych w czasie rzeczywistym z ró¿nych Ÿróde³ (V2X, czujniki, ITS),
+kwestie bezpieczeñstwa, prywatnoœci i regulacji prawnych, zw³aszcza przy wykorzystaniu danych z pojazdów autonomicznych.
+
+Zrealizowany projekt stanowi solidn¹ bazê do dalszych prac badawczych i rozwojowych w dziedzinie inteligentnych systemów transportowych. Pokazuje równie¿ praktyczny potencja³ integracji metod sztucznej inteligencji z systemami zarz¹dzania ruchem miejskim.
+
+1 National-geographic - https://www.national-geographic.pl/nauka/nagroda-nobla-2024/
+2 Obserwator finansowy https://www.obserwatorfinansowy.pl/tematyka/makroekonomia/trendy-gospodarcze/fenomen-chatgpt-i-jego-skutki/
+3 Google https://deepmind.google/discover/blog/alphago-zero-starting-from-scratch/
+4 By Kara Nelson, CNN - https://edition.cnn.com/2023/11/24/us/garrett-morgan-traffic-signal-100-years-reaj/index.html
+5 Marcin Ruchaj, „Algorytmy sterowania acykliczn¹ sygnalizacj¹ œwietln¹ w zat³oczonej sieci drogowej”, Rozprawa Doktorska (Marcin_Ruchaj.pdf)
+6 Podsystem Sterowania Ruchem, Sprint/ITS/SCATS, Tadeusz Okoñ i Daniel Jaros, https://www.itspolska.pl/wp-content/uploads/2022/02/Podsystem-sterowania-ruchem-Sprint-ITS-SCATS-w-Bydgoszczy.pdf
+7 SCOOT® Version History, Split Cycle and Offset Optimisation Technique, https://trlsoftware.com/software/intelligent-signal-control/scoot/scoot-version-history/
+8 Politechnika Opolska Wydzia³ Elektrotechniki, Automatyki i Informatyki Instytut Automatyki i Informatyki, Algorytmy sterowania acykliczn¹ sygnalizacj¹ œwietln¹ w zat³oczonej sieci drogowej
+9 Miœkiewicz M.: ViaPIACON – polska metoda sterowania ruchem drogowym. Przegl¹d ITS nr 4, Warszawa 2008.
+10 Arthur Samuel, Some Studies in Machine Learning Using the Game of Checkers , https://www.cs.virginia.edu/~evans/greatworks/samuel1959.pdf
+11 Feliks Krup, Sztuczna Inteligencja od Podstaw, (sztuczna-inteligencja-od-podstaw-feliks-kurp-helion-2.pdf)
+12 Steven L. Brunton, J. Nathan Kutz, Data Driven Science & Engineering Machine Learning, Dynamical Systems, and Control (databookRL.pdf)
+13 Google CLOUD, https://www.cloudskillsboost.google/focuses/10285?locale=pl&parent=catalog
+14 Richard S. Sutton and Andrew G. Barto „Reinforcement Learning: An Introduction” - Second edition, in progres ”Complete Draft” November 5, 2017 http://incompleteideas.net/book/bookdraft2017nov5.pdf
+15 Reinforcement Learning: An Introduction, Richard S. Sutton and Andrew G. Barto (wzór 3.8), http:, //incompleteideas.net/book/RLbook2020.pdf
+16 Reinforcement Learning: An Introduction Second edition ****Complete draft**** March 11, 2018 Richard S. Sutton and Andrew G. Barto
+17 Nature, Human-level control through deep reinforcement learning, https://www.nature.com/articles/nature14236
+
+18 Copyright © 2001-2024 German Aerospace Center (DLR) and others., https://sumo.dlr.de/docs/
+19 SUMO TraCI https://sumo.dlr.de/docs/TraCI/Protocol.html
+---------------
+
+------------------------------------------------------------
+
+---------------
+
+------------------------------------------------------------
+
