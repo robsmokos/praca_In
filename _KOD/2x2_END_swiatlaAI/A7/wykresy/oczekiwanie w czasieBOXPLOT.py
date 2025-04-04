@@ -8,9 +8,9 @@ df_optymalne = pd.read_csv("swiatla_optymalne.csv")
 df_glupie = pd.read_csv("sw_sekwencyjne.csv")
 
 # Dodanie kolumny "System" dla identyfikacji danych
-df_ai["System"] = "Aktor-Krytyk AI"
-df_optymalne["System"] = "optymalizator SUMO"
-df_glupie["System"] = "sterowanie sekwencyjne"
+df_ai["System"] = "Algorytm Aktor-Krytyk"
+df_optymalne["System"] = "Algorytm SUMO"
+df_glupie["System"] = "Algorytm stałoczasowy"
 
 # Połączenie danych do jednego DataFrame
 df_all = pd.concat([
@@ -22,7 +22,7 @@ df_all = pd.concat([
 # Wykres pudełkowy (boxplot)
 plt.figure(figsize=(10, 6))
 sns.boxplot(data=df_all, x="System", y="CzasOczekiwania(s)", palette=["#fc5a50", "#25a36f", "#6488ea"])
-plt.title("Porównanie rozkładu czasów oczekiwania w różnych systemach")
+#plt.title("Porównanie rozkładu czasów oczekiwania w różnych systemach")
 plt.xlabel("System sterowania")
 plt.ylabel("Czas oczekiwania (s)")
 plt.grid(True)

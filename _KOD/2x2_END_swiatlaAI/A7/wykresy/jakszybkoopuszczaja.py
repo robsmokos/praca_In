@@ -17,9 +17,9 @@ df_sekwencyjne["Sekwencja"] = calculate_sequences(df_sekwencyjne)
 
 # Obliczenie całkowitej liczby sekwencji
 total_sequences = {
-    "Aktor-Krytyk AI": df_ai["Sekwencja"].iloc[-1],
-    "optymalizator SUMO": df_optymalne["Sekwencja"].iloc[-1],
-    "sterowanie sekwencyjne": df_sekwencyjne["Sekwencja"].iloc[-1]
+    "Algorytm Aktor-Krytyk": df_ai["Sekwencja"].iloc[-1],
+    "Algorytm SUMO": df_optymalne["Sekwencja"].iloc[-1],
+    "Algorytm stałoczasowy": df_sekwencyjne["Sekwencja"].iloc[-1]
 }
 
 # Tworzenie wykresu słupkowego z dodatkowymi usprawnieniami
@@ -29,7 +29,7 @@ bars = ax.bar(total_sequences.keys(), total_sequences.values(), color=["#fc5a50"
 # Dodanie wartości nad słupkami
 for bar in bars:
     height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width() / 2, height + 50, f'{int(height)}', ha='center', va='bottom', fontsize=9)
+    ax.text(bar.get_x() + bar.get_width() / 2, height + 0, f'{int(height)}', ha='center', va='bottom', fontsize=9)
 
 # Dostosowanie skali osi Y dla lepszej widoczności
 min_val = min(total_sequences.values())
@@ -37,7 +37,7 @@ max_val = max(total_sequences.values())
 ax.set_ylim(min_val * 0.98, max_val * 1.02)
 
 # Dodanie tytułu, etykiety osi Y oraz siatki
-ax.set_title("Łączna liczba sekwencji potrzebna do opuszczenia skrzyżowania")
+#ax.set_title("Łączna liczba sekwencji potrzebna do opuszczenia skrzyżowania")
 ax.set_ylabel("Liczba sekwencji")
 ax.grid(axis='y', linestyle='--', alpha=0.7)
 

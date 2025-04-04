@@ -34,14 +34,14 @@ bin_labels = [f"{int(bins[i])}-{int(bins[i+1])}" for i in range(num_bins)]
 
 # Rysowanie wykresu
 plt.figure(figsize=(14, 6))
-plt.bar(x - bar_width, ai_hist, width=bar_width, label="Aktor-Krytyk AI", color="#fc5a50")
-plt.bar(x, seq_hist, width=bar_width, label="sterowanie sekwencyjne", color="#6488ea")
-plt.bar(x + bar_width, opt_hist, width=bar_width, label="optymalizator SUMO", color="#25a36f")
+plt.bar(x - bar_width, ai_hist, width=bar_width, label="Algorytm Aktor-Krytyk", color="#fc5a50")
+plt.bar(x, seq_hist, width=bar_width, label="Algorytm stałoczasowy", color="#6488ea")
+plt.bar(x + bar_width, opt_hist, width=bar_width, label="Algorytm SUMO", color="#25a36f")
 
 plt.xticks(x, bin_labels, rotation=45)
 plt.xlabel("Zakres liczby zatrzymań")
 plt.ylabel("Liczba wystąpień")
-plt.title("Rozkład zatrzymań – słupki obok siebie (bez obwódek)")
+#plt.title("Rozkład zatrzymań – słupki obok siebie (bez obwódek)")
 plt.legend()
 plt.grid(True, axis='y')
 plt.tight_layout()

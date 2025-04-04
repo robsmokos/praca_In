@@ -41,6 +41,6 @@ ax1.legend(lns, labels, loc='upper left')
 ax1.grid(color='lightgrey', linestyle='--', linewidth=0.5)
 
 # Tytuł i układ
-plt.title("Wskaźniki sterowania AI w czasie (3 skale)")
+#plt.title("Wskaźniki sterowania AI w czasie (3 skale)")
 plt.tight_layout()
 plt.show()
